@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>at.obdev.LaunchBar</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.rb.LaunchBar.action.LaunchBarUpdateIndex</string>
+	<key>CFBundleName</key>
+	<string>LaunchBar: Update Index</string>
+	<key>LBAbbreviation</key>
+	<string>ulbi</string>
+	<key>LBAssociatedApplication</key>
+	<string>at.obdev.LaunchBar</string>
+	<key>LBDebugLogEnabled</key>
+	<true/>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Roey Biran</string>
+		<key>LBEmail</key>
+		<string></string>
+		<key>LBTwitter</key>
+		<string></string>
+		<key>LBWebsiteURL</key>
+		<string>github.com/roybrian</string>
+	</dict>
+	<key>LBRequiredApplication</key>
+	<string>at.obdev.LaunchBar</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBRunInBackground</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>launchbar-update-index.scpt</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

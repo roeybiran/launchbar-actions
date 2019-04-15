@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>/System/Library/CoreServices/Finder.app/Contents/Applications/AirDrop.app/Contents/Resources/OpenAirDropAppIcon.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.rb.LaunchBar.action.AirDropDiscovery</string>
+	<key>CFBundleName</key>
+	<string>AirDrop Discovery</string>
+	<key>CFBundleVersion</key>
+	<string></string>
+	<key>LBAssociatedApplication</key>
+	<string></string>
+	<key>LBDebugLogEnabled</key>
+	<true/>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Roey Biran</string>
+		<key>LBEmail</key>
+		<string>roeybiran@gmail.com</string>
+		<key>LBTwitter</key>
+		<string>RoeyBiran</string>
+		<key>LBWebsiteURL</key>
+		<string>github.com/roybrian</string>
+	</dict>
+	<key>LBRequiredApplication</key>
+	<string></string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBKeepWindowActive</key>
+			<true/>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>finder-airdrop-discovery.js</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

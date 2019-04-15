@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>com.macitbetter.betterzip</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.github.roybrian.LBBetterzipCompress</string>
+	<key>CFBundleName</key>
+	<string>BetterZip: Compress</string>
+	<key>CFBundleVersion</key>
+	<string></string>
+	<key>LBAbbreviation</key>
+	<string></string>
+	<key>LBAssociatedApplication</key>
+	<string>com.macitbetter.betterzip</string>
+	<key>LBDebugLogEnabled</key>
+	<true/>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Roey Biran</string>
+		<key>LBWebsiteURL</key>
+		<string>github.com/roybrian</string>
+	</dict>
+	<key>LBRequiredApplication</key>
+	<string>com.macitbetter.betterzip</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>path</string>
+			</array>
+			<key>LBRequiresArgument</key>
+			<true/>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBRunInBackground</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>betterzip-compress.scpt</string>
+		</dict>
+	</dict>
+	<key>LBTextInputTitle</key>
+	<string></string>
+</dict>
+</plist>

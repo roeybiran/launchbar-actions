@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>com.surteesstudios.Bartender</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.github.roybrian.LBBartender3Search</string>
+	<key>CFBundleName</key>
+	<string>Bartender 3: Search</string>
+	<key>CFBundleVersion</key>
+	<string></string>
+	<key>LBAbbreviation</key>
+	<string></string>
+	<key>LBAssociatedApplication</key>
+	<string>com.surteesstudios.Bartender</string>
+	<key>LBDebugLogEnabled</key>
+	<true/>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Roey Biran</string>
+		<key>LBWebsiteURL</key>
+		<string>github.com/roybrian</string>
+	</dict>
+	<key>LBRequiredApplication</key>
+	<string>com.surteesstudios.Bartender</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBRunInBackground</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>bartender-3-search.scpt</string>
+		</dict>
+	</dict>
+	<key>LBTextInputTitle</key>
+	<string></string>
+</dict>
+</plist>
