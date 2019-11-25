@@ -5,7 +5,7 @@
 	<key>CFBundleIconFile</key>
 	<string>com.apple.iTunes</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.rb.LaunchBar.action.ITunesLikeCurrentTrack</string>
+	<string>com.roeybiran.LaunchBarItunesLikeCurrentTrack</string>
 	<key>CFBundleName</key>
 	<string>iTunes: Like Current Track</string>
 	<key>LBAssociatedApplication</key>
@@ -20,10 +20,8 @@
 		<string></string>
 		<key>LBRequirements</key>
 		<string>'terminal-notifier' (github.com/julienXX/terminal-notifier)</string>
-		<key>LBTwitter</key>
-		<string></string>
 		<key>LBWebsiteURL</key>
-		<string>github.com/roybrian</string>
+		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
 	<string>com.apple.iTunes</string>
@@ -41,5 +39,7 @@
 			<string>itunes-like-current-track.js</string>
 		</dict>
 	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Roey Biran</string>
 </dict>
 </plist>

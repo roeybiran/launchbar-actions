@@ -3,11 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.rb.LaunchBar.action.NewFileHere</string>
+	<string>com.roeybiran.LaunchBarNewFileHere</string>
 	<key>CFBundleName</key>
 	<string>New File Here</string>
-	<key>LBAbbreviation</key>
-	<string>nfh</string>
 	<key>LBDebugLogEnabled</key>
 	<true/>
 	<key>LBDescription</key>
@@ -16,13 +14,8 @@
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
 		<string></string>
-		<key>LBSummary</key>
-		<string>Creates and opens a new file in the currently visible Finder window.
-Hold ⌘ to return the file to LaunchBar.</string>
-		<key>LBTwitter</key>
-		<string></string>
 		<key>LBWebsiteURL</key>
-		<string>github.com/roybrian</string>
+		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBScripts</key>
 	<dict>
@@ -44,5 +37,9 @@ Hold ⌘ to return the file to LaunchBar.</string>
 			<string>default.sh</string>
 		</dict>
 	</dict>
+	<key>LBTextInputTitle</key>
+	<string>Delimit multiple files with /</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Roey Biran</string>
 </dict>
 </plist>

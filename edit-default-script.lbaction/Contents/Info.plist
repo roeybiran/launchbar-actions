@@ -5,11 +5,9 @@
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>com.github.roybrian.LBEditDefaultScript</string>
+	<string>com.roeybiran.LaunchBarEditDefaultScript</string>
 	<key>CFBundleName</key>
 	<string>Edit Default Script</string>
-	<key>CFBundleVersion</key>
-	<string></string>
 	<key>LBAbbreviation</key>
 	<string></string>
 	<key>LBAssociatedApplication</key>
@@ -21,7 +19,7 @@
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBWebsiteURL</key>
-		<string>github.com/roybrian</string>
+		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
 	<string></string>
@@ -39,10 +37,12 @@
 			<key>LBResultType</key>
 			<string>unknown</string>
 			<key>LBScriptName</key>
-			<string>edit-default-script.sh</string>
+			<string>default.sh</string>
 		</dict>
 	</dict>
 	<key>LBTextInputTitle</key>
 	<string></string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Roey Biran</string>
 </dict>
 </plist>

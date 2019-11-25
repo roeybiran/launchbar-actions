@@ -5,11 +5,9 @@
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>com.github.roybrian.LBOpenMostRecentVolume</string>
+	<string>com.roeybiran.LaunchBarOpenMostRecentVolume</string>
 	<key>CFBundleName</key>
 	<string>Open Most Recent Volume</string>
-	<key>CFBundleVersion</key>
-	<string></string>
 	<key>LBAbbreviation</key>
 	<string>openmostrecentvolume</string>
 	<key>LBAssociatedApplication</key>
@@ -21,7 +19,7 @@
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBWebsiteURL</key>
-		<string>github.com/roybrian</string>
+		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
 	<string></string>
@@ -29,15 +27,19 @@
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
+			<key>LBKeepWindowActive</key>
+			<true/>
 			<key>LBResultType</key>
 			<string>unknown</string>
-			<key>LBRunInBackground</key>
+			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>open-most-recent-volume.sh</string>
+			<string>default.sh</string>
 		</dict>
 	</dict>
 	<key>LBTextInputTitle</key>
 	<string></string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Roey Biran</string>
 </dict>
 </plist>

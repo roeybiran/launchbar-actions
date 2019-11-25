@@ -5,11 +5,9 @@
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>com.rb.LaunchBar.action.WifiPassword</string>
+	<string>com.roeybiran.LaunchBarWifiPassword</string>
 	<key>CFBundleName</key>
 	<string>Wi-Fi Password</string>
-	<key>CFBundleVersion</key>
-	<string></string>
 	<key>LBAbbreviation</key>
 	<string></string>
 	<key>LBAssociatedApplication</key>
@@ -21,7 +19,7 @@
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBWebsiteURL</key>
-		<string>github.com/roybrian</string>
+		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
 	<string></string>
@@ -36,8 +34,10 @@
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>wifi-password.scpt</string>
+			<string>default.scpt</string>
 		</dict>
 	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Roey Biran</string>
 </dict>
 </plist>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>/System/Library/CoreServices/Finder.app/Contents/Applications/Computer.app</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.roeybiran.LaunchBarOpenComputer</string>
+	<key>CFBundleName</key>
+	<string>Open Computer</string>
+	<key>LBAbbreviation</key>
+	<string>oc</string>
+	<key>LBAssociatedApplication</key>
+	<string>com.apple.finder.Open-Computer</string>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Roey Biran</string>
+		<key>LBEmail</key>
+		<string></string>
+		<key>LBWebsiteURL</key>
+		<string>https://github.com/roeybiran</string>
+	</dict>
+	<key>LBRequiredApplication</key>
+	<string>com.apple.finder.Open-Computer</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBRunInBackground</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>default.scpt</string>
+		</dict>
+	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Roey Biran</string>
+</dict>
+</plist>

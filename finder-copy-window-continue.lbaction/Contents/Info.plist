@@ -3,13 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string></string>
+	<string>com.apple.finder</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.rb.LaunchBar.action.CopyWindowContinue</string>
+	<string>com.roeybiran.LaunchBarFinderCopyWindowContinue</string>
 	<key>CFBundleName</key>
 	<string>Copy Window: Continue</string>
-	<key>CFBundleVersion</key>
-	<string></string>
 	<key>LBAbbreviation</key>
 	<string>cstp</string>
 	<key>LBAssociatedApplication</key>
@@ -21,7 +19,7 @@
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBWebsiteURL</key>
-		<string>github.com/roybrian</string>
+		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
 	<string></string>
@@ -34,8 +32,10 @@
 			<key>LBRunInBackground</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>finder-copy-window-continue.js</string>
+			<string>default.js</string>
 		</dict>
 	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Roey Biran</string>
 </dict>
 </plist>
