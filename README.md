@@ -3,8 +3,9 @@
 ## Notes
 
 - Actions are provided as-is.
-- Actions with a leading underscore are not meant to be run on their own. Rather, they contain code that is shared among other actions.
+- Actions with a leading underscore are not meant to be run on their own. Rather, they contain code that is shared among other actions. They should be hidden in LaunchBar's index.
 - Some actions require additional utilities and/or programs (e.g. Default Folder X, ImageMagick).
+- Some actions are intented to work with my own Hammerspoon setup.
 
 ## Actions
 
@@ -22,9 +23,15 @@ Show either of the AirDrop discovery states, choose one to launch GUI script tha
 
 ### amphetamine-control
 
+Toggle Amphetamine indefinitely, or activate it for a set amount of time using natural language input.
+
 ### archives-browse-in-betterzip
 
+Browse an archive in BetterZip instead of directly extracting it.
+
 ### archives-compress-individually
+
+Create individual .zip archives from a set of files.
 
 ### box-dimensions-converter
 
