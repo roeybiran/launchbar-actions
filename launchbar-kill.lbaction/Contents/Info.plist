@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>icon.pdf</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.roeybiran.LaunchBarKill</string>
+	<key>CFBundleName</key>
+	<string>Kill</string>
+	<key>LBAbbreviation</key>
+	<string>kill</string>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Roey Biran</string>
+		<key>LBEmail</key>
+		<string></string>
+		<key>LBWebsiteURL</key>
+		<string>https://github.com/roeybiran</string>
+	</dict>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBKeepWindowActive</key>
+			<true/>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>default.sh</string>
+		</dict>
+	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Roey Biran</string>
+</dict>
+</plist>
