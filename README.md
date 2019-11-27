@@ -9,6 +9,96 @@
 
 ## Actions
 
+### launchbar-system-preferences-anchors
+
+List and launch any System Preferences.app anchor.
+
+- Requirements
+  - NodeJS, installed in `/usr/local/bin/`.
+
+### launchbar-stats
+
+Display useful information about your machine.
+
+- Requirements
+  - NodeJS, installed in `/usr/local/bin/`.
+
+### launchbar-kaomoji
+
+Get relevant kaomojis from text. A port of [alfred-kaomoji](https://github.com/vinkla/alfred-kaomoji).
+Requires NodeJS, installed in `/usr/local/bin/`.
+
+- Usage
+  - Press <kbd>⏎</kbd> to paste the chosen kaomiji into to the frontmost app.
+- Requirements
+  - NodeJS, installed in `/usr/local/bin/`.
+
+### launchbar-kill
+
+List and kill processes.
+
+- Usage
+  - Processes are sroted by a descending CPU usage.
+  - Press <kbd>return</kbd> on a selected process to send it a `SIGTERM`.
+  - Pressing <kbd>shift</kbd>+<kbd>return</kbd> on a selected process will kill it, and open it again past 2 seconds. The rationale is to provide a way to force-relaunch processes (specifically, processes that originate in macOS applications).
+- Requirements
+  - NodeJS, installed in `/usr/local/bin/`.
+
+### launchbar-npms
+
+Search for npm modules using npms.io. A port of [alfred-npms](https://github.com/sindresorhus/alfred-npms).
+
+- Usage
+  - Prepend input with `?` to execute arbitrary search in [npmjs.com](https://www.npmjs.com/).
+  - Quote your input (either with double or single quotes) to boost exact matches.
+  - While an item is highlighted:
+  - Press <kbd>return</kbd> to open its repository. If it doesn't have one, the corresponding npm page will be opened instead.
+  - Press <kbd>shift+return</kbd> to open the selected item's npm page anyway.
+- Requirements
+  - NodeJS, installed in `/usr/local/bin/`.
+
+### launchbar-eslint-rules
+
+Search the ESLint rules index.
+
+- Usage
+  - Press <kbd>⏎</kbd> to open the chosen item's URL in [ESLint.org](https://eslint.org).
+- Requirements
+  - NodeJS, installed in `/usr/local/bin/`.
+
+  ![screenshot](./screenshots/launchbar-eslint-rules.png?raw=true)
+
+### launchbar-recent-trashes
+
+Browse ~/.Trash by a reversed chronological order of deletion.
+
+- Usage
+  - Press <kbd>shift</kbd>+<kbd>return</kbd> to open the trash in Finder.
+  - Initial usage might take a while, especially if the trash contains many items. Afterwards, deletion dates will be cached.
+- Requirements
+  - NodeJS, installed in `/usr/local/bin/`.
+
+  ![screenshot](./screenshots/launchbar-recent-trashes.png?raw=true)
+
+### launchbar-recent-downloads
+
+Browse ~/Downloads, showing most recent downloads first.
+
+- Usage
+  - Invoke the action with <kbd>shift</kbd>+<kbd>return</kbd> to open the most recently download item in its default app.
+  - Invoke the action with <kbd>cmd</kbd>+<kbd>return</kbd> to open ~/Downloads.
+- Requirements
+  - NodeJS, installed in `/usr/local/bin/`.
+
+### launchbar-github-search
+
+Search for GitHub repositories or users.
+
+- Usage
+  - Prepend input with `usr:` (e.g. `usr:foo`) to search for a user instead of a repository.
+- Requirements
+  - NodeJS, installed in `/usr/local/bin/`.
+
 ### \_finder-copy-window
 
 ### \_itunes-like-dislike
