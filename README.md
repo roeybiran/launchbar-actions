@@ -26,7 +26,6 @@ Display useful information about your machine.
 ### launchbar-kaomoji
 
 Get relevant kaomojis from text. A port of [alfred-kaomoji](https://github.com/vinkla/alfred-kaomoji).
-Requires NodeJS, installed in `/usr/local/bin/`.
 
 - Usage
   - Press <kbd>⏎</kbd> to paste the chosen kaomiji into to the frontmost app.
@@ -127,7 +126,9 @@ Create individual .zip archives from a set of files.
 
 ### browse-folder-contents
 
-### cardhop-launch
+### cardhop-launcher
+
+Activating Cardhop by clicking its icon simply starts it in the background. This action makes sure to make it visible, with the input bar focused.
 
 ### convert-clipboard-objects-to-paths
 
@@ -152,6 +153,8 @@ Create individual .zip archives from a set of files.
 ### facetime-keypad
 
 ### fantastical-2-launcher
+
+Activating Fantastical 2 by clicking its icon simply starts it in the background. This action makes sure to make it visible, with the input bar focused.
 
 ### files-chmodx
 
