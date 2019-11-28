@@ -14,6 +14,11 @@ if (separators.length < 1) {
   process.exit();
 }
 
+if (amounts.length < 2) {
+  console.log("Provide at least 2 numbers");
+  process.exit();
+}
+
 // determine if inches or cm
 const inputIsInches = input.match(/"|in((ch)?es)?/);
 const inputIsCentimeters = input.match(/cm|centimeters/);
