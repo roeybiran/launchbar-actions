@@ -1,11 +1,13 @@
-# Miscellaneous LaunchBar Actions
+# LaunchBar Actions
+
+A collection of LaunchBar 6 actions.
 
 ## Notes
 
-- Actions are provided as-is.
-- Actions with a leading underscore are not meant to be run on their own. Rather, they contain code that is shared among other actions. They should be hidden in LaunchBar's index.
-- Some actions require additional utilities and/or programs (e.g. Default Folder X, ImageMagick).
-- Some actions are intented to work with my own Hammerspoon setup.
+- Actions with a leading underscore are not meant to be run on their own. Rather, they contain code that is shared among other actions. You should hide them in LaunchBar's index.
+- Many of the actions require [NodeJS](https://nodejs.org/en/), installed in `/usr/local/bin`.
+- Some actions require additional utilities and/or programs (e.g. [Default Folder X](https://www.stclairsoft.com/DefaultFolderX/), [ImageMagick](https://imagemagick.org/)).
+- Some actions are intented to work with my own [Hammerspoon setup](https://github.com/roeybiran/.hammerspoon). Those are prefixed with `hs`.
 
 ## Actions
 
