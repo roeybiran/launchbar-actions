@@ -18,6 +18,8 @@
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
+		<key>LBSummary</key>
+		<string>Shows the 1Password7 mini window. Pass an optional string to perform an inital search</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>

@@ -16,6 +16,8 @@
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
 		<string></string>
+		<key>LBSummary</key>
+		<string>Activating Cardhop by clicking its icon simply starts it in the background. This action makes sure to make it visible, with the input bar focused</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>

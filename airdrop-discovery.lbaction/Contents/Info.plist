@@ -19,12 +19,7 @@
 		<key>LBEmail</key>
 		<string>roeybiran@gmail.com</string>
 		<key>LBSummary</key>
-		<string>Search the ESLint rules index.
-
-- Usage
-  - Press &lt;kbd&gt;⏎&lt;/kbd&gt; to open the chosen item's URL in [ESLint.org](https://eslint.org).
-- Requirements
-  - NodeJS, installed in `/usr/local/bin/`.</string>
+		<string>Show either of the AirDrop discovery states, choose one to launch GUI script that will apply that settings</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
