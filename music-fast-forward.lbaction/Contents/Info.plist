@@ -3,26 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>font-awesome:fa-volume-up</string>
+	<string>font-awesome:fa-fast-forward</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarHsVolumeControl</string>
+	<string>com.roeybiran.LaunchBar.action.MusicFastForward</string>
 	<key>CFBundleName</key>
-	<string>Volume Control</string>
+	<string>Music: Fast Forward</string>
 	<key>LBAssociatedApplication</key>
-	<string>org.hammerspoon.Hammerspoon</string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
+	<string>com.apple.Music</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
+		<string>roeybiran@icloud.com</string>
+		<key>LBTwitter</key>
 		<string></string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
-	<string>org.hammerspoon.Hammerspoon</string>
+	<string>com.apple.Music</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
@@ -35,7 +35,5 @@
 			<string>default.scpt</string>
 		</dict>
 	</dict>
-	<key>NSHumanReadableCopyright</key>
-	<string>Roey Biran</string>
 </dict>
 </plist>
