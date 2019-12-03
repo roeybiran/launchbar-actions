@@ -7,7 +7,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.LaunchBarFantastical2Mini</string>
 	<key>CFBundleName</key>
-	<string>Fantastical 2 MIni</string>
+	<string>Fantastical 2 Mini</string>
 	<key>LBAssociatedApplication</key>
 	<string>com.flexibits.fantastical2.mac</string>
 	<key>LBDebugLogEnabled</key>
@@ -17,7 +17,7 @@
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBSummary</key>
-		<string>Activating Fantastical 2 by clicking its icon simply starts it in the background. This action makes sure to make it visible, with the input bar focused</string>
+		<string>Show the Fantastical 2 mini window. Run the action holding the shift key to open the full calendar</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>

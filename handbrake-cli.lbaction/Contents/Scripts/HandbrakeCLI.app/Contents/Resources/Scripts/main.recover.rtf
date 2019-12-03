@@ -1,0 +1,290 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Verdana-Bold;\f1\fnil\fcharset0 Verdana;\f2\fnil\fcharset0 Verdana-Italic;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue255;\red64\green128\blue0;
+\red0\green22\blue176;\red108\green5\blue211;\red251\green0\blue7;\red76\green78\blue78;}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c0\c0;\csgenericrgb\c0\c0\c100000;\csgenericrgb\c25000\c50001\c0;
+\csgenericrgb\c0\c8656\c68986;\csgenericrgb\c42337\c1841\c82833;\cssrgb\c100000\c0\c0;\csgenericrgb\c29999\c30457\c30457;}
+\deftab480
+\pard\pardeftab480\slleading40\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf2 on
+\f1\b0  
+\f0\b \cf3 open
+\f1\b0 \cf2  \cf4 thePaths\cf2 \
+\pard\pardeftab480\slleading40\pardirnatural\partightenfactor0
+\cf2 	
+\f0\b set
+\f1\b0  \cf4 presetList\cf2  
+\f0\b to
+\f1\b0  \{"Fast 1080p30", "Vimeo YouTube 720p30"\}\
+	
+\f0\b set
+\f1\b0  \cf4 theChoice\cf2  
+\f0\b to
+\f1\b0  
+\f0\b \cf5 choose from list
+\f1\b0 \cf2  \cf4 presetList\cf2  \cf5 default items\cf2  "Fast 1080p30"\
+	
+\f0\b if
+\f1\b0  \cf4 theChoice\cf2  
+\f0\b is
+\f1\b0  
+\f2\i \cf6 false
+\f1\i0 \cf2  
+\f0\b then
+\f1\b0  
+\f0\b return
+\f1\b0 \
+	
+\f0\b set
+\f1\b0  \cf4 thePreset\cf2  
+\f0\b to
+\f1\b0  (
+\f2\i \cf3 item
+\f1\i0 \cf2  1 
+\f0\b of
+\f1\b0  \cf4 theChoice\cf2 )\
+	\
+	
+\f0\b set
+\f1\b0  \cf4 totalSteps\cf2  
+\f0\b to
+\f1\b0  
+\f0\b \cf3 count
+\f1\b0 \cf2  
+\f0\b of
+\f1\b0  \cf4 thePaths\cf2 \
+	
+\f0\b set
+\f1\b0  \cf6 progress total steps\cf2  
+\f0\b to
+\f1\b0  \cf4 totalSteps\cf2 \
+	
+\f0\b set
+\f1\b0  \cf6 progress completed steps\cf2  
+\f0\b to
+\f1\b0  0\
+	
+\f0\b set
+\f1\b0  \cf6 progress description\cf2  
+\f0\b to
+\f1\b0  "Processing..."\
+	
+\f0\b set
+\f1\b0  \cf6 progress additional description\cf2  
+\f0\b to
+\f1\b0  "Preparing to process."\
+	\
+	
+\f0\b repeat
+\f1\b0  
+\f0\b with
+\f1\b0  \cf4 i\cf2  
+\f0\b from
+\f1\b0  1 
+\f0\b to
+\f1\b0  
+\f0\b \cf3 count
+\f1\b0 \cf2  
+\f0\b the
+\f1\b0  \cf4 thePaths\cf2 \
+		
+\f0\b set
+\f1\b0  \cf4 thePath\cf2  
+\f0\b to
+\f1\b0  
+\f2\i \cf3 item
+\f1\i0 \cf2  \cf4 i\cf2  
+\f0\b of
+\f1\b0  \cf4 thePaths\cf2 \
+		
+\f0\b tell
+\f1\b0  
+\f2\i \cf3 application
+\f1\i0 \cf2  "Finder"\
+			
+\f0\b set
+\f1\b0  \cf4 diskItem\cf2  
+\f0\b to
+\f1\b0  
+\f2\i \cf3 item
+\f1\i0 \cf2  \cf4 thePath\cf2 \
+			
+\f0\b set
+\f1\b0  \cf4 dirName\cf2  
+\f0\b to
+\f1\b0  \cf6 POSIX path\cf2  
+\f0\b of
+\f1\b0  (
+\f2\i \cf3 container
+\f1\i0 \cf2  
+\f0\b of
+\f1\b0  \cf4 diskItem\cf2  
+\f0\b as
+\f1\b0  
+\f2\i \cf3 alias
+\f1\i0 \cf2 )\
+			
+\f0\b set
+\f1\b0  \cf4 baseName\cf2  
+\f0\b to
+\f1\b0  \cf6 name\cf2  
+\f0\b of
+\f1\b0  \cf4 diskItem\cf2 \
+			
+\f0\b set
+\f1\b0  \cf4 extensionName\cf2  
+\f0\b to
+\f1\b0  \cf6 name extension\cf2  
+\f0\b of
+\f1\b0  \cf4 diskItem\cf2 \
+		
+\f0\b end
+\f1\b0  
+\f0\b tell
+\f1\b0 \
+		
+\f0\b set
+\f1\b0  \cf4 sourceFile\cf2  
+\f0\b to
+\f1\b0  \cf6 quoted form\cf2  
+\f0\b of
+\f1\b0  \cf6 POSIX path\cf2  
+\f0\b of
+\f1\b0  \cf4 thePath\cf2 \
+		\
+		
+\f0\b if
+\f1\b0  \cf4 dirName\cf2  
+\f0\b does not
+\f1\b0  
+\f0\b end
+\f1\b0  
+\f0\b with
+\f1\b0  "/" 
+\f0\b then
+\f1\b0 \
+			
+\f0\b set
+\f1\b0  \cf4 dirName\cf2  
+\f0\b to
+\f1\b0  \cf4 dirName\cf2  & "/"\
+		
+\f0\b end
+\f1\b0  
+\f0\b if
+\f1\b0 \
+		\
+		
+\f0\b set
+\f1\b0  \cf4 targetFile\cf2  
+\f0\b to
+\f1\b0  \cf6 quoted form\cf2  
+\f0\b of
+\f1\b0  (\cf4 dirName\cf2  & \cf4 thePreset\cf2  & "_" & 
+\f0\b my
+\f1\b0  \cf7 replaceString\cf2 (\cf4 baseName\cf2 , \cf4 extensionName\cf2 , "") & "mp4")\
+		\
+		\cf8 -- Update the progress detail\cf2 \
+		
+\f0\b set
+\f1\b0  \cf6 progress additional description\cf2  
+\f0\b to
+\f1\b0  "Processing file " & \cf4 i\cf2  & " of " & \cf4 totalSteps\cf2 \
+		\
+		\cf8 --"/usr/local/bin/handbrakecli --preset " & quoted form of thePreset & " -i " & sourceFile & " -o " & targetFile\cf2 \
+		
+\f0\b \cf3 delay
+\f1\b0 \cf2  2\
+		\
+		\cf8 -- Increment the progress	\cf2 \
+		
+\f0\b set
+\f1\b0  \cf6 progress completed steps\cf2  
+\f0\b to
+\f1\b0  \cf4 i\cf2 \
+	
+\f0\b end
+\f1\b0  
+\f0\b repeat
+\f1\b0 \
+	\
+	
+\f0\b set
+\f1\b0  \cf6 progress total steps\cf2  
+\f0\b to
+\f1\b0  0\
+	
+\f0\b set
+\f1\b0  \cf6 progress completed steps\cf2  
+\f0\b to
+\f1\b0  0\
+	
+\f0\b set
+\f1\b0  \cf6 progress description\cf2  
+\f0\b to
+\f1\b0  ""\
+	
+\f0\b set
+\f1\b0  \cf6 progress additional description\cf2  
+\f0\b to
+\f1\b0  ""\
+
+\f0\b end
+\f1\b0  
+\f0\b \cf3 open
+\f1\b0 \cf2 \
+\
+
+\f0\b on
+\f1\b0  \cf7 replaceString\cf2 (\cf4 this_text\cf2 , \cf4 search_string\cf2 , \cf4 replacement_string\cf2 )\
+	
+\f0\b set
+\f1\b0  \cf6 AppleScript's\cf2  \cf6 text item delimiters\cf2  
+\f0\b to
+\f1\b0  
+\f0\b the
+\f1\b0  \cf4 search_string\cf2 \
+	
+\f0\b set
+\f1\b0  
+\f0\b the
+\f1\b0  \cf4 item_list\cf2  
+\f0\b to
+\f1\b0  
+\f0\b every
+\f1\b0  
+\f2\i \cf3 text item
+\f1\i0 \cf2  
+\f0\b of
+\f1\b0  \cf4 this_text\cf2 \
+	
+\f0\b set
+\f1\b0  \cf6 AppleScript's\cf2  \cf6 text item delimiters\cf2  
+\f0\b to
+\f1\b0  
+\f0\b the
+\f1\b0  \cf4 replacement_string\cf2 \
+	
+\f0\b set
+\f1\b0  \cf4 this_text\cf2  
+\f0\b to
+\f1\b0  
+\f0\b the
+\f1\b0  \cf4 item_list\cf2  
+\f0\b as
+\f1\b0  
+\f2\i \cf3 string
+\f1\i0 \cf2 \
+	
+\f0\b set
+\f1\b0  \cf6 AppleScript's\cf2  \cf6 text item delimiters\cf2  
+\f0\b to
+\f1\b0  ""\
+	
+\f0\b return
+\f1\b0  \cf4 this_text\cf2 \
+
+\f0\b end
+\f1\b0  \cf7 replaceString}

@@ -3,9 +3,12 @@
 # LaunchBar Action Script
 #
 
+# https://flexibits.com/fantastical/help/integration-with-other-apps
+
 if [[ "${LB_OPTION_SHIFT_KEY}" == "1" ]]
 then
-	/usr/bin/open "x-fantastical2://show/calendar"
+	arg="calendar"
 else
-	/usr/bin/open "x-fantastical2://show/mini"
+	arg="mini"
 fi
+/usr/bin/open "x-fantastical2://show/${arg}"
