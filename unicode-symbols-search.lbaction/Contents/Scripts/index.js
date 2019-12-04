@@ -1,5 +1,6 @@
 "use strict";
 
+// https://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/
 // https://github.com/bevesce/unicode-symbols-search
 
 const path = require("path");
@@ -12,10 +13,7 @@ const readFile = util.promisify(fs.readFile);
 (async () => {
   const fuzzballOptions = {
     processor: choice => choice.subtitle,
-    scorer: fuzz.partial_ratio,
-    limit: 32,
-    cutoff: 50,
-    unsorted: false
+    scorer: fuzz.partial_ratio
   };
   const input = process.argv[2] || process.exit();
   const symbolsFile = path.join(__dirname, "symbols.json");
