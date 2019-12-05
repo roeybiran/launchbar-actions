@@ -5,12 +5,10 @@
 
 import subprocess
 import os
-import PyPDF2
 import sys
-
+import PyPDF2
 
 try:
-
     merger = PyPDF2.PdfFileMerger()
     files = sys.argv[1:]
     firstFile = files[0]
@@ -21,8 +19,8 @@ try:
         merger.append(f)
 
     firstFileNameNoExt = os.path.splitext(os.path.basename(firstFile))[0]
-    outputFileName = '{} and {} others.pdf'.format(firstFileNameNoExt, (len(files) - 1))
-    mergedFile = open(destinationDir + "/" + outputFileName, "wb")
+    outputFileName = "{} and {} others.pdf".format(firstFileNameNoExt, (len(files) - 1))
+    mergedFile = open(os.path.join(destinationDir, outputFileName), "wb")
     merger.write(mergedFile)
 
 except Exception as e:

@@ -11,6 +11,13 @@ then
 fi
 
 for f in "${@}"; do
+
+	if [[ "${f}" == *".spoon" ]]
+	then
+		open "${f}/init.lua"
+		continue
+	fi
+
 	# if an .lbaction is sent
 	if ! [[ -d "${f}" ]]; then
 	 	# if the action object itself is sent, search for its name

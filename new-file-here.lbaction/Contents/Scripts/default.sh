@@ -48,7 +48,7 @@ while IFS=$'\n' read -r file; do
 		".scpt") cp "./template.scpt" "${full_path}"
 		;;
 	esac
-	chmod -x "${full_path}"
+	/bin/chmod +x "${full_path}"
 	if [[ "${LB_OPTION_SHIFT_KEY}" == "1" ]]
 	then
 		# TODO: python script to print json to launchbar
