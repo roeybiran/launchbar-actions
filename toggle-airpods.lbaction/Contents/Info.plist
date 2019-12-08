@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/com.apple.xserve-g4.icns</string>
+	<string>AirPodsBothBlackTemplate.pdf</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarOpenAlpha</string>
+	<string>com.roeybiran.LaunchBarToggleAirpods</string>
 	<key>CFBundleName</key>
-	<string>Open alpha</string>
+	<string>Toggle AirPods</string>
 	<key>LBAbbreviation</key>
-	<string>oa</string>
+	<string>cta</string>
 	<key>LBAssociatedApplication</key>
-	<string>com.apple.finder</string>
+	<string></string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
@@ -22,7 +22,7 @@
 		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
-	<string>com.apple.finder</string>
+	<string></string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
@@ -30,7 +30,7 @@
 			<key>LBKeepWindowActive</key>
 			<true/>
 			<key>LBResultType</key>
-			<string>path</string>
+			<string>unknown</string>
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>

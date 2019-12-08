@@ -2,38 +2,42 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleIconFile</key>
+	<string>/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/com.apple.xserve-g4.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarBrowseFolderContents</string>
+	<string>com.roeybiran.LaunchBar.action.OpenServer</string>
 	<key>CFBundleName</key>
-	<string>Browse Folder Contents</string>
+	<string>Open Server</string>
+	<key>LBAbbreviation</key>
+	<string>oa</string>
+	<key>LBAssociatedApplication</key>
+	<string>com.apple.finder</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
-		<string>roeybiran@icloud.com</string>
-		<key>LBTwitter</key>
 		<string></string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
+	<key>LBRequiredApplication</key>
+	<string>com.apple.finder</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
-			<key>LBAcceptedArgumentTypes</key>
-			<array>
-				<string>path</string>
-			</array>
 			<key>LBKeepWindowActive</key>
 			<true/>
 			<key>LBResultType</key>
-			<string>unknown</string>
+			<string>path</string>
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>GetFiles</string>
+			<string>default.sh</string>
 		</dict>
 	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Roey Biran</string>
 </dict>
 </plist>
