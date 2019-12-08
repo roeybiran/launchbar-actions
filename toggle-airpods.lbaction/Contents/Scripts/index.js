@@ -2,8 +2,8 @@
 
 const plist = require("simple-plist");
 const { execFile } = require("@roeybiran/task");
-const connect = require("./connect");
 const lb = require("launchbar-node");
+const connect = require("./connect");
 
 // put your AirPod's name here, each device should have its entry
 // if more than 1 device is available, a menu will be shown, allowing the user
