@@ -20,8 +20,10 @@ const toHfs = require("@roeybiran/posix-to-hfs");
       );
       process.exit();
     }
+    const joinedPaths = hfsPaths.join(delimiter);
     lb.hide();
-    lb.paste(hfsPaths.join(delimiter));
+    lb.setClipboardString(joinedPaths);
+    lb.paste(joinedPaths);
   } catch (error) {
     console.log(error);
   }

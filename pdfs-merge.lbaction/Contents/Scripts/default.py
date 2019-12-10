@@ -10,7 +10,7 @@ import PyPDF2
 
 try:
     merger = PyPDF2.PdfFileMerger()
-    files = sys.argv[1:]
+    files = sorted(sys.argv[1:])
     firstFile = files[0]
     destinationDir = os.path.dirname(firstFile)
 
