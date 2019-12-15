@@ -17,7 +17,8 @@ const cache = require("@roeybiran/launchbar-cache");
             title: `Search GitHub.com for "${inputNoQuestionMark}"`,
             subtitle: url,
             url,
-            quickLookURL: url
+            quickLookURL: url,
+            actionRunsInBackground: true
           }
         ])
       );
@@ -38,13 +39,10 @@ const cache = require("@roeybiran/launchbar-cache");
     } else {
       url += `repositories?q=${input}&sort=stars&order=desc`;
     }
-    // TODO: MODULIZE (PERSISTING MESSAGE)
     if (input.length === 0) {
       console.log(
         JSON.stringify({
           title: noQueryTitle,
-          actionRunsInBackground: false,
-          actionReturnsItems: true,
           icon
         })
       );

@@ -13,14 +13,7 @@ const { execFile } = require("@roeybiran/task");
 const statPromisified = util.promisify(fs.lstat);
 
 // TODO:
-// handle this scenario:
-// 1. file 'foo' has been trashed and its trashing date has been cached
-// 2. trash was emptied
-// 3. a new file that is also named 'foo' has been trashed ->
-// don't confuse with the cached trashed date of the old 'foo'
-
-// TODO:
-// useful output when trash's empty
+// make caching based on inodes
 
 const sortByDateDescending = (a, b) => {
   if (a.date > b.date) {
@@ -51,10 +44,10 @@ const sortByDateDescending = (a, b) => {
       lb.output([
         {
           title: "Trash is empty",
-          icon: "font-awesome:fa-info",
-          url: "x-launchbar:hide"
+          icon: "font-awesome:fa-info-circle"
         }
       ]);
+      process.exit();
     }
 
     let date;

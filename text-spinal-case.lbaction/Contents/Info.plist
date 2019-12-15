@@ -8,6 +8,8 @@
 	<string>com.roeybiran.LaunchBarTextSpinalCase</string>
 	<key>CFBundleName</key>
 	<string>Text: spinal-case</string>
+	<key>LBAbbreviation</key>
+	<string>slug</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>

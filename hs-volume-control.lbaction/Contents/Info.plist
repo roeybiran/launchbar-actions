@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>font-awesome:fa-volume-up</string>
+	<string>org.hammerspoon.Hammerspoon</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.LaunchBarHsVolumeControl</string>
 	<key>CFBundleName</key>

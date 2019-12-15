@@ -7,7 +7,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.LaunchBarNewSafariPrivateWindow</string>
 	<key>CFBundleName</key>
-	<string>New Safari Private Window</string>
+	<string>Safari: New Private Window</string>
 	<key>LBAbbreviation</key>
 	<string>nspw</string>
 	<key>LBAssociatedApplication</key>

@@ -25,7 +25,7 @@ const sortByDateDescending = (a, b) => {
     // just open the downloads folder
     if (lb.env.commandKey) {
       lb.hide();
-      await execFile("/usr/bin/open", [DOWNLOADS_DIR]);
+      execFile("/usr/bin/open", [DOWNLOADS_DIR]);
       process.exit();
     }
 
@@ -36,14 +36,12 @@ const sortByDateDescending = (a, b) => {
 
     const paths = await shallowGlob(DOWNLOADS_DIR);
 
-    // TODO: MODULIZE
     if (paths.length === 0) {
       console.log(
         JSON.stringify([
           {
             title: "No Downloaded Items",
-            url: "x-launchbar:hide",
-            icon: "font-awesome:warning"
+            icon: "font-awesome:info-circle"
           }
         ])
       );
@@ -51,15 +49,21 @@ const sortByDateDescending = (a, b) => {
     }
 
     paths.forEach(aPath => {
-      let date =
-        cache.get(aPath, { ignoreMaxAge: true }) ||
-        execFile("/usr/bin/mdls", ["-name", "kMDItemDateAdded", "-raw", aPath])
+      let date = cache.get(aPath, { ignoreMaxAge: true });
+      if (!date) {
+        date = execFile("/usr/bin/mdls", [
+          "-name",
+          "kMDItemDateAdded",
+          "-raw",
+          aPath
+        ])
           .then(result => {
-            date = result.stdout.replace(/\+\d+$/, "UTC");
-            cache.set(aPath, date, { maxAge: 5000 });
-            return date;
+            const resolvedDate = result.stdout.replace(/\+\d+$/, "UTC");
+            cache.set(aPath, resolvedDate, { maxAge: 5000 });
+            return resolvedDate;
           })
           .catch(err => err);
+      }
       promises.push(date);
       fileNames.push(aPath);
     });
@@ -84,7 +88,7 @@ const sortByDateDescending = (a, b) => {
 
     if (lb.env.shiftKey) {
       lb.hide();
-      await execFile("/usr/bin/open", [output[0].path]);
+      execFile("/usr/bin/open", [output[0].path]);
       process.exit();
     }
     return console.log(JSON.stringify(output, null, " "));

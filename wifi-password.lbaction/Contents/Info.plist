@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string></string>
+	<string>font-awesome:fa-wifi</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.LaunchBarWifiPassword</string>
 	<key>CFBundleName</key>
