@@ -3,39 +3,39 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>com.apple.Safari</string>
+	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.SafariGetWindowText</string>
+	<string>com.roeybiran.LaunchBar.action.PrintSaveAsPDF</string>
 	<key>CFBundleName</key>
-	<string>Safari: Get Window Text</string>
+	<string>Print: Save as PDF</string>
+	<key>LBAbbreviation</key>
+	<string>saveaspdf</string>
 	<key>LBAssociatedApplication</key>
-	<string>com.apple.Safari</string>
+	<string></string>
+	<key>LBDebugLogEnabled</key>
+	<true/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
-		<key>LBEmail</key>
-		<string>roeybiran@icloud.com</string>
-		<key>LBTwitter</key>
-		<string></string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
-	<string>com.apple.Safari</string>
+	<string></string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
-			<key>LBKeepWindowActive</key>
-			<true/>
 			<key>LBResultType</key>
-			<string>string</string>
-			<key>LBReturnsResult</key>
+			<string>unknown</string>
+			<key>LBRunInBackground</key>
 			<true/>
 			<key>LBScriptName</key>
 			<string>default.scpt</string>
 		</dict>
 	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Roey Biran</string>
 </dict>
 </plist>

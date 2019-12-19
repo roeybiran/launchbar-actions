@@ -4,7 +4,6 @@ const lb = require("launchbar-node");
 const { execFile } = require("@roeybiran/task");
 
 (async () => {
-  lb.hide();
   const input = JSON.parse(process.argv[2]);
   let signal = "SIGTERM";
   if (lb.env.alternateKey) {

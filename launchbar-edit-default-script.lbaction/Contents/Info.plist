@@ -36,6 +36,8 @@
 			<true/>
 			<key>LBResultType</key>
 			<string>unknown</string>
+			<key>LBRunInBackground</key>
+			<true/>
 			<key>LBScriptName</key>
 			<string>default.sh</string>
 		</dict>

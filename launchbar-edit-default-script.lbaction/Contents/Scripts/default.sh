@@ -5,18 +5,15 @@
 
 # requires ripgrep
 
-if ! [[ -e /usr/local/bin/rg ]]
-then
+if ! [[ -e /usr/local/bin/rg ]]; then
 	exit 1
 fi
 
 # set -x
 
-for f in "${@}"
-do
+for f in "${@}"; do
 
-	if [[ "${f}" == *".spoon" ]]
-	then
+	if [[ "${f}" == *".spoon" ]]; then
 		script="${f}/init.lua"
 	else
 		# if an .lbaction is sent
@@ -27,12 +24,10 @@ do
 			plist="${f}/Contents/Info.plist"
 		fi
 
-		if [[ -z "${plist}" ]] && ! [[ -f "${plist}" ]]
-		then
+		if [[ -z "${plist}" ]] && ! [[ -f "${plist}" ]]; then
 			/usr/bin/osascript -e "display notification \"Could not find default script for ${f}\""
 			continue
-		elif [[ $(printf "%s\n" "${plist}" | wc -l) -gt 1 ]]
-		then
+		elif [[ $(printf "%s\n" "${plist}" | wc -l) -gt 1 ]]; then
 			/usr/bin/osascript -e 'display notification "Found multiple actions with similar default script"'
 			continue
 		fi
@@ -51,10 +46,19 @@ do
 		fi
 	fi
 
-
 	if [[ "${LB_OPTION_COMMAND_KEY}" == "1" ]]; then
 		open -R "${script}"
-	else
-		open "${script}"
+		exit
 	fi
+
+	if [[ "${LB_OPTION_SHIFT_KEY}" == "1" ]]; then
+		/usr/bin/osascript - "${script}" <<-EOF
+			on run argv
+				tell app "LaunchBar" to open (item 1 of argv)
+			end run
+		EOF
+		exit
+	fi
+
+	open "${script}"
 done
