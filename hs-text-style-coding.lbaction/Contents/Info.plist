@@ -3,11 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>iconTemplate.pdf</string>
+	<string>org.hammerspoon.Hammerspoon</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarRecentTrashes</string>
+	<string>com.roeybiran.LaunchBarHSTextStyleCoding</string>
 	<key>CFBundleName</key>
-	<string>Recent Trashes</string>
+	<string>Text Style: Coding</string>
+	<key>LBAssociatedApplication</key>
+	<string>org.hammerspoon.Hammerspoon</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
@@ -17,18 +19,24 @@
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
+	<key>LBRequiredApplication</key>
+	<string>org.hammerspoon.Hammerspoon</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
-			<key>LBKeepWindowActive</key>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
+			<key>LBRequiresArgument</key>
 			<true/>
 			<key>LBResultType</key>
 			<string>unknown</string>
-			<key>LBReturnsResult</key>
+			<key>LBRunInBackground</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>RecentTrashes</string>
+			<string>default.scpt</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>

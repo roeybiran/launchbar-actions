@@ -11,5 +11,4 @@ function runWithPaths(paths) {
 
   LaunchBar.setClipboardString(texts.join("\n"));
   LaunchBar.paste(texts);
-  LaunchBar.execute("/usr/bin/afplay", "/System/Library/Sounds/Pop.aiff");
 }

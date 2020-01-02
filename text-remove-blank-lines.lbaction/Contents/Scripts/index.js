@@ -1,8 +1,9 @@
-'use strict';
-const lb = require('launchbar-node');
+"use strict";
 
-let output = []
-process.argv.splice(2).forEach(str => {
-  output.push(str.replace(/^\s*$\n/gm, ''))
+const lb = require("launchbar-node");
+
+const output = process.argv.splice(2).map(str => {
+  return str.replace(/^\s*$\n/gm, "");
 });
-lb.paste(output.join('\n'))
+
+lb.paste(output.join("\n"));

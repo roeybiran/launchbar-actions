@@ -11,10 +11,9 @@ module.exports = async airpodsAddress => {
       airpodsAddress
     ]);
     let arg;
-    const status = stdout;
-    if (status === "0") {
+    if (stdout === "0") {
       arg = "--connect";
-    } else if (status === "1") {
+    } else if (stdout === "1") {
       arg = "--disconnect";
     }
     execFile("/usr/local/bin/blueutil", [arg, airpodsAddress]);

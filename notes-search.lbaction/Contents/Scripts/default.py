@@ -10,14 +10,18 @@ import json
 
 SHOW_TRASHED = True
 SORT_ID = 2
-SORT_REVERSE=(SORT_ID == 2)
+SORT_REVERSE = SORT_ID == 2
 
 output = []
 
 try:
     # Read Notes database and get contents
     # Open notes database
-    databaseConnection = sqlite3.connect(os.path.expanduser("~/Library/Group Containers/group.com.apple.notes/NoteStore.sqlite"))
+    databaseConnection = sqlite3.connect(
+        os.path.expanduser(
+            "~/Library/Group Containers/group.com.apple.notes/NoteStore.sqlite"
+        )
+    )
     cursor = databaseConnection.cursor()
 
     # Get uuid string required in full id
@@ -62,6 +66,8 @@ for d in allNotes:
     try:
         containingFolder = folderNames[folderCodes.index(d[1])]
 
+        noteTitle = d[0]
+        normalizedTitle = re.sub(r"\W", "", noteTitle.encode(encoding="utf-8")).lower()
         # getting the note's body
         try:
             noteBodyData = d[5]
@@ -86,7 +92,8 @@ for d in allNotes:
         subtitle = containingFolder
 
         noteObject = {
-            "title": d[0],
+            "title": noteTitle,
+            "normalizedTitle": normalizedTitle,
             "subtitle": subtitle,
             "action": "showNote.sh",
             "actionArgument": "x-coredata://" + uuid + "/ICNote/p" + str(d[3]),
@@ -143,4 +150,4 @@ else:
     # show folders
     output = output + foldersList + deletedNotes
 
-print(json.dumps(output, indent=2))
+print (json.dumps(output, indent=2))

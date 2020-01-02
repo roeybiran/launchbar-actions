@@ -22,13 +22,6 @@ const sortByDateDescending = (a, b) => {
   try {
     const DOWNLOADS_DIR = path.join(process.env.HOME, "/Downloads");
 
-    // just open the downloads folder
-    if (lb.env.commandKey) {
-      lb.hide();
-      execFile("/usr/bin/open", [DOWNLOADS_DIR]);
-      process.exit();
-    }
-
     const now = new Date();
     const promises = [];
     const fileNames = [];
@@ -83,15 +76,19 @@ const sortByDateDescending = (a, b) => {
         subtitle: `Downloaded ${relativeDate(results[index], now)}`
       });
     }
-
     output.sort(sortByDateDescending);
 
-    if (lb.env.shiftKey) {
-      lb.hide();
-      execFile("/usr/bin/open", [output[0].path]);
-      process.exit();
+    if (lb.env.spaceKey) {
+      return console.log(JSON.stringify(output, null, " "));
     }
-    return console.log(JSON.stringify(output, null, " "));
+
+    lb.hide();
+
+    const args = [];
+    if (lb.env.commandKey) {
+      args.push("-R");
+    }
+    return execFile("/usr/bin/open", [...args, output[0].path]);
   } catch (error) {
     return console.log(error);
   }

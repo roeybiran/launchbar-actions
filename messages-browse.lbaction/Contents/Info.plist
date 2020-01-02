@@ -3,20 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>iconTemplate.pdf</string>
+	<string>com.apple.iChat</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarRecentTrashes</string>
+	<string>com.roeybiran.LaunchBar.action.MessagesRecent</string>
 	<key>CFBundleName</key>
-	<string>Recent Trashes</string>
+	<string>Messages: Browse</string>
+	<key>LBAssociatedApplication</key>
+	<string>com.apple.iChat</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
+		<string>roeybiran@icloud.com</string>
+		<key>LBTwitter</key>
 		<string></string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
+	<key>LBRequiredApplication</key>
+	<string>com.apple.iChat</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
@@ -28,10 +34,8 @@
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>RecentTrashes</string>
+			<string>default.sh</string>
 		</dict>
 	</dict>
-	<key>NSHumanReadableCopyright</key>
-	<string>Roey Biran</string>
 </dict>
 </plist>

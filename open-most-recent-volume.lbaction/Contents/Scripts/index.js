@@ -1,9 +1,9 @@
 "use strict";
 
+const path = require("path");
 const lb = require("launchbar-node");
 const { parse } = require("simple-plist");
 const { execFile } = require("@roeybiran/task");
-
 // TODO: MODULIZE
 /**
  * @param {Object} options
@@ -20,29 +20,31 @@ const errorMessage = options => {
 };
 
 (async () => {
-  const { stdout } = await execFile("/usr/sbin/diskutil", [
-    "list",
-    "-plist",
-    "external"
-  ]);
-  const data = parse(stdout);
-  if (data.AllDisksAndPartitions.length === 0) {
-    console.log(
-      JSON.stringify([errorMessage({ title: "No mounted volumes" })])
-    );
-    process.exit();
-  }
+  try {
+    const { stdout } = await execFile("/usr/sbin/diskutil", [
+      "list",
+      "-plist",
+      "external"
+    ]);
+    const { VolumesFromDisks } = parse(stdout);
+    if (VolumesFromDisks.length === 0) {
+      console.log(
+        JSON.stringify([errorMessage({ title: "No mounted volumes" })])
+      );
+      process.exit();
+    }
 
-  const { AllDisksAndPartitions } = data;
-  const { Partitions } = AllDisksAndPartitions[
-    AllDisksAndPartitions.length - 1
-  ];
-  const { MountPoint } = Partitions[Partitions.length - 1];
+    const volumePaths = VolumesFromDisks.map(x => {
+      return { path: path.join("/Volumes", x) };
+    });
 
-  if (lb.env.spaceKey) {
-    console.log(JSON.stringify([{ path: MountPoint }]));
-    process.exit();
+    if (lb.env.spaceKey) {
+      console.log(JSON.stringify(volumePaths));
+      process.exit();
+    }
+    await execFile("/usr/bin/open", [volumePaths[0].path]);
+    await lb.hide();
+  } catch (error) {
+    console.log(error);
   }
-  await execFile("/usr/bin/open", [MountPoint]);
-  await lb.hide();
 })();
