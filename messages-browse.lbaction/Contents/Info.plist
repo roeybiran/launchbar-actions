@@ -8,6 +8,8 @@
 	<string>com.roeybiran.LaunchBar.action.MessagesRecent</string>
 	<key>CFBundleName</key>
 	<string>Messages: Browse</string>
+	<key>LBAbbreviation</key>
+	<string>sms</string>
 	<key>LBAssociatedApplication</key>
 	<string>com.apple.iChat</string>
 	<key>LBDescription</key>

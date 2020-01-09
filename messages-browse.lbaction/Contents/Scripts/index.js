@@ -18,12 +18,11 @@ const msgs = sqlOutput
     return x !== "";
   })
   .map(x => {
-    const [title, subtitle, badge] = x.split("|");
+    const [title, subtitle] = x.split("|");
     return {
       title,
-      subtitle,
-      badge
+      subtitle
     };
   });
 
-console.log(JSON.stringify(msgs, null, " "));
+console.log(JSON.stringify(msgs));
