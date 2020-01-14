@@ -39,7 +39,9 @@ try {
   script = `on run argv
     tell application "Notes" to show note id (item 1 of argv)
   end run`;
-  applescript([script, noteID]);
+  if (!lb.env.shiftKey) {
+    applescript([script, noteID]);
+  }
 } catch (error) {
   console.log(error);
 }
