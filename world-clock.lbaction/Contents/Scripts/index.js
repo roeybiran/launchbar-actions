@@ -3,7 +3,7 @@
 const { DateTime } = require("luxon");
 const fs = require("fs");
 const path = require("path");
-const conf = require("@roeybiran/launchbar-config")
+const conf = require("@roeybiran/launchbar-config");
 
 // https://github.com/jaroslawhartman/TimeZones-Alfred
 // https://stackoverflow.com/questions/10087819/convert-date-to-another-timezone-in-javascript
@@ -12,7 +12,7 @@ function sanitized(someString) {
   return someString.replace(/\W|_/g, "").toLowerCase();
 }
 
-let CITIES = conf.get("CITIES")
+let CITIES = conf.get("CITIES");
 if (!CITIES) {
   CITIES = [
     { country: "Israel", city: "Tel Aviv" },
@@ -21,7 +21,7 @@ if (!CITIES) {
     { country: "Philippines", city: "Manila" },
     { country: "Australia", city: "Brisbane" }
   ];
-  conf.set("CITIES", CITIES)
+  conf.set("CITIES", CITIES);
 }
 
 const csvFile = path.join(__dirname, "GeoLite2-City-Locations-en.csv");

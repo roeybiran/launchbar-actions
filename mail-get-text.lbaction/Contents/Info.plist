@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>com.apple.mail</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.roeybiran.LaunchBar.action.MailGetText</string>
+	<key>CFBundleName</key>
+	<string>Mail: Get Text</string>
+	<key>LBAssociatedApplication</key>
+	<string>com.apple.mail</string>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Roey Biran</string>
+		<key>LBEmail</key>
+		<string>roeybiran@icloud.com</string>
+		<key>LBTwitter</key>
+		<string></string>
+		<key>LBWebsiteURL</key>
+		<string>https://github.com/roeybiran</string>
+	</dict>
+	<key>LBRequiredApplication</key>
+	<string>com.apple.mail</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBKeepWindowActive</key>
+			<true/>
+			<key>LBResultType</key>
+			<string>string</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>default.sh</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
