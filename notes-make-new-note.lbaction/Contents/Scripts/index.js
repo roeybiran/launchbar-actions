@@ -4,9 +4,6 @@ const path = require("path");
 const cp = require("child_process");
 const lb = require("launchbar-node");
 
-// if (!process.argv[2]) {
-// }
-
 let input = process.argv[2];
 
 if (!lb.env.isLiveFeedbackEnabled) {
@@ -31,7 +28,8 @@ console.log(
       subtitle: body,
       action: "choice.sh",
       actionRunInBackground: true,
-      actionReturnsItems: false
+      actionReturnsItems: false,
+      icon: "com.apple.Notes"
     }
   ])
 );
