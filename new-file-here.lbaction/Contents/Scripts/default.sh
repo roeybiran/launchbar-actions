@@ -19,19 +19,22 @@ while IFS=$'\n' read -r file; do
 		extension=".txt"
 		name="${base_name}"
 	else
-		extension=".$(printf "%s\n" "${base_name}" | awk -F . '{print $NF}')"
-		name=$(basename -s "${extension}" "${base_name}")
+		extension=".$(printf "%s\n" "${base_name}" | awk -F "." '{print $NF}')"
+		name=$(printf "%s\n" "${base_name}" | sed "s/${extension}//")
 	fi
 	full_path="${target_folder}/${name}${extension}"
 	for ((i = 0; i < 10; i++)); do
 		if [[ -f "${full_path}" ]]; then
 			n=$((i + 2))
 			full_path="${target_folder}/${name} ${n}${extension}"
-		fi
-		if [[ "${i}" -eq 10 ]]; then
-			exit 1
+		else
+			break
 		fi
 	done
+	if [[ "${i}" -eq 10 ]]; then
+		echo "Deduplication limit reached"
+		exit 1
+	fi
 	full_path=$(printf "%s\n" "${full_path}" | sed 's|//|/|g')
 	touch "${full_path}"
 	case "${extension}" in

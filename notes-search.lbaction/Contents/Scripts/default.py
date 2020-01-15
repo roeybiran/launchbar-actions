@@ -62,10 +62,10 @@ except Exception as e:
 
 deletedNotes = []
 
+# getting the notes
 for d in allNotes:
     try:
         containingFolder = folderNames[folderCodes.index(d[1])]
-
         noteTitle = d[0]
         normalizedTitle = re.sub(r"\W", "", noteTitle.encode(encoding="utf-8")).lower()
         # getting the note's body
@@ -83,14 +83,17 @@ for d in allNotes:
             # Read from the next byte after magic index
             noteBodyData = noteBodyData[index + 1 :]
             noteBodyData = unicode(noteBodyData, "utf8", errors="ignore")
+            bodyWithNewslines = noteBodyData
             body = re.sub("^.*\n|\n", " ", noteBodyData)
             normalizedBody = re.sub(r"\W", "", body.encode(encoding="utf-8")).lower()
         except Exception as e:
-            body = "Note body could not be extracted: {}".format(e)
-            normalizedBody = body
+            (
+                body,
+                bodyWithNewslines,
+                normalizedBody,
+            ) = "Note body could not be extracted: {}".format(e)
 
         subtitle = containingFolder
-
         noteObject = {
             "title": noteTitle,
             "normalizedTitle": normalizedTitle,
@@ -98,9 +101,10 @@ for d in allNotes:
             "action": "showNote.sh",
             "actionArgument": "x-coredata://" + uuid + "/ICNote/p" + str(d[3]),
             "body": normalizedBody,
+            "children": map(lambda x: {"title": x}, bodyWithNewslines.split("\n")),
             "icon": "font-awesome:fa-sticky-note",
             "actionReturnsItems": False,
-            "actionRunsInBackground": True,
+            "actionRunsInBackground": False,
         }
 
         if containingFolder == "Recently Deleted":

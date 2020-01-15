@@ -2,42 +2,32 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleIconFile</key>
-	<string>font-awesome:fa-camera</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarScreenshots</string>
+	<string>com.roeybiran.LaunchBar.action.ClickTitleBar</string>
 	<key>CFBundleName</key>
-	<string>Screenshots</string>
-	<key>LBAbbreviation</key>
-	<string>ss</string>
-	<key>LBAssociatedApplication</key>
-	<string>com.apple.screenshot.launcher</string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
+	<string>Click Title Bar</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
+		<key>LBEmail</key>
+		<string>roeybiran@icloud.com</string>
+		<key>LBTwitter</key>
+		<string></string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
-	<key>LBRequiredApplication</key>
-	<string>com.apple.screenshot.launcher</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
-			<key>LBKeepWindowActive</key>
-			<true/>
 			<key>LBResultType</key>
 			<string>unknown</string>
-			<key>LBReturnsResult</key>
+			<key>LBRunInBackground</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>default.sh</string>
+			<string>default.scpt</string>
 		</dict>
 	</dict>
-	<key>NSHumanReadableCopyright</key>
-	<string>Roey Biran</string>
 </dict>
 </plist>
