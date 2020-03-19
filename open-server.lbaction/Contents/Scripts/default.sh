@@ -8,7 +8,7 @@ mounted_path="/Volumes/$(basename "${SERVER_PATH}")"
 for ((i = 0; i < 10; i++)); do
 	if ! [[ -d "${mounted_path}" ]]
 	then
-		open -g -j "${SERVER}"
+		open -g -j "${SERVER_PATH}"
 		sleep 3
 	else
 		break

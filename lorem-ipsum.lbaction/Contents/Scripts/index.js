@@ -31,7 +31,9 @@ const fakerDataTypes = [
   { title: "Words(s)", args: ["lorem", "word"] },
   { title: "Email Address(es)", args: ["internet", "email"] },
   { title: "Phone Number(s)", args: ["phone", "phoneNumberFormat"] },
-  { title: "Product Name(s)", args: ["commerce", "product"] }
+  { title: "Product Name(s)", args: ["commerce", "product"] },
+  { title: "Company Catchphrase(s)", args: ["company", "catchPhrase"] },
+  { title: "Avatar(s)", args: ["image", "avatar"] }
 ];
 
 const output = fakerDataTypes.map(fakeData => {

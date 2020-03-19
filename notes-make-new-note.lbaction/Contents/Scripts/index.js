@@ -12,20 +12,28 @@ if (!lb.env.isLiveFeedbackEnabled) {
 }
 
 input = process.argv[2].split("  ");
-let body;
-let title;
+let noteBody;
+let noteTitle;
+let displayTitle;
+let displayBody;
 if (input.length < 2) {
-  title = "Untitled Note";
-  [body] = input;
+  noteTitle = "Untitled Note";
+  [noteBody] = input;
+  displayTitle = `Title: ${noteTitle}`;
+  displayBody = `Body: ${noteBody}`;
 } else {
-  [title, body] = input;
+  [noteTitle, noteBody] = input;
+  displayTitle = `Title: ${noteTitle}`;
+  displayBody = `Body: ${noteBody}`;
 }
 
 console.log(
   JSON.stringify([
     {
-      title,
-      subtitle: body,
+      title: displayTitle,
+      subtitle: displayBody,
+      noteTitle,
+      noteBody,
       action: "choice.sh",
       actionRunInBackground: true,
       actionReturnsItems: false,

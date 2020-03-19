@@ -32,7 +32,7 @@
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>GetFiles</string>
+			<string>default.swift</string>
 		</dict>
 	</dict>
 </dict>

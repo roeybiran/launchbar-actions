@@ -12,18 +12,9 @@ const applescript = args => {
 };
 
 lb.hide();
-let input = process.argv[2];
-let title;
-let body;
-
-try {
-  input = JSON.parse(input);
-  title = input.title;
-  body = input.subtitle;
-} catch (error) {
-  title = "Untitled Note";
-  body = input;
-}
+const input = JSON.parse(process.argv[2]);
+const title = input.noteTitle;
+const body = input.noteBody;
 
 try {
   let script = `on run argv

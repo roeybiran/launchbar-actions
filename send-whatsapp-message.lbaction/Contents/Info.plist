@@ -3,39 +3,43 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>com.stclairsoft.DefaultFolderX5</string>
+	<string>desktop.WhatsApp</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarDfxGetSelection</string>
+	<string>com.roeybiran.LaunchBar.action.ContactsSendWhatsAppMessage</string>
 	<key>CFBundleName</key>
-	<string>Default Folder X: Selection</string>
+	<string>Contacts: Send WhatsApp Message</string>
 	<key>LBAssociatedApplication</key>
-	<string>com.stclairsoft.DefaultFolderX5</string>
+	<string>desktop.WhatsApp</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
+		<string>roeybiran@icloud.com</string>
+		<key>LBTwitter</key>
 		<string></string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
-	<string>com.stclairsoft.DefaultFolderX5</string>
+	<string>desktop.WhatsApp</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
-			<key>LBKeepWindowActive</key>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
+			<key>LBRequiresArgument</key>
 			<true/>
 			<key>LBResultType</key>
-			<string>path</string>
-			<key>LBReturnsResult</key>
+			<string>unknown</string>
+			<key>LBRunInBackground</key>
 			<true/>
 			<key>LBScriptName</key>
 			<string>default.sh</string>
 		</dict>
 	</dict>
-	<key>NSHumanReadableCopyright</key>
-	<string>Roey Biran</string>
 </dict>
 </plist>

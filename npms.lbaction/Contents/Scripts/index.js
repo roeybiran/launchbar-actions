@@ -28,17 +28,20 @@ const getJSON = require("@roeybiran/launchbar-get-json");
 
   let data;
   const cachedOutput = cache.get(input);
-
-  if (!cachedOutput) {
-    data = await getJSON("https://api.npms.io/v2/search", {
-      query: {
-        q,
-        size: 20
-      }
-    });
-    cache.set(input, data, { maxAge: 604800000 });
-  } else {
-    data = cachedOutput;
+  try {
+    if (!cachedOutput) {
+      data = await getJSON("https://api.npms.io/v2/search", {
+        query: {
+          q,
+          size: 20
+        }
+      });
+      cache.set(input, data, { maxAge: 604800000 });
+    } else {
+      data = cachedOutput;
+    }
+  } catch (error) {
+    return console.log(error);
   }
 
   const output = data.results

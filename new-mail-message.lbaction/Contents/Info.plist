@@ -7,7 +7,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.LaunchBar.action.NewMailMessage</string>
 	<key>CFBundleName</key>
-	<string>New Mail Message</string>
+	<string>Contacts: New Mail Message</string>
 	<key>LBAssociatedApplication</key>
 	<string>com.apple.mail</string>
 	<key>LBDescription</key>

@@ -104,7 +104,7 @@ for d in allNotes:
             "children": map(lambda x: {"title": x}, bodyWithNewslines.split("\n")),
             "icon": "font-awesome:fa-sticky-note",
             "actionReturnsItems": False,
-            "actionRunsInBackground": False,
+            "actionRunsInBackground": True
         }
 
         if containingFolder == "Recently Deleted":
@@ -132,7 +132,7 @@ for index, name in enumerate(folderNames):
         + str(folderCodes[index]),
         "icon": "font-awesome:fa-folder-o",
         "actionReturnsItems": False,
-        "actionRunsInBackground": True,
+        "actionRunsInBackground": True
     }
     if name.encode(encoding="UTF-8") == "Recently Deleted":
         trashFolder = folderObject
@@ -144,7 +144,7 @@ foldersList.append(trashFolder)
 if not SHOW_TRASHED:
     deletedNotes = []
 
-# if spacebar is pressed, action enters live feedback mode, and there's input:
+# if spacebar is pressed, action enters live feedback mode, and the user has typed something:
 # don't show folders and match input against note bodies
 if len(sys.argv) > 1:
     output = output + deletedNotes

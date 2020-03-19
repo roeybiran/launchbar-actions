@@ -8,8 +8,6 @@
 	<string>com.roeybiran.LaunchBarDfxSaveName</string>
 	<key>CFBundleName</key>
 	<string>Default Folder X: Save Name</string>
-	<key>LBAbbreviation</key>
-	<string>dfx</string>
 	<key>LBAssociatedApplication</key>
 	<string>com.stclairsoft.DefaultFolderX5</string>
 	<key>LBDescription</key>

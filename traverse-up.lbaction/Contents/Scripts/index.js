@@ -14,8 +14,8 @@ const fw = require("finder-windows");
     // remove trailing '/'. split by '/'
     const splittedPath = inputPath.replace(/\/$/, "").split("/");
     splittedPath.forEach((pathPart, index) => {
-      // skip sent folder
-      if (index === splittedPath.length - 1) return;
+      // comment to include the sent folder
+      // if (index === splittedPath.length - 1) return;
       pathParts.push(pathPart);
       let reassembledPath = pathParts.join("/");
       if (reassembledPath === "") {

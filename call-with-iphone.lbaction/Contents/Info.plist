@@ -7,7 +7,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.LaunchBar.action.CallWithIPhone</string>
 	<key>CFBundleName</key>
-	<string>Call with iPhone</string>
+	<string>Contacts: Call with iPhone</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
