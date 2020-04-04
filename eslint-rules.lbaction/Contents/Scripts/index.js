@@ -18,8 +18,8 @@ const getJSON = require("@roeybiran/launchbar-get-json");
   const results = data.results[0].hits.map(result => {
     if (!result.hierarchy.lvl1) {
       return {
-        title: result.anchor,
-        subtitle: result.hierarchy.lvl0,
+        title: result.hierarchy.lvl0,
+        // title: result.anchor,
         url: result.url,
         icon: "icon.png"
       };

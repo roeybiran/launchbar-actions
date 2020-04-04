@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Juration.js - a natural language date parser/stringifier</title>
+<link rel="stylesheet" href="normalise.css"></link>
+<style>
+  body {
+    width: 751.538px;
+    margin: 0 auto;
+    font-family: sans-serif;
+    line-height: 1.4;
+  }
+  .result {
+    margin: 0.25em 0;
+    padding: 0 4px;
+    display: inline-block;
+  }
+  .error {
+    background: #FBE3E4;
+    color: #8A1F11;
+  }
+  .success {
+    background: #E6EFC2;
+    color: #264409;
+  }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
+<script src="throttle-debounce.jquery.min.js"></script>
+<script src="../juration.js"></script>
+<!--<script src="../languages/it-IT.js"></script>-->
+<script>
+  (function() {
+    function parseString() {
+      try {
+        var parsed = juration.parse($(this).val());
+        $('#parse-result')
+          .removeClass('error')
+          .addClass('success')
+          .text('Result: ' + parsed);
+      }
+      catch(e) {
+        $('#parse-result')
+          .removeClass('success')
+          .addClass('error')
+          .text(e);
+      }
+    }
+    
+    function stringifySeconds() {
+      try {
+        var stringified = juration.stringify($(this).val(), { format: $('[name=format]').val() });
+        $('#stringify-result')
+          .removeClass('error')
+          .addClass('success')
+          .text('Result: ' + stringified);
+      }
+      catch(e) {
+        $('#stringify-result')
+          .removeClass('success')
+          .addClass('error')
+          .text(e);
+      }
+    }
+    $(function(){
+      $('[name=parser]').keyup( $.debounce(250, parseString) );
+      $('[name=stringifier]').keyup( $.debounce(250, stringifySeconds) );
+      $('[name=format]').change(function() {
+        if($('[name=stringifier]').val()) {
+          $('[name=stringifier]').trigger('keyup');
+        }
+      });
+    });
+  })();
+</script>
+</head>
+<body>
+  <h1>Juration.js</h1>
+  <p>Juration.js is a natural language time range parser written in javascript. It can also convert durations (in seconds) into human readable strings.</p>
+  
+  <h2>Try it</h2>
+  <div style="margin-bottom: 1em">
+    <div>
+      <label for="parser">Parsing a string:</label>
+      <input name="parser" type="text" placeholder="e.g. 5mins 20secs" />
+    </div>
+    <div class="result" id="parse-result"></div>
+  </div>
+  <div>
+    <div>
+      <label for="stringifier">Stringify seconds:</label>
+      <input name="stringifier" type="text" placeholder="e.g. 60" />
+      <select name="format">
+        <option value="short">Choose a format</option>
+        <option value="chrono">Chrono</option>
+        <option value="micro">Micro</option>
+        <option value="short">Short (default)</option>
+        <option value="long">Long</option>
+      </select>
+    </div>
+    <div class="result" id="stringify-result"></div>
+  </div>
+  
+  <p><a href="https://github.com/domchristie/juration">Source and documentation on GitHub</a></p>
+  <p><small>Juration is copyright &copy; 2011 <a href="http://domchristie.co.uk">Dom Christie</a> and is released under the MIT licence.</small></p>
+</body>
+</html>
