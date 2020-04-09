@@ -30,6 +30,8 @@ const launchd = async mode => {
 
     if (input.title === "Toggle") {
       dnd.toggle();
+      const plistObj = { Label: label };
+      await writePlist(PLIST_FILE, plistObj);
     } else if (input === "stop") {
       await dnd.disable();
       await lb.displayNotification({
