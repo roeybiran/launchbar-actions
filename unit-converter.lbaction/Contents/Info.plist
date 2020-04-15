@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>icon.png</string>
+	<string>font-awesome:fa-calculator</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.UnitConverter</string>
 	<key>CFBundleName</key>

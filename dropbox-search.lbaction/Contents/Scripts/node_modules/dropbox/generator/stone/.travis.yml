@@ -1,0 +1,24 @@
+language: python
+
+python:
+    - 2.7
+    - 3.4
+    - 3.5
+    - 3.6
+    - pypy
+    - pypy3
+
+install:
+    - pip install tox-travis
+
+matrix:
+    include:
+        # Workaround to enable Python 3.7: https://github.com/travis-ci/travis-ci/issues/9815
+        - python: 3.7
+          dist: xenial
+          sudo: true
+    # Add entries here to ignore failures on certain configurations that are not caused by our code.
+    allow_failures:
+
+script:
+    - tox

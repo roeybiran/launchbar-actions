@@ -1,6 +1,5 @@
 "use strict";
 
-const path = require("path");
 const cache = require("@roeybiran/launchbar-cache");
 const getJSON = require("@roeybiran/launchbar-get-json");
 const conf = require("@roeybiran/launchbar-config");
@@ -46,7 +45,7 @@ const currenciesList = [
 const converter = async (amount, sourceCurrencyArg, targetCurrencyArg) => {
   // custom ordering/favorites
   const sourceCurrency = sourceCurrencyArg.toUpperCase();
-  const targetCurrency = targetCurrencyArg;
+  const targetCurrency = targetCurrencyArg.toUpperCase();
   let favoriteCurrencies = conf.get("favoriteCurrencies");
   if (!favoriteCurrencies) {
     favoriteCurrencies = ["ILS", "USD", "GBP", "EUR", "JPY", "CAD", "AUD"];

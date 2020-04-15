@@ -11,4 +11,6 @@ convert()
     unitsList.push(...arr);
   });
 
-console.log(unitsList);
+unitsList.forEach(x => {
+  console.log(x);
+});
