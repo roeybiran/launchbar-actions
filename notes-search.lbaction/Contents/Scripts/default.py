@@ -1,5 +1,4 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
 import sys
 import sqlite3
@@ -7,151 +6,232 @@ import zlib
 import re
 import os
 import json
+import operator
 
-SHOW_TRASHED = True
-SORT_ID = 2
-SORT_REVERSE = SORT_ID == 2
+# a LaunchBar port of https://github.com/sballin/alfred-search-notes-app/
+SORTING_KEYS = {
+    "note": 3,
+    "folder": 2,
+    "trash_folder": 1,
+    "deleted_note": 0,
+}
 
-output = []
 
-try:
-    # Read Notes database and get contents
-    # Open notes database
-    databaseConnection = sqlite3.connect(
-        os.path.expanduser(
-            "~/Library/Group Containers/group.com.apple.notes/NoteStore.sqlite"
-        )
-    )
-    cursor = databaseConnection.cursor()
+def normalizedString(string):
+    return re.sub(r"\W", "", string).lower()
 
-    # Get uuid string required in full id
-    cursor.execute("SELECT z_uuid FROM z_metadata")
-    uuid = str(cursor.fetchone()[0])
 
-    # Get tuples of note title, folder code, modification date, & id#
-    cursor.execute(
-        """SELECT t1.ztitle1,
-                    t1.zfolder,
-                    t1.zmodificationdate1,
-                    t1.z_pk,
-                    t1.znotedata,
-                    t2.zdata,
-                    t2.z_pk
-                    FROM ziccloudsyncingobject AS t1
-                    INNER JOIN zicnotedata AS t2
-                    ON t1.znotedata = t2.z_pk
-                    WHERE t1.ztitle1 IS NOT NULL
-                    AND t1.zmarkedfordeletion IS NOT 1"""
-    )
-
-    # Get data and check for d[5] because a New Note with no body can trip us up
-    allNotes = [noteData for noteData in cursor.fetchall() if noteData[5]]
-    allNotes = sorted(allNotes, key=lambda d: d[SORT_ID], reverse=SORT_REVERSE)
-
-    # Get ordered lists of folder codes and folder names
-    cursor.execute(
-        """SELECT z_pk,ztitle2 FROM ziccloudsyncingobject
-                    WHERE ztitle2 IS NOT NULL
-                    AND zmarkedfordeletion IS NOT 1"""
-    )
-    folderCodes, folderNames = zip(*cursor.fetchall())
-    databaseConnection.close()
-except Exception as e:
-    print "Database problem: {}".format(e)
-    sys.exit()
-
-deletedNotes = []
-
-# getting the notes
-for d in allNotes:
+def extractNoteBody(data):
+    # Decompress
     try:
-        containingFolder = folderNames[folderCodes.index(d[1])]
-        noteTitle = d[0]
-        normalizedTitle = re.sub(r"\W", "", noteTitle.encode(encoding="utf-8")).lower()
-        # getting the note's body
-        try:
-            noteBodyData = d[5]
-            # Strip weird characters, title & weird header artifacts,
-            # and replace line breaks with spaces
-            noteBodyData = zlib.decompress(noteBodyData, 16 + zlib.MAX_WBITS).split(
-                "\x1a\x10", 1
-            )[0]
-            # Reference: https://github.com/threeplanetssoftware/apple_cloud_notes_parser
-            # Find magic hex and remove it
-            index = noteBodyData.index("\x08\x00\x10\x00\x1a")
-            index = noteBodyData.index("\x12", index)
-            # Read from the next byte after magic index
-            noteBodyData = noteBodyData[index + 1 :]
-            noteBodyData = unicode(noteBodyData, "utf8", errors="ignore")
-            bodyWithNewslines = noteBodyData
-            body = re.sub("^.*\n|\n", " ", noteBodyData)
-            normalizedBody = re.sub(r"\W", "", body.encode(encoding="utf-8")).lower()
-        except Exception as e:
-            (
-                body,
-                bodyWithNewslines,
-                normalizedBody,
-            ) = "Note body could not be extracted: {}".format(e)
-
-        subtitle = containingFolder
-        noteObject = {
-            "title": noteTitle,
-            "normalizedTitle": normalizedTitle,
-            "subtitle": subtitle,
-            "action": "showNote.sh",
-            "actionArgument": "x-coredata://" + uuid + "/ICNote/p" + str(d[3]),
-            "body": normalizedBody,
-            "children": map(lambda x: {"title": x}, bodyWithNewslines.split("\n")),
-            "icon": "font-awesome:fa-sticky-note",
-            "actionReturnsItems": False,
-            "actionRunsInBackground": True
-        }
-
-        if containingFolder == "Recently Deleted":
-            noteObject["icon"] = "font-awesome:fa-trash-o"
-            deletedNotes.append(noteObject)
-        else:
-            output.append(noteObject)
-
-    except Exception as e:
-        output.append(
-            {"title": "Error getting note, name: {}".format(d[0]), "subtitle": str(e)}
-        )
-
-foldersList = []
-
-# getting the folders
-for index, name in enumerate(folderNames):
-    folderObject = {
-        "title": name,
-        "subtitle": "Notes Folder",
-        "action": "showNotesFolder.sh",
-        "actionArgument": "x-coredata://"
-        + uuid
-        + "/ICFolder/p"
-        + str(folderCodes[index]),
-        "icon": "font-awesome:fa-folder-o",
-        "actionReturnsItems": False,
-        "actionRunsInBackground": True
-    }
-    if name.encode(encoding="UTF-8") == "Recently Deleted":
-        trashFolder = folderObject
+        data = zlib.decompress(data,
+                               16 + zlib.MAX_WBITS).split(b'\x1a\x10', 1)[0]
+    except zlib.error as e:
+        return 'Encrypted note'
+    # Find magic hex and remove it
+    # Source: https://github.com/threeplanetssoftware/apple_cloud_notes_parser
+    index = data.index(b'\x08\x00\x10\x00\x1a')
+    index = data.index(b'\x12', index)  # starting from index found previously
+    # Read from the next byte after magic index
+    data = data[index + 1:]
+    # Convert from bytes object to string
+    text = data.decode('utf-8', errors='ignore')
+    # Remove title
+    lines = text.split('\n')
+    if len(lines) > 1:
+        return '\n'.join(lines[1:])
     else:
-        foldersList.append(folderObject)
-# make sure the trash folder is at the end of the folders list
-foldersList.append(trashFolder)
+        return ''
 
-if not SHOW_TRASHED:
-    deletedNotes = []
 
-# if spacebar is pressed, action enters live feedback mode, and the user has typed something:
-# don't show folders and match input against note bodies
-if len(sys.argv) > 1:
-    output = output + deletedNotes
-    lbInput = re.sub(r"\W", "", sys.argv[1]).lower()
-    output = [a for a in output if re.search(lbInput, a["body"])]
-else:
-    # show folders
-    output = output + foldersList + deletedNotes
+def fixStringEnds(text):
+    """
+    Shortening the note body for a one-line preview can chop two-byte unicode
+    characters in half. This method fixes that.
+    """
+    # This method can chop off the last character of a short note, so add a dummy
+    text = text + '.'
+    # Source: https://stackoverflow.com/a/30487177
+    pos = len(text) - 1
+    while pos > -1 and ord(text[pos]) & 0xC0 == 0x80:
+        # Character at pos is a continuation byte (bit 7 set, bit 6 not)
+        pos -= 1
+    return text[:pos]
 
-print (json.dumps(output, indent=2))
+
+def newlinesToSpace(text):
+    """
+    Replace any number of newlines with a single space character.
+    """
+    return ' '.join(text.replace('\n', ' ').split())
+
+
+def readDatabase():
+    # Open notes database read-only
+    home = os.path.expanduser('~')
+    db = home + '/Library/Group Containers/group.com.apple.notes/NoteStore.sqlite'
+    conn = sqlite3.connect('file:' + db + '?mode=ro', uri=True)
+    c = conn.cursor()
+
+    # Get uuid string required in x-coredata URL
+    c.execute('SELECT z_uuid FROM z_metadata')
+    uuid = str(c.fetchone()[0])
+
+    # Get note rows
+    c.execute("""SELECT c.ztitle1,            -- note title (str)
+                        c.zfolder,            -- folder code (int)
+                        c.zmodificationdate1, -- modification date (float)
+                        c.z_pk,               -- note id for x-coredata URL (int)
+                        n.zdata               -- note body text (str)
+                 FROM ziccloudsyncingobject AS c
+                 INNER JOIN zicnotedata AS n
+                 ON c.znotedata = n.z_pk -- note id (int) distinct from x-coredata one
+                 WHERE c.ztitle1 IS NOT NULL AND
+                       c.zfolder IS NOT NULL AND
+                       c.zmodificationdate1 IS NOT NULL AND
+                       c.z_pk IS NOT NULL AND
+                       n.zdata IS NOT NULL AND
+                       c.zmarkedfordeletion IS NOT 1""")
+    dbItems = c.fetchall()
+
+    # Get folder rows
+    c.execute("""SELECT z_pk,   -- folder code
+                        ztitle2 -- folder name
+                 FROM ziccloudsyncingobject
+                 WHERE ztitle2 IS NOT NULL AND
+                       zmarkedfordeletion IS NOT 1""")
+    folders = {code: name for code, name in c.fetchall()}
+
+    conn.close()
+    return uuid, dbItems, folders
+
+
+def getNotes():
+    # Read Notes database and get contents
+    uuid, dbItems, folders = readDatabase()
+
+    items = []
+
+    for i, d in enumerate(dbItems):
+        title, folderCode, modDate, noteId, bodyData = d
+        folderName = folders[folderCode]
+        modDate = modDate
+        kind = "note"
+        icon = 'font-awesome:fa-sticky-note'
+        if folderName == 'Recently Deleted':
+            if SHOW_DELETED_NOTES == 1:
+                kind = "deleted_note"
+                icon = "font-awesome:fa-trash"
+            else:
+                continue
+
+        try:
+            body = extractNoteBody(bodyData)
+        except:
+            body = ''
+
+        try:
+            # Replace any number of \ns with a single space for note body preview
+            bodyPreview = newlinesToSpace(body[:100])
+        except:
+            bodyPreview = ''
+
+        if bodyPreview:
+            subtitle = folderName + ' | ' + bodyPreview
+        else:
+            subtitle = folderName
+
+        try:
+            subtitle = fixStringEnds(subtitle)
+        except:
+            subtitle = folderName
+
+        try:
+            # displayBody = map(lambda x: {"title": x}, body.split("\n"))
+            displayBody = [{"title": x} for x in body.split("\n")]
+        except:
+            displayBody = None
+
+        note = {
+            'title':
+            title,
+            'subtitle':
+            subtitle,
+            'action':
+            "showNote.sh",
+            'actionArgument':
+            'x-coredata://{}/ICNote/p{}'.format(uuid, str(noteId)),
+            'icon':
+            icon,
+            'actionReturnsItems':
+            False,
+            'actionRunsInBackground':
+            True,
+            'normalizedBody':
+            normalizedString(body),
+            'modDate':
+            modDate,
+            'children':
+            displayBody,
+            'kind':
+            SORTING_KEYS[kind]
+        }
+        items.append(note)
+
+    for folderCode in folders:
+        title = folders[folderCode]
+        kind = "folder"
+        if title == 'Recently Deleted':
+            kind = "trash_folder"
+        folder = {
+            'title':
+            title,
+            'subtitle':
+            "Folder",
+            'action':
+            "showNotesFolder.sh",
+            'actionArgument':
+            'x-coredata://{}/ICFolder/p{}'.format(uuid, str(folderCode)),
+            'icon':
+            'font-awesome:fa-folder-o',
+            'actionReturnsItems':
+            False,
+            'actionRunsInBackground':
+            True,
+            'normalizedBody':
+            None,
+            'modDate':
+            0,
+            'children':
+            None,
+            'kind':
+            SORTING_KEYS[kind]
+        }
+        items.append(folder)
+
+    return items
+
+
+if __name__ == '__main__':
+    SORT_BY_DATE = 1
+    SHOW_DELETED_NOTES = 1
+    # SHOW_FOLDERS
+    # SHOW_TRASH_FOLDERS
+    # SORT_BY_TITLE
+    items = getNotes()
+    # items = sorted(items, key=lambda d: d['modDate'], reverse=True)
+    items = sorted(items,
+                   key=operator.itemgetter("kind", "modDate"),
+                   reverse=True)
+
+    if len(sys.argv) > 1:
+        input = normalizedString(sys.argv[1])
+        items = [
+            a for a in items
+            if a["normalizedBody"] and re.search(input, a["normalizedBody"])
+        ]
+
+    print(json.dumps(items, indent=2, ensure_ascii=True))
+
+    # if spacebar is pressed, action enters live feedback mode, and the user has typed something:
+    # don't show folders and match input against note bodies
