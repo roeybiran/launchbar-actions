@@ -8,12 +8,18 @@
 	<string>com.roeybiran.LaunchBarTextUppercase</string>
 	<key>CFBundleName</key>
 	<string>Text: UPPERCASE</string>
+	<key>LBArgument</key>
+	<string>text</string>
 	<key>LBDescription</key>
 	<dict>
+		<key>LBArgument</key>
+		<string>text</string>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
 		<string></string>
+		<key>LBSummary</key>
+		<string>Uppercases every character in the passed-in text and pastes it in the frontmost application.</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
@@ -25,13 +31,11 @@
 			<array>
 				<string>string</string>
 			</array>
-			<key>LBKeepWindowActive</key>
-			<true/>
 			<key>LBRequiresArgument</key>
 			<true/>
 			<key>LBResultType</key>
 			<string>string</string>
-			<key>LBReturnsResult</key>
+			<key>LBRunInBackground</key>
 			<true/>
 			<key>LBScriptName</key>
 			<string>default.sh</string>

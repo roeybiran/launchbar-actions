@@ -14,9 +14,14 @@ const dfx = require("default-folder-x-node");
     }
   });
 
-  lbOutput = lbOutput.map(item => {
+  lbOutput = lbOutput.map((item, idx) => {
+    let badge = "Selection";
+    if (idx === 0) {
+      badge = "Current Folder";
+    }
     return {
-      path: item
+      path: item,
+      badge
     };
   });
   console.log(JSON.stringify(lbOutput));

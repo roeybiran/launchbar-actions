@@ -8,8 +8,6 @@
 	<string>com.roeybiran.LaunchBarTextTildify</string>
 	<key>CFBundleName</key>
 	<string>Text: Tildify</string>
-	<key>LBAbbreviation</key>
-	<string>upcc</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
@@ -27,13 +25,11 @@
 			<array>
 				<string>string</string>
 			</array>
-			<key>LBKeepWindowActive</key>
-			<true/>
 			<key>LBRequiresArgument</key>
 			<true/>
 			<key>LBResultType</key>
 			<string>string</string>
-			<key>LBReturnsResult</key>
+			<key>LBRunInBackground</key>
 			<true/>
 			<key>LBScriptName</key>
 			<string>default.sh</string>

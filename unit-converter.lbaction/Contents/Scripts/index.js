@@ -2,13 +2,13 @@
 
 const units = require("./units");
 const currencies = require("./currencies");
-const helpers = require("./helpers");
+const { sanitized } = require("./helpers");
 
 const allUnits = units.unitsList.map(x => {
-  return helpers.sanitized(x);
+  return sanitized(x);
 });
 const allCurrencies = currencies.currenciesList.map(x => {
-  return helpers.sanitized(x);
+  return sanitized(x);
 });
 
 const input = process.argv[2] || process.exit();
@@ -34,7 +34,7 @@ if (parsedInput.length === 1) {
 }
 
 const amount = Number(parsedInput[0]);
-const unit = parsedInput[1];
+const unit = sanitized(parsedInput[1]);
 
 let targetUnit;
 if (parsedInput.length === 3) {

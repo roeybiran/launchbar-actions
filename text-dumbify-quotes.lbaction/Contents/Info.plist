@@ -8,8 +8,6 @@
 	<string>com.roeybiran.LaunchBarTextDumbifyQuotes</string>
 	<key>CFBundleName</key>
 	<string>Text: Dumbify Quotes</string>
-	<key>LBAbbreviation</key>
-	<string>upcc</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>

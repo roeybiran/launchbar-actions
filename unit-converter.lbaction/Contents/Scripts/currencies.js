@@ -45,7 +45,10 @@ const currenciesList = [
 const converter = async (amount, sourceCurrencyArg, targetCurrencyArg) => {
   // custom ordering/favorites
   const sourceCurrency = sourceCurrencyArg.toUpperCase();
-  const targetCurrency = targetCurrencyArg.toUpperCase();
+  let targetCurrency = targetCurrencyArg;
+  if (targetCurrency) {
+    targetCurrency = targetCurrencyArg.toUpperCase();
+  }
   let favoriteCurrencies = conf.get("favoriteCurrencies");
   if (!favoriteCurrencies) {
     favoriteCurrencies = ["ILS", "USD", "GBP", "EUR", "JPY", "CAD", "AUD"];

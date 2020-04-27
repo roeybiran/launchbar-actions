@@ -3,42 +3,34 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>StringTransformationTemplate.pdf</string>
+	<string>com.apple.systempreferences</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.TextLowercase</string>
+	<string>com.roeybiran.LaunchBar.action.system-preferences-keyboard-shortcuts-app-shortcutsCopy</string>
 	<key>CFBundleName</key>
-	<string>Text: lowercase</string>
-	<key>LBArgument</key>
-	<string>text</string>
+	<string>System Preferences: Login Items</string>
+	<key>LBAssociatedApplication</key>
+	<string>com.apple.systempreferences</string>
+	<key>LBDebugLogEnabled</key>
+	<true/>
 	<key>LBDescription</key>
 	<dict>
-		<key>LBArgument</key>
-		<string>text</string>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
-		<key>LBEmail</key>
-		<string></string>
-		<key>LBSummary</key>
-		<string>Lowercases every character in the passed-in text and pastes it in the frontmost application.</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
+	<key>LBRequiredApplication</key>
+	<string>com.apple.systempreferences</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
-			<key>LBAcceptedArgumentTypes</key>
-			<array>
-				<string>string</string>
-			</array>
-			<key>LBRequiresArgument</key>
-			<true/>
 			<key>LBResultType</key>
-			<string>string</string>
+			<string>unknown</string>
 			<key>LBRunInBackground</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>default.sh</string>
+			<string>default.scpt</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>

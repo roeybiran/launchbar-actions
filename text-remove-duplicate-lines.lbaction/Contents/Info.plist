@@ -8,8 +8,6 @@
 	<string>com.roeybiran.LaunchBarTextRemoveDuplicateLines</string>
 	<key>CFBundleName</key>
 	<string>Text: Remove Duplicate Lines</string>
-	<key>LBAbbreviation</key>
-	<string>upcc</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>

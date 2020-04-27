@@ -30,11 +30,11 @@
 			<key>LBKeepWindowActive</key>
 			<true/>
 			<key>LBResultType</key>
-			<string>unknown</string>
+			<string>string</string>
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>default.scpt</string>
+			<string>default.sh</string>
 		</dict>
 	</dict>
 </dict>

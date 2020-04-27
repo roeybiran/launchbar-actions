@@ -7,7 +7,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.LaunchBarSystemPreferencesAnchors</string>
 	<key>CFBundleName</key>
-	<string>System Preferences: Anchors</string>
+	<string>System Preferences Anchors</string>
 	<key>LBAssociatedApplication</key>
 	<string></string>
 	<key>LBDescription</key>

@@ -5,21 +5,21 @@
 	<key>CFBundleIconFile</key>
 	<string>StringTransformationTemplate.pdf</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.TextLowercase</string>
+	<string>com.roeybiran.LaunchBar.action.TextTrimSpacesRemoveBlankLines</string>
 	<key>CFBundleName</key>
-	<string>Text: lowercase</string>
+	<string>Text: Trim Spaces + Remove Blank Lines</string>
 	<key>LBArgument</key>
-	<string>text</string>
+	<string>text files, text</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBArgument</key>
-		<string>text</string>
+		<string>text files, text</string>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
 		<string></string>
 		<key>LBSummary</key>
-		<string>Lowercases every character in the passed-in text and pastes it in the frontmost application.</string>
+		<string>- Replaces multiple spaces (non-leading, to respect indentation) with one. - For each line, removes trailing spaces. - For input as a whole, Removes the final trailing newline, if exists.</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>

@@ -28,7 +28,7 @@
 			<key>LBKeepWindowActive</key>
 			<true/>
 			<key>LBResultType</key>
-			<string>path</string>
+			<string>unknown</string>
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>

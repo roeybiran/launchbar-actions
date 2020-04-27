@@ -8,8 +8,6 @@
 	<string>com.roeybiran.LaunchBarTextSmartifyQuotes</string>
 	<key>CFBundleName</key>
 	<string>Text: Smartiy Quotes</string>
-	<key>LBAbbreviation</key>
-	<string>upcc</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
