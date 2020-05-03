@@ -15,21 +15,16 @@ const input = process.argv[2] || process.exit();
 
 const parsedInput = input
   .toLowerCase()
-  .replace("nis", "ils") // special override
-  .split(/([\d.]+|[\w/-]+)/)
+  .split(/\s+/)
   .filter(x => {
     return !/^\s*$/.test(x) && !["to", "in"].includes(x);
   })
   .map(x => {
-    return x.replace(/[\W_]+/, "");
+    return x.replace(/[/-]+/, "");
   });
 
-if (parsedInput.length > 3) {
-  console.log("Couldn't parse input");
-  process.exit();
-}
-
-if (parsedInput.length === 1) {
+if (parsedInput.length > 3 || parsedInput.length === 1) {
+  console.log(`Couldn't parse input: ${parsedInput}`);
   process.exit();
 }
 
