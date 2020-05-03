@@ -4,11 +4,6 @@ const got = require("got");
 const config = require("@roeybiran/launchbar-config");
 
 (async () => {
-  const API_KEY = config.get("API_KEY");
-  if (!API_KEY) {
-    console.log("Error: OMDb API key missing");
-    process.exit();
-  }
   let input = process.argv[2] || process.exit();
   let output;
   if (input.startsWith("?")) {
@@ -20,6 +15,11 @@ const config = require("@roeybiran/launchbar-config");
       }
     ];
   } else {
+    const API_KEY = config.get("API_KEY");
+    if (!API_KEY) {
+      console.log("Error: OMDb API key missing");
+      process.exit();
+    }
     let response;
     try {
       const request = await got("http://www.omdbapi.com/", {
