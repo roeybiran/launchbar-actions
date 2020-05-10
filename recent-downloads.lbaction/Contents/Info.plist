@@ -8,8 +8,6 @@
 	<string>com.roeybiran.LaunchBarRecentDownloads</string>
 	<key>CFBundleName</key>
 	<string>Recent Downloads</string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>

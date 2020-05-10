@@ -12,8 +12,6 @@
 	<string>qaa</string>
 	<key>LBAssociatedApplication</key>
 	<string></string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>

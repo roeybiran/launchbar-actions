@@ -10,8 +10,6 @@
 	<string>iTunes: Like Current Track</string>
 	<key>LBAssociatedApplication</key>
 	<string>com.apple.iTunes</string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>

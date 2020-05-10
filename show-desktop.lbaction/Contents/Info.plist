@@ -10,8 +10,6 @@
 	<string>Show Desktop</string>
 	<key>LBAssociatedApplication</key>
 	<string>org.hammerspoon.Hammerspoon</string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>

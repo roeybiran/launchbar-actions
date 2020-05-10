@@ -10,8 +10,6 @@
 	<string>Notes: Make New Note</string>
 	<key>LBAssociatedApplication</key>
 	<string>com.apple.Notes</string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>

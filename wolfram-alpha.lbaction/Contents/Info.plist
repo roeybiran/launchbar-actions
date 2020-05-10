@@ -10,8 +10,6 @@
 	<string>WolframAlpha</string>
 	<key>LBAbbreviation</key>
 	<string></string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>

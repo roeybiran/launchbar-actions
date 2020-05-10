@@ -1,3 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
-/usr/local/bin/node index.js "${@}"
+lines=()
+for line in "${@}"; do
+	output="$(printf "%s\n" "${line}" | sed -E 's/״|”|“/"/g' | sed -E "s/’/'/g")"
+	lines+=("${output}")
+done
+
+if [[ "${LB_OPTION_COMMAND_KEY}" == "1" ]]; then
+	echo "${lines[@]}"
+	exit
+fi
+osascript - "${lines[@]}" <<-EOF
+	on run argv
+		tell app "LaunchBar"
+			hide
+			paste in frontmost application (item 1 of argv)
+		end tell
+	end run
+EOF

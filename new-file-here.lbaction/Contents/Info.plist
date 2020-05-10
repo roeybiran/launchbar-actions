@@ -6,8 +6,6 @@
 	<string>com.roeybiran.LaunchBarNewFileHere</string>
 	<key>CFBundleName</key>
 	<string>New File Here</string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>

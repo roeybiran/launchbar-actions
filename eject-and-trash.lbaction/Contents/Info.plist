@@ -6,8 +6,6 @@
 	<string>com.roeybiran.LaunchBarEjectAndTrash</string>
 	<key>CFBundleName</key>
 	<string>Eject &amp; Trash</string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>

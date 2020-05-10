@@ -6,8 +6,6 @@
 	<string>com.roeybiran.LaunchBarBrowseCurrentFolder</string>
 	<key>CFBundleName</key>
 	<string>Browse Current Folder</string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>

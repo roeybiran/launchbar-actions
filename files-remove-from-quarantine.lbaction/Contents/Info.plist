@@ -6,8 +6,6 @@
 	<string>com.roeybiran.LaunchBarFilesRemoveFromQuarantine</string>
 	<key>CFBundleName</key>
 	<string>Remove from Quarantine</string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>

@@ -10,8 +10,6 @@
 	<string>Scan Document</string>
 	<key>LBAssociatedApplication</key>
 	<string>com.apple.finder</string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>

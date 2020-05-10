@@ -10,8 +10,6 @@
 	<string>Amphetamine Control</string>
 	<key>LBAssociatedApplication</key>
 	<string>com.if.Amphetamine</string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
