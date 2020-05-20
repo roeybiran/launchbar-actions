@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>font-awesome:fa-dropbox</string>
+	<string>com.getdropbox.dropbox</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.LaunchBarDropbox</string>
 	<key>CFBundleName</key>
-	<string>Dropbox Search</string>
+	<string>Dropbox: Search</string>
 	<key>LBAssociatedApplication</key>
 	<string></string>
 	<key>LBDescription</key>

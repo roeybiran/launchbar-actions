@@ -7,7 +7,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.LaunchBarDropboxMenubar</string>
 	<key>CFBundleName</key>
-	<string>Dropbox Menubar</string>
+	<string>Dropbox: Menubar</string>
 	<key>LBAssociatedApplication</key>
 	<string>com.getdropbox.dropbox</string>
 	<key>LBDescription</key>

@@ -15,7 +15,10 @@ struct FoundPath: Codable {
 
 let encoder = JSONEncoder()
 let arguments = CommandLine.arguments.dropFirst()
-//let arguments = ["/Users/roey/Desktop/folderbrowsertest/"]
+if arguments.count == 0 {
+    print("No paths specified")
+    exit(EXIT_SUCCESS)
+}
 let resourceKeys = [URLResourceKey.nameKey, .isDirectoryKey, .isPackageKey, .isAliasFileKey, .isSymbolicLinkKey, .pathKey, .parentDirectoryURLKey]
 let ignoredFileNames = [".DS_Store", ".localized"]
 

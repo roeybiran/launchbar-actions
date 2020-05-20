@@ -8,8 +8,6 @@
 	<string>com.roeybiran.LaunchBarFinderCopyWindowStopProgress</string>
 	<key>CFBundleName</key>
 	<string>Copy Window: Stop Progress</string>
-	<key>LBAbbreviation</key>
-	<string>cstp</string>
 	<key>LBAssociatedApplication</key>
 	<string></string>
 	<key>LBDescription</key>

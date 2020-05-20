@@ -8,8 +8,6 @@
 	<string>com.roeybiran.LaunchBarFinderCopyWindowConflictReplace</string>
 	<key>CFBundleName</key>
 	<string>Copy Window Conflict: Replace</string>
-	<key>LBAbbreviation</key>
-	<string>ccr</string>
 	<key>LBAssociatedApplication</key>
 	<string></string>
 	<key>LBDescription</key>

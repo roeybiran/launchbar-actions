@@ -8,8 +8,6 @@
 	<string>com.roeybiran.LaunchBarFinderCopyWindowConflictSkip</string>
 	<key>CFBundleName</key>
 	<string>Copy Window Conflict: Skip</string>
-	<key>LBAbbreviation</key>
-	<string>ccsk</string>
 	<key>LBAssociatedApplication</key>
 	<string></string>
 	<key>LBDescription</key>
