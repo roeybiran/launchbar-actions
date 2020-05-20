@@ -1,5 +1,6 @@
 "use strict";
 
+const cp = require("child_process");
 const chrono = require("chrono-node");
 
 const input = process.argv[2] || process.exit();
@@ -14,12 +15,19 @@ if (!parsed) {
 const reminderTitle = input.replace(parsed.text, "").trim();
 const startDate = parsed.start.date();
 
-const dateString = startDate.toLocaleDateString([], {
+const locale = cp
+  .execFileSync("/usr/bin/defaults", ["read", "-g", "AppleLocale"], {
+    encoding: "utf8"
+  })
+  .trim()
+  .replace("_", "-");
+
+const dateString = startDate.toLocaleDateString([locale], {
   weekday: "long",
   day: "numeric",
   month: "short"
 });
-const timeString = startDate.toLocaleTimeString([], {
+const timeString = startDate.toLocaleTimeString([locale], {
   hour: "2-digit",
   minute: "2-digit"
 });
