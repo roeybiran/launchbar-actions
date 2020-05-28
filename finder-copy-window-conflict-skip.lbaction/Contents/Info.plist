@@ -28,7 +28,7 @@
 			<key>LBRunInBackground</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>default.js</string>
+			<string>default.sh</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>

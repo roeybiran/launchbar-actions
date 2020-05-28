@@ -42,7 +42,7 @@
 		</dict>
 	</dict>
 	<key>LBTextInputTitle</key>
-	<string>Separate title and body with double space</string>
+	<string>Separate title &amp; body with a pipe (|)</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Roey Biran</string>
 </dict>

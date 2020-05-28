@@ -12,19 +12,24 @@ const applescript = args => {
 };
 
 lb.hide();
-const input = JSON.parse(process.argv[2]);
-const title = input.noteTitle;
-const body = input.noteBody;
-
+let input;
 try {
-  let script = `on run argv
-    set noteTitle to item 1 of argv
-    set noteBody to item 2 of argv
-    tell application "Notes" to set theNote to make new note with properties {name:noteTitle, body:noteBody}
-    set _msg to (noteTitle as text) & " — " & (noteBody as text)
-    tell application "LaunchBar" to display in notification center _msg with title "Created New Note"
-    return theNote
-  end run`;
+  input = JSON.parse(process.argv[2]);
+} catch (_) {
+  input = process.argv[2];
+}
+const title = input.noteTitle || "Untitled note";
+const body = input.noteBody || input;
+
+let script = `on run argv
+set noteTitle to item 1 of argv
+set noteBody to item 2 of argv
+tell application "Notes" to set theNote to make new note with properties {name:noteTitle, body:noteBody}
+set _msg to (noteTitle as text) & " — " & (noteBody as text)
+tell application "LaunchBar" to display in notification center _msg with title "Created New Note"
+return theNote
+end run`;
+try {
   // weird behavior since mojave, returns note url with a "show id ..." command prefixed
   const noteID = applescript([script, title, body]).replace("show id ", "");
   script = `on run argv

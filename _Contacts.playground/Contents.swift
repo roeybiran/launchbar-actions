@@ -3,6 +3,7 @@ import Contacts
 
 if CommandLine.arguments.count <= 1 { exit(EXIT_SUCCESS) }
 let query = CommandLine.arguments[1]
+// let query = "mom"
 let semaphore = DispatchSemaphore(value: 0)
 
 enum AddressType: String, Encodable {

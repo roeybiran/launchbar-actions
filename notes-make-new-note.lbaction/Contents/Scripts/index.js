@@ -11,7 +11,7 @@ if (!lb.env.isLiveFeedbackEnabled) {
   process.exit();
 }
 
-input = process.argv[2].split("  ");
+input = process.argv[2].split("|");
 let noteBody;
 let noteTitle;
 let displayTitle;

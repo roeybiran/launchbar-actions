@@ -3,4 +3,4 @@
 # LaunchBar Action Script
 #
 
-"${HOME}/Library/Application Support/LaunchBar/Actions/_archives_compress_uncompress.sh" --unarchive "${@}"
+"${HOME}/Library/Application Support/LaunchBar/Actions/shared/archives.sh" --unarchive "${@}"

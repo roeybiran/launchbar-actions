@@ -1,3 +1,3 @@
 #!/bin/sh
 
-osascript "${HOME}/Library/Application Support/LaunchBar/Actions/_call.scpt" "facetime-audio:${1}"
+osascript "${HOME}/Library/Application Support/LaunchBar/Actions/shared/call.scpt" "facetime-audio:${1}"
