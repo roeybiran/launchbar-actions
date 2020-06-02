@@ -8,7 +8,7 @@ import os
 output = []
 query = sys.argv[1]
 
-filterer = os.path.expanduser("~/Library/Application Support/LaunchBar/Actions/_Contacts.playground/Contents.swift")
+filterer = os.path.expanduser("~/Library/Application Support/LaunchBar/Actions/shared/contactsfetch")
 choice_script = os.path.join(os.path.dirname(__file__), "choice.sh")
 
 if os.getenv("LB_OPTION_LIVE_FEEDBACK") == "0":
@@ -16,7 +16,7 @@ if os.getenv("LB_OPTION_LIVE_FEEDBACK") == "0":
     subprocess.check_output(args)
     sys.exit()
 
-contacts = subprocess.check_output(["/usr/bin/swift", filterer, query])
+contacts = subprocess.check_output([filterer, query])
 contacts = json.loads(contacts)
 for contact in contacts:
     if contact["type"] == "phone":

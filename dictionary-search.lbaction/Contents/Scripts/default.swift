@@ -5,44 +5,64 @@ import CoreServices.DictionaryServices
 
 // https://nshipster.com/dictionary-services/
 
+if CommandLine.arguments.count <= 1 {
+    exit(EXIT_SUCCESS)
+}
+let originalQuery = CommandLine.arguments.dropFirst().first!
+
 struct LBItem: Encodable {
     let title: String
     let subtitle: String
     let url: String
     let icon = "com.apple.Dictionary"
+    let exactMatch: Bool
 }
 
-if CommandLine.arguments.count <= 1 {
-    exit(EXIT_SUCCESS)
+extension String {
+    func formattedForLB(text: String, closure: ([String]) -> [String]) -> String {
+        let result = closure(self.components(separatedBy: " | "))
+        return result
+            .joined(separator: " | ")
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+    }
 }
-let word = CommandLine.arguments.dropFirst().first!
 
 var definitions: [(String, String)] = []
 let spellChecker = NSSpellChecker.shared
-var words = [word]
-let nsrange = NSRange(word.startIndex..<word.endIndex, in: word)
-if let guesses = spellChecker.guesses(forWordRange: nsrange, in: word, language: spellChecker.language(), inSpellDocumentWithTag: 0) {
-    words = guesses
+
+let nsrange = NSRange(originalQuery.startIndex..<originalQuery.endIndex, in: originalQuery)
+var queries = [originalQuery]
+if let guesses = spellChecker.guesses(forWordRange: nsrange, in: originalQuery, language: spellChecker.language(), inSpellDocumentWithTag: 0) {
+    queries = guesses
 }
-for word in words {
-    let nsstring = word as NSString
+for guess in queries {
+    let nsstring = guess as NSString
     let cfrange = CFRange(location: 0, length: nsstring.length)
     guard let definition = DCSCopyTextDefinition(nil, nsstring, cfrange) else {
         continue
     }
     let definitionString = String(definition.takeUnretainedValue())
-    definitions.append((word, definitionString))
+    definitions.append((guess, definitionString))
 }
 
 var output: [LBItem] = []
 for definition in definitions {
-    let query = definition.0
+    let guess = definition.0
     let answer = definition.1
-    let title = answer.components(separatedBy: " | ")[0...1].joined(separator: " | ").trimmingCharacters(in: .whitespacesAndNewlines)
-    let subtitle = answer.components(separatedBy: "|").dropFirst(2).joined(separator: " | ").trimmingCharacters(in: .whitespacesAndNewlines)
-    output.append(LBItem(title: title, subtitle: subtitle, url: "dict://\(query)"))
+    let exactMatch = answer.range(of: originalQuery) != nil
+    let title = guess
+    let subtitle = answer.formattedForLB(text: answer) { Array($0.dropFirst(2)) }
+    output.append(LBItem(title: title, subtitle: subtitle, url: "dict://\(guess)", exactMatch: exactMatch))
 }
 
-let jsonData = try! JSONEncoder().encode(output)
+let jsonData = try! JSONEncoder().encode(output.sorted(by: { (a, b) -> Bool in
+    if a.exactMatch && !b.exactMatch {
+        return true
+    }
+    if b.exactMatch && !a.exactMatch {
+        return false
+    }
+    return true
+}))
 let jsonString = String(data: jsonData, encoding: .utf8)!
 print(jsonString)

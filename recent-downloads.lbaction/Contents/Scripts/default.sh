@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./folder_recents ~/Downloads "Downloaded"
+"${HOME}/Library/Application Support/LaunchBar/Actions/shared/recentfiles" ~/Downloads "Downloaded"
