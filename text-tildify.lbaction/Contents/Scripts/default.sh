@@ -1,3 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-/usr/local/bin/node index.js "${@}"
+paths=()
+for arg in "${@}"; do
+	paths+=("$(sed -E "s|^${HOME}|~|" <<< "${arg}")")
+done
+printf "%s\n" "${paths[@]}"

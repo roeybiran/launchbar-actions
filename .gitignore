@@ -3,3 +3,4 @@ package-lock.json
 .DS_Store
 wip
 external
+shared/upload-to-imgur/config.plist

@@ -29,7 +29,7 @@
 			<true/>
 			<key>LBResultType</key>
 			<string>path</string>
-			<key>LBReturnsResult</key>
+			<key>LBRunInBackground</key>
 			<true/>
 			<key>LBScriptName</key>
 			<string>default.scpt</string>

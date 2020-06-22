@@ -2,17 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleIconFile</key>
-	<string>StringTransformationTemplate.pdf</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarTextTildify</string>
+	<string>com.roeybiran.LaunchBar.action.Percents</string>
 	<key>CFBundleName</key>
-	<string>Text: Tildify</string>
+	<string>Percents</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
+		<string>roeybiran@icloud.com</string>
+		<key>LBTwitter</key>
 		<string></string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
@@ -24,21 +24,20 @@
 			<key>LBAcceptedArgumentTypes</key>
 			<array>
 				<string>string</string>
-				<string>path</string>
 			</array>
 			<key>LBKeepWindowActive</key>
+			<true/>
+			<key>LBLiveFeedbackEnabled</key>
 			<true/>
 			<key>LBRequiresArgument</key>
 			<true/>
 			<key>LBResultType</key>
-			<string>string</string>
+			<string>unknown</string>
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>default.sh</string>
+			<string>default.py</string>
 		</dict>
 	</dict>
-	<key>NSHumanReadableCopyright</key>
-	<string>Roey Biran</string>
 </dict>
 </plist>

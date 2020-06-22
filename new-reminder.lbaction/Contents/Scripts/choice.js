@@ -15,6 +15,7 @@ try {
 
 const script = `
 on run argv
+  set isRunning to application "Reminders" is running
 	set theYear to item 1 of argv
 	set theMonth to item 2 of argv
 	set theDay to item 3 of argv
@@ -28,8 +29,12 @@ on run argv
 		set its time to theTime
 	end tell
   tell application "Reminders"
-    return id of (make new reminder with properties {name:theName, due date:theDate})
+    set theID to id of (make new reminder with properties {name:theName, due date:theDate})
+    if not isRunning then
+      quit
+    end if
   end tell
+  return theID
 end run
 `;
 
