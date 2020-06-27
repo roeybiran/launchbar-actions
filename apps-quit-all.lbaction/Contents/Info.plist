@@ -30,7 +30,7 @@
 			<key>LBRunInBackground</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>default.scpt</string>
+			<string>default.sh</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>

@@ -34,7 +34,7 @@
 			<key>LBRequiresArgument</key>
 			<true/>
 			<key>LBResultType</key>
-			<string>unknown</string>
+			<string>path</string>
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
