@@ -134,11 +134,7 @@ filteredData = filteredData.map(x => {
     title: `${x.cityName}, ${x.countryName}`,
     badge: remoteTimeString,
     subtitle: `${dayDiff}, ${offset}`,
-    icon: path.join(
-      __dirname,
-      "flags",
-      `${x.countryName.replace(/\s/g, "-").toLowerCase()}.png`
-    )
+    icon: `${x.countryName.replace(/\s/g, "-").toLowerCase()}.png`
   };
 });
 

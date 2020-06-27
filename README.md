@@ -2,13 +2,13 @@
 
 A collection of LaunchBar 6 actions.
 
+## To Do
+
+- Replace some of the NodeJS actions with lighter implementations in shell script, Python or Swift, all of which LaunchBar runs natively.
+
 ## Notes
 
-- Inside the `./shared` folder are a bunch of scripts, each of which is **required** by two or more given actions. The folder has to exist inside `~/Library/Application Support/LaunchBar/Actions/` or the dependents wouldn't work.
-- Some actions execute compiled Swift programs that may require elevated permissions, such as "Full Disk Access" or access to the user's contacts. The source code for these can be found in the`./shared` folder.
-- Some actions require additional utilities and programs, such as [NodeJS](https://nodejs.org/en/), [ImageMagick](https://imagemagick.org/), [Pashua](https://github.com/BlueM/Pashua), and more. The actions were designed to look for their dependencies in their default installation directories.
+- `./shared` contains code used by two or more actions. This folder **HAS** to exist inside `~/Library/Application Support/LaunchBar/Actions/` or the dependents wouldn't work.
+- Some actions execute compiled Swift programs that may require elevated permissions, such as "Full Disk Access" or contacts access. The source code for these can be found in the`./shared` folder.
+- Some actions require external programs, such as [NodeJS](https://nodejs.org/en/), [ImageMagick](https://imagemagick.org/), [Pashua](https://github.com/BlueM/Pashua), and more. The actions except those programs to be installed in their default directories.
 - Some actions are intented to work with my own [Hammerspoon setup](https://github.com/roeybiran/.hammerspoon). Those are prefixed with `hs`.
-
-## Actions
-
-_coming soon_
