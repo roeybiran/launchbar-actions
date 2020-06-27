@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>iconTemplate.pdf</string>
+	<string>font-awesome:fa-camera</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarAppsQuitAllOthers</string>
+	<string>com.roeybiran.LaunchBarScreenshots</string>
 	<key>CFBundleName</key>
-	<string>Apps: Quit All Others</string>
+	<string>Screenshots</string>
 	<key>LBAbbreviation</key>
-	<string>qao</string>
+	<string>ss</string>
 	<key>LBAssociatedApplication</key>
-	<string></string>
+	<string>com.apple.screenshot.launcher</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
@@ -20,17 +20,19 @@
 		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
-	<string></string>
+	<string>com.apple.screenshot.launcher</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
+			<key>LBKeepWindowActive</key>
+			<true/>
 			<key>LBResultType</key>
 			<string>unknown</string>
-			<key>LBRunInBackground</key>
+			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>default.scpt</string>
+			<string>default.sh</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>

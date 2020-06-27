@@ -3,24 +3,24 @@
 # https://apidocs.imgur.com/?version=latest
 
 # setup:
-	# register an "app": https://api.imgur.com/oauth2/addclient (or view current apps here: https://imgur.com/account/settings/apps)
-	# get the client-id and client-secret
-	# use both to get a refresh token
-	# create a property list named "config.plist" and put it in the same folder as this script
-	# the plist should have the following body (you may copy and paste it)
-		# <dict>
-		# <key>access_token</key>
-		# <string></string>
-		# <key>access_token_expiry</key>
-		# <integer>0</integer>
-		# <key>client_id</key>
-		# <string></string>
-		# <key>client_secret</key>
-		# <string></string>
-		# <key>refresh_token</key>
-		# <string></string>
-		# </dict>
-	# save the client id, client secret and refresh token under the respective keys in the plist
+# register an "app": https://api.imgur.com/oauth2/addclient (or view current apps here: https://imgur.com/account/settings/apps)
+# get the client-id and client-secret
+# use both to get a refresh token
+# create a property list named "config.plist" and put it in the same folder as this script
+# the plist should have the following body (you may copy and paste it)
+# <dict>
+# <key>access_token</key>
+# <string></string>
+# <key>access_token_expiry</key>
+# <integer>0</integer>
+# <key>client_id</key>
+# <string></string>
+# <key>client_secret</key>
+# <string></string>
+# <key>refresh_token</key>
+# <string></string>
+# </dict>
+# save the client id, client secret and refresh token under the respective keys in the plist
 
 SOURCE="${BASH_SOURCE[0]}"
 
@@ -57,15 +57,16 @@ access_token_expiry=$(/usr/libexec/PlistBuddy -c "Print :access_token_expiry" "$
 now=$(date +%s)
 
 if [[ -z "${access_token}" ]] || [[ "${access_token_expiry}" == 0 ]] || [[ "${now}" -gt "${access_token_expiry}" ]]; then
-	json_response=$(
+	json=$(
 		curl --location --request POST 'https://api.imgur.com/oauth2/token' \
 			--form "refresh_token=$refresh_token" \
 			--form "client_id=$client_id" \
 			--form "client_secret=$client_secret" \
 			--form "grant_type=refresh_token"
 	)
+	echo "${json}"
 	parsed=$(
-		python - "${json_response}" <<-EOF
+		python - "${json}" <<-EOF
 			import sys
 			import json
 			json = json.loads(sys.argv[1])
@@ -80,22 +81,32 @@ if [[ -z "${access_token}" ]] || [[ "${access_token_expiry}" == 0 ]] || [[ "${no
 	/usr/libexec/PlistBuddy -c "Set :access_token_expiry ${expiry}" "${PLIST}"
 fi
 
+open -g "hammerspoon://start-task-with-progress" 2>/dev/null
+
 total_files="$#"
 links=()
-
 for f in "$@"; do
+	type="image"
+	for ext in "mp4" "mkv" "mov" "flv"; do
+		if basename "${f}" | grep --silent -E "\.$ext^"; then
+			type="video"
+			break
+		fi
+	done
+
 	json=$(
 		curl --location --request POST 'https://api.imgur.com/3/image' \
 			--header "Authorization: Bearer ${access_token}" \
-			--form "image=$(base64 "${f}")"
+			--form "${type}=@${f}"
 	)
+	echo "${json}"
 	parsed=$(
 		python - "${json}" <<-EOF
 			import sys
 			import json
 			json = json.loads(sys.argv[1])
 			if json["success"]:
-			  print json["data"]["link"]
+			  print(json["data"]["link"])
 		EOF
 	)
 	test -n "${parsed}" && links+=("${parsed}")
@@ -103,3 +114,5 @@ done
 
 osascript -e "tell app \"LaunchBar\" to display in notification center \"${#links[@]}/${total_files} uploaded OK. Links copied to clipboard.\""
 printf "%s\n" "${links[@]}" | perl -pe 'chomp if eof' | pbcopy
+
+open -g "hammerspoon://stop-task-with-progress" 2>/dev/null
