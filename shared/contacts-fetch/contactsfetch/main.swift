@@ -36,9 +36,9 @@ let contactsStore = CNContactStore()
 let status = CNContactStore.authorizationStatus(for: .contacts)
 switch status {
 case .notDetermined:
-    contactsStore.requestAccess(for: .contacts) { (didAuthorize, error) in
-        if !didAuthorize {
-            print("Authorization Error")
+    contactsStore.requestAccess(for: .contacts) { (success, error) in
+        if !success {
+            print("Did not authorize")
             exit(EXIT_SUCCESS)
         }
         semaphore.signal()
@@ -51,20 +51,11 @@ default:
     break
 }
 
-
-extension String {
-    func removingNonAlphanumerics() -> String {
-        return self
-            .components(separatedBy: CharacterSet.alphanumerics.inverted)
-            .joined()
-    }
-}
-
 extension Optional where Wrapped == String {
     func formattedAsLBBadge() -> String {
         var label = ""
         if let self = self, !self.isEmpty {
-            label = self.removingNonAlphanumerics() + ": "
+            label = "\(self.filter { $0.isLetter || $0.isNumber }): "
         }
         return label
     }
@@ -82,9 +73,9 @@ do {
 
         let searchPool = [firstName, lastName, nickname, jobTitle, company]
             .reduce("", +)
-            .removingNonAlphanumerics()
-        // print(searchPool)
-        if searchPool.range(of: query, options: .caseInsensitive) == nil {
+            .filter { $0.isLetter || $0.isNumber }
+        let range = searchPool.range(of: query, options: .caseInsensitive)
+        if range == nil {
             return
         }
 
