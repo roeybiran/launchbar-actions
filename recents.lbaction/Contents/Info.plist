@@ -25,10 +25,6 @@
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
-			<key>LBAcceptedArgumentTypes</key>
-			<array>
-				<string>path</string>
-			</array>
 			<key>LBKeepWindowActive</key>
 			<true/>
 			<key>LBResultType</key>
