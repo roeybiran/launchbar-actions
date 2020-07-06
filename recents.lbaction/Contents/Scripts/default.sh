@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# /usr/local/bin/node index.js "${@}"
 # http://blog.clawpaws.net/post/2007/02/11/Making-OS-X-Fat-Binaries-with-Traditional-Tools
 # https://hacksformacs.wordpress.com/2015/01/12/spotlight-on-the-command-line-part-1-introducing-mdfind-and-xargs/
 # https://hacksformacs.wordpress.com/2015/01/28/spotlight-on-the-command-line-part-2-improving-searches/

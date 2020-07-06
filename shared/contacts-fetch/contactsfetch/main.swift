@@ -9,6 +9,7 @@
 import Foundation
 import Contacts
 
+
 if CommandLine.arguments.count <= 1 { exit(EXIT_SUCCESS) }
 let query = CommandLine.arguments[1]
 let semaphore = DispatchSemaphore(value: 0)
@@ -51,14 +52,12 @@ default:
     break
 }
 
-extension Optional where Wrapped == String {
-    func formattedAsLBBadge() -> String {
-        var label = ""
-        if let self = self, !self.isEmpty {
-            label = "\(self.filter { $0.isLetter || $0.isNumber }): "
-        }
-        return label
+func makeBadge(_ txt: String?) -> String {
+    var label = ""
+    if let txt = txt, !txt.isEmpty {
+        label = "\(txt.filter { $0.isLetter || $0.isNumber }): "
     }
+    return label
 }
 
 var allContacts: [LBContact] = []
@@ -92,16 +91,26 @@ do {
             }
         }
 
+        func extractValues<T>(addresses: [CNLabeledValue<T>], keyPath: KeyPath<CNLabeledValue<T>, T>, type: AddressType) {
+            addresses.forEach( { print($0[keyPath: keyPath]) })
+            let contacts = addresses.map({ address in
+                let value = address.value
+                let badge = address[keyPath: keyPath]
+            })
+        }
+
+        // extractValues(addresses: contact.emailAddresses, keyPath: \.value, type: .email)
+
         for email in contact.emailAddresses {
             let value = String(email.value)
-            let badge = email.label.formattedAsLBBadge() + value
+            let badge = makeBadge(email.label) + value
             let contact = LBContact(title: title, subtitle: subtitle, badge: badge, type: .email, actionArgument: value)
             allContacts.append(contact)
         }
 
         for phone in contact.phoneNumbers {
             let value = phone.value.stringValue
-            let badge = phone.label.formattedAsLBBadge() + value
+            let badge = makeBadge(phone.label) + value
             let contact = LBContact(title: title, subtitle: subtitle, badge: badge, type: .phone, actionArgument: value)
             allContacts.append(contact)
         }
@@ -112,3 +121,42 @@ do {
 } catch let error {
     print(error.localizedDescription)
 }
+
+// func extractValues<T>(type: AddressType, from contact: [CNLabeledValue<T>], keyPath: KeyPath<CNLabeledValue<T>, T>) -> [LBContact] {
+//     return contact.map {
+//         let value = $0[keyPath: keyPath]
+//         let badge = $0.label.formattedAsLBBadge() + value
+//         return LBContact(title: title, subtitle: subtitle, badge: badge, type: type, actionArgument: value)
+//     }
+// }
+//
+//
+//
+// let a = extractValues(type: .email, from: contact.emailAddresses.first!, keyPath: \.value)
+// print("keypath" + String(a))
+// extension Sequence {
+//     func map<T>(_ keyPath: KeyPath<Element, T>) -> [T] {
+//         return map { $0[keyPath: keyPath] }
+//     }
+// }
+
+// func extractValues<T>(type: AddressType,
+//                       addresses: [CNLabeledValue<T>],
+//                       closure: ([CNLabeledValue<T>]) -> [(value: String, badge: String?)]) -> [LBContact] {
+//     return closure(addresses).map { address in
+//         return LBContact(title: title, subtitle: subtitle, badge: address.badge.formattedAsLBBadge() + address.value, type: type, actionArgument: address.value)
+//     }
+// }
+//
+// extractValues(type: .email, addresses: contact.emailAddresses, closure: { addresses in
+//     return addresses.map { (String($0.value), $0.label) }
+// })
+//
+//
+// allContacts.append(contentsOf:
+//     contact.emailAddresses.map {
+//         let value = String($0.value)
+//         let badge = $0.label.formattedAsLBBadge() + value
+//         return LBContact(title: title, subtitle: subtitle, badge: badge, type: .email, actionArgument: value)
+//     }
+// )
