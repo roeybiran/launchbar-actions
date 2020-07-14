@@ -15,20 +15,21 @@ let nsrange = NSRange(originalQuery.startIndex..<originalQuery.endIndex, in: ori
 let guesses = spellChecker.guesses(forWordRange: nsrange, in: originalQuery, language: spellChecker.language(), inSpellDocumentWithTag: 0) ?? []
 
 let output: [LBItem] = [[originalQuery], guesses]
+    .lazy
     .joined()
     .compactMap {
         let guessString = $0 as NSString
         let cfrange = CFRange(location: 0, length: guessString.length)
         guard let definition = DCSCopyTextDefinition(nil, guessString, cfrange) else { return nil }
         let definitionString = String(definition.takeUnretainedValue())
-        let exactMatch = $0 == originalQuery
+        let exactMatch = $0.lowercased() == originalQuery.lowercased()
         let subtitle = definitionString.formattedForLB(text: definitionString) { Array($0.dropFirst(2)) }
         return LBItem(title: $0, subtitle: subtitle, url: "dict://\($0)", exactMatch: exactMatch)
-}
-.sorted { (a, b) -> Bool in
-    if b.exactMatch && !a.exactMatch { return false }
-    return true
-}
+    }
+    .sorted {
+        if $1.exactMatch && !$0.exactMatch { return false }
+        return true
+    }
 
 let jsonData = try! JSONEncoder().encode(output)
 let jsonString = String(data: jsonData, encoding: .utf8)!

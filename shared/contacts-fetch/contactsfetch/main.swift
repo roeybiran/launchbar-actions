@@ -61,102 +61,51 @@ func makeBadge(_ txt: String?) -> String {
 }
 
 var allContacts: [LBContact] = []
-do {
-    try contactsStore.enumerateContacts(with: fetchReuqest, usingBlock: { (contact, _) in
-        let firstName = contact.givenName
-        let nickname = contact.nickname.isEmpty ? " " : " \"\(contact.nickname)\" "
-        let lastName = contact.familyName
-        let jobTitle = contact.jobTitle
-        let company = contact.organizationName
-        let isCompany = contact.contactType.rawValue == 1
 
-        let searchPool = [firstName, lastName, nickname, jobTitle, company]
-            .reduce("", +)
-            .filter { $0.isLetter || $0.isNumber }
-        let range = searchPool.range(of: query, options: .caseInsensitive)
-        if range == nil {
-            return
-        }
+let block: ((String, UnsafeMutablePointer<ObjCBool>) -> Void) = { contact, _ in
 
-        var title = ""
-        var subtitle = ""
-        if isCompany {
-            title = company
-        } else {
-            title = "\(firstName)\(nickname)\(lastName)".trimmingCharacters(in: .whitespacesAndNewlines)
-            if !jobTitle.isEmpty && !company.isEmpty {
-                subtitle = "\(jobTitle), \(company)"
-            } else {
-                subtitle = "\(jobTitle)\(company)"
-            }
-        }
-
-        func extractValues<T>(addresses: [CNLabeledValue<T>], keyPath: KeyPath<CNLabeledValue<T>, T>, type: AddressType) {
-            addresses.forEach( { print($0[keyPath: keyPath]) })
-            let contacts = addresses.map({ address in
-                let value = address.value
-                let badge = address[keyPath: keyPath]
-            })
-        }
-
-        // extractValues(addresses: contact.emailAddresses, keyPath: \.value, type: .email)
-
-        for email in contact.emailAddresses {
-            let value = String(email.value)
-            let badge = makeBadge(email.label) + value
-            let contact = LBContact(title: title, subtitle: subtitle, badge: badge, type: .email, actionArgument: value)
-            allContacts.append(contact)
-        }
-
-        for phone in contact.phoneNumbers {
-            let value = phone.value.stringValue
-            let badge = makeBadge(phone.label) + value
-            let contact = LBContact(title: title, subtitle: subtitle, badge: badge, type: .phone, actionArgument: value)
-            allContacts.append(contact)
-        }
-    })
-    let json = try JSONEncoder().encode(allContacts)
-    let jsonString = String(data: json, encoding: .utf8)!
-    print(jsonString)
-} catch let error {
-    print(error.localizedDescription)
 }
 
-// func extractValues<T>(type: AddressType, from contact: [CNLabeledValue<T>], keyPath: KeyPath<CNLabeledValue<T>, T>) -> [LBContact] {
-//     return contact.map {
-//         let value = $0[keyPath: keyPath]
-//         let badge = $0.label.formattedAsLBBadge() + value
-//         return LBContact(title: title, subtitle: subtitle, badge: badge, type: type, actionArgument: value)
-//     }
-// }
-//
-//
-//
-// let a = extractValues(type: .email, from: contact.emailAddresses.first!, keyPath: \.value)
-// print("keypath" + String(a))
-// extension Sequence {
-//     func map<T>(_ keyPath: KeyPath<Element, T>) -> [T] {
-//         return map { $0[keyPath: keyPath] }
-//     }
-// }
+try? contactsStore.enumerateContacts(with: fetchReuqest, usingBlock: { (contact, _) in
+    let firstName = contact.givenName
+    let nickname = contact.nickname.isEmpty ? " " : " \"\(contact.nickname)\" "
+    let lastName = contact.familyName
+    let jobTitle = contact.jobTitle
+    let company = contact.organizationName
+    let isCompany = contact.contactType.rawValue == 1
 
-// func extractValues<T>(type: AddressType,
-//                       addresses: [CNLabeledValue<T>],
-//                       closure: ([CNLabeledValue<T>]) -> [(value: String, badge: String?)]) -> [LBContact] {
-//     return closure(addresses).map { address in
-//         return LBContact(title: title, subtitle: subtitle, badge: address.badge.formattedAsLBBadge() + address.value, type: type, actionArgument: address.value)
-//     }
-// }
-//
-// extractValues(type: .email, addresses: contact.emailAddresses, closure: { addresses in
-//     return addresses.map { (String($0.value), $0.label) }
-// })
-//
-//
-// allContacts.append(contentsOf:
-//     contact.emailAddresses.map {
-//         let value = String($0.value)
-//         let badge = $0.label.formattedAsLBBadge() + value
-//         return LBContact(title: title, subtitle: subtitle, badge: badge, type: .email, actionArgument: value)
-//     }
-// )
+    let searchPool = [firstName, lastName, nickname, jobTitle, company]
+        .reduce("", +)
+        .filter { $0.isLetter || $0.isNumber }
+    if searchPool.range(of: query, options: .caseInsensitive) == nil { return }
+
+    var title = [firstName, nickname, lastName]
+        .reduce("", +)
+        .trimmingCharacters(in: .whitespacesAndNewlines)
+    var subtitle = "\(jobTitle)\(company)"
+    if !jobTitle.isEmpty && !company.isEmpty {
+        subtitle = "\(jobTitle), \(company)"
+    }
+
+    if isCompany {
+        title = company
+        subtitle = ""
+    }
+
+    for email in contact.emailAddresses {
+        let value = String(email.value)
+        let badge = makeBadge(email.label) + value
+        let contact = LBContact(title: title, subtitle: subtitle, badge: badge, type: .email, actionArgument: value)
+        allContacts.append(contact)
+    }
+
+    for phone in contact.phoneNumbers {
+        let value = phone.value.stringValue
+        let badge = makeBadge(phone.label) + value
+        let contact = LBContact(title: title, subtitle: subtitle, badge: badge, type: .phone, actionArgument: value)
+        allContacts.append(contact)
+    }
+})
+let json = try JSONEncoder().encode(allContacts)
+let jsonString = String(data: json, encoding: .utf8)!
+print(jsonString)
