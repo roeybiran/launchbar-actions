@@ -6,12 +6,23 @@ import json
 import sys
 from xml.etree import ElementTree
 
+# https://kapeli.com/dash_plugins
+# /Applications/LaunchBar.app/Contents/Resources/Actions/Search Dash.lbaction/Contents/Scripts/default.rb
+
 if len(sys.argv) == 1:
     sys.exit()
 
 output = subprocess.check_output([
     "/Applications/Dash.app/Contents/Resources/dashAlfredWorkflow", sys.argv[1]
 ])
+
+"""
+Normally, this script is run for live feedback and returns items that are
+opened using open.sh. But if the user hits enter before a previous run of
+this script could return any items (e.g. because nothing was found or the
+"dash" utility takes too long), this script is not run for live feedback
+and Dash should just be opened with the current search term instead.
+"""
 
 if os.getenv("LB_OPTION_LIVE_FEEDBACK") == "0":
     subprocess.check_output(

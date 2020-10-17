@@ -17,10 +17,7 @@
 		<key>LBEmail</key>
 		<string></string>
 		<key>LBSummary</key>
-		<string>On a selected process: 
-1. Press ⌥+return to forcefully kill an application.
-2. Press ⇧+return to attempt to launch the app after killing it.
-</string>
+		<string>Kill a process.</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>

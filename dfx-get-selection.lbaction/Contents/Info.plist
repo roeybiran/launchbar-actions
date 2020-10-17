@@ -28,11 +28,11 @@
 			<key>LBKeepWindowActive</key>
 			<true/>
 			<key>LBResultType</key>
-			<string>unknown</string>
+			<string>path</string>
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>default.sh</string>
+			<string>default.scpt</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>

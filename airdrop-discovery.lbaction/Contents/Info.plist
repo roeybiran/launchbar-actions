@@ -16,13 +16,17 @@
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
 		<string>roeybiran@gmail.com</string>
+		<key>LBResult</key>
+		<string>AirDrop discovery states</string>
 		<key>LBSummary</key>
-		<string>Show either of the AirDrop discovery states, choose one to launch GUI script that will apply that settings</string>
+		<string>Shows all possible AirDrop discovery states. Choosing an item will launch a UI script that will apply that setting</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
 	<string></string>
+	<key>LBResult</key>
+	<string>AirDrop discovery states</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>

@@ -5,9 +5,9 @@
 	<key>CFBundleIconFile</key>
 	<string>com.apple.archiveutility</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.ArchivesCompressZIPArchive</string>
+	<string>com.roeybiran.LaunchBar.action.ArchivesCompress</string>
 	<key>CFBundleName</key>
-	<string>Archives: Compress (ZIP Archive)</string>
+	<string>Archives: Compress</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>

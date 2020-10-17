@@ -3,12 +3,11 @@
 // copies the contents of 1 or more text files to the clipboard, linefeed-delimited
 
 function runWithPaths(paths) {
-  const texts = [];
-  paths.forEach(path => {
-    const text = File.readText(path);
-    texts.push(text);
-  });
-
-  LaunchBar.setClipboardString(texts.join("\n"));
-  LaunchBar.paste(texts);
+  const texts = paths
+    .map(path => {
+      return File.readText(path);
+    })
+    .join("\n");
+  LaunchBar.setClipboardString(texts);
+  return texts
 }

@@ -16,6 +16,8 @@
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
+		<key>LBSummary</key>
+		<string>Quit all dock applications but the frontmost one</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>

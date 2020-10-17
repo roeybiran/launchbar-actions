@@ -25,6 +25,8 @@
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
+			<key>LBKeepWindowActive</key>
+			<true/>
 			<key>LBResultType</key>
 			<string>unknown</string>
 			<key>LBRunInBackground</key>

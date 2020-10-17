@@ -23,13 +23,6 @@ pswd = xp.generate_xkcdpassword(mywords, numwords=int(numwords), delimiter="-")
 uppercased_char = pswd[0].upper()
 pswd = uppercased_char + pswd[1:]
 pswd = pswd + str(randint(0, 9))
-# uppercased_index = randint(0, (len(pswd) - 1))
-# uppercased_char = pswd[uppercased_index].upper()
-# pswd = pswd[:uppercased_index] + uppercased_char + pswd[uppercased_index + 1:]
-
-# replaced_with_int_index = randint(0, (len(pswd) - 1))
-# random_int = randint(0, (len(pswd) - 1))
-# pswd = pswd[:replaced_with_int_index] + str(random_int) + pswd[replaced_with_int_index + 1:]
 
 item = {}
 item["title"] = pswd

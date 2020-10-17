@@ -8,14 +8,14 @@
 	<string>com.roeybiran.LaunchBarAppsQuitAll</string>
 	<key>CFBundleName</key>
 	<string>Apps: Quit All</string>
-	<key>LBAbbreviation</key>
-	<string>qaa</string>
 	<key>LBAssociatedApplication</key>
 	<string></string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
+		<key>LBSummary</key>
+		<string>Quit all Dock applications</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>

@@ -16,6 +16,8 @@
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
 		<string>roeybiran@icloud.com</string>
+		<key>LBSummary</key>
+		<string>Shows the Dato menu bar popover.</string>
 		<key>LBTwitter</key>
 		<string></string>
 		<key>LBWebsiteURL</key>

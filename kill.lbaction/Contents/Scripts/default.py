@@ -13,7 +13,7 @@ import signal
 # called from launchbar following user's choice
 if len(sys.argv) > 1:
     os.kill(int(sys.argv[1]), signal.SIGINT)
-    sys.exit()
+
 
 procs = subprocess.check_output(["/bin/ps", "rAo",
                                  r"pid=,%cpu=,comm="]).rstrip().split("\n")
@@ -32,7 +32,7 @@ for proc in procs:
     else:
         seen.append(path)
     name = os.path.basename(path)
-    icon = "com.apple.ActivityMonitor"
+    icon = "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/ExecutableBinaryIcon.icns"
     if ".app/" in path:
         match = re.search(r'^.+?\.app/Contents', path)
         if match:
@@ -55,7 +55,7 @@ for proc in procs:
         "actionArgument": pid,
         "actionRunsInBackground": True,
         "actionReturnsItems": False,
-        "badge": "%" + cpu
+        "badge": "CPU: %" + cpu
     })
 
 print(json.dumps(output))

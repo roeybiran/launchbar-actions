@@ -10,12 +10,18 @@
 	<string>1Password 7 Mini: Show</string>
 	<key>LBAbbreviation</key>
 	<string></string>
+	<key>LBArgument</key>
+	<string>Text</string>
 	<key>LBAssociatedApplication</key>
 	<string>com.agilebits.onepassword7</string>
 	<key>LBDescription</key>
 	<dict>
+		<key>LBArgument</key>
+		<string>Text</string>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
+		<key>LBRequirements</key>
+		<string>1Password 7</string>
 		<key>LBSummary</key>
 		<string>Shows the 1Password7 mini window. Pass an optional string to perform an inital search</string>
 		<key>LBWebsiteURL</key>
@@ -23,6 +29,8 @@
 	</dict>
 	<key>LBRequiredApplication</key>
 	<string>com.agilebits.onepassword7</string>
+	<key>LBRequirements</key>
+	<string>1Password 7</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>

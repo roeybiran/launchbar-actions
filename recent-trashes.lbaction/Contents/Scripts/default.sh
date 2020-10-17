@@ -1,3 +1,3 @@
 #!/bin/sh
 
-"${HOME}/Library/Application Support/LaunchBar/Actions/shared/recentfiles" ~/.Trash "Trashed"
+"${HOME}/Library/Application Support/LaunchBar/Actions/shared/RecentFiles" ~/.Trash "Trashed"
