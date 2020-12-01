@@ -3,13 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/com.apple.xserve-g4.icns</string>
+	<string>font-awesome:fa-github-square</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.OpenServer</string>
+	<string>com.roeybiran.LaunchBarGithubSearch</string>
 	<key>CFBundleName</key>
-	<string>Open Server</string>
+	<string>GitHub Search</string>
 	<key>LBAssociatedApplication</key>
-	<string>com.apple.finder</string>
+	<string></string>
+	<key>LBDebugLogEnabled</key>
+	<true/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
@@ -20,7 +22,7 @@
 		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
-	<string>com.apple.finder</string>
+	<string></string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
@@ -31,18 +33,18 @@
 			</array>
 			<key>LBKeepWindowActive</key>
 			<true/>
+			<key>LBLiveFeedbackEnabled</key>
+			<true/>
 			<key>LBRequiresArgument</key>
 			<true/>
 			<key>LBResultType</key>
-			<string>path</string>
+			<string>unknown</string>
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>default.sh</string>
+			<string>default.js</string>
 		</dict>
 	</dict>
-	<key>LBTextInputTitle</key>
-	<string>Type server name</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Roey Biran</string>
 </dict>

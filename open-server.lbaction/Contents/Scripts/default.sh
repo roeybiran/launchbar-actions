@@ -2,7 +2,9 @@
 
 # https://apple.stackexchange.com/questions/210716/applescript-automatically-check-and-remount-server-volume-stopped-working
 
-SERVER_PATH="afp://alpha.local/archive"
+test -z "${1}" && exit 0
+
+SERVER_PATH="afp://${1}.local/archive"
 mounted_path="/Volumes/$(basename "${SERVER_PATH}")"
 
 if ! [ -d "${mounted_path}" ]; then

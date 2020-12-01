@@ -4,7 +4,8 @@ A collection of LaunchBar 6 actions.
 
 ## To Do
 
-- Replace some of the NodeJS actions with lighter implementations in shell script, Python or Swift, all of which LaunchBar runs natively.
+- Per action documentation.
+- Replace some of the NodeJS actions with lighter implementations in shell script, Python, Swift or LaunchBar's own JavaScript API.
 
 ## Notes
 

@@ -3,24 +3,41 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/com.apple.xserve-g4.icns</string>
+	<string>icon.png</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.OpenServer</string>
+	<string>com.roeybiran.LaunchBarNpms</string>
 	<key>CFBundleName</key>
-	<string>Open Server</string>
+	<string>npms</string>
 	<key>LBAssociatedApplication</key>
-	<string>com.apple.finder</string>
+	<string></string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
 		<string></string>
+		<key>LBSummary</key>
+		<string># npms
+
+Search for npm modules using npms.io. A port of [alfred-npms](https://github.com/sindresorhus/alfred-npms).
+
+## Usage
+
+- Prepend input with `?` to execute arbitrary search in [npmjs.com](https://www.npmjs.com/).
+- Quote your input (either with double or single quotes) to boost exact matches.
+- While an item is highlighted:
+- Press &lt;kbd&gt;return&lt;/kbd&gt; to open its repository. If it doesn't have one, the corresponding npm page will be opened instead.
+- Press &lt;kbd&gt;shift+return&lt;/kbd&gt; to open the selected item's npm page anyway.
+
+## Requirements
+
+- NodeJS, installed in `/usr/local/bin/`.
+</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
-	<string>com.apple.finder</string>
+	<string></string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
@@ -31,18 +48,20 @@
 			</array>
 			<key>LBKeepWindowActive</key>
 			<true/>
+			<key>LBLiveFeedbackEnabled</key>
+			<true/>
 			<key>LBRequiresArgument</key>
 			<true/>
 			<key>LBResultType</key>
-			<string>path</string>
+			<string>unknown</string>
 			<key>LBReturnsResult</key>
 			<true/>
+			<key>LBRunInBackground</key>
+			<true/>
 			<key>LBScriptName</key>
-			<string>default.sh</string>
+			<string>default.js</string>
 		</dict>
 	</dict>
-	<key>LBTextInputTitle</key>
-	<string>Type server name</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Roey Biran</string>
 </dict>
