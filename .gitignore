@@ -5,3 +5,4 @@ wip
 external
 shared/upload-to-imgur/config.plist
 node_modules
+__pycache__
