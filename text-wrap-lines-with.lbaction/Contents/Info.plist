@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>Text.icns</string>
+	<string>StringTransformationTemplate.pdf</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarLoremIpsum</string>
+	<string>com.roeybiran.LaunchBarTextWrapLinesWith</string>
 	<key>CFBundleName</key>
-	<string>Lorem Ipsum</string>
+	<string>Text: Wrap Lines with...</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
@@ -24,19 +24,18 @@
 			<key>LBAcceptedArgumentTypes</key>
 			<array>
 				<string>string</string>
+				<string>path</string>
 			</array>
 			<key>LBKeepWindowActive</key>
-			<true/>
-			<key>LBLiveFeedbackEnabled</key>
 			<true/>
 			<key>LBRequiresArgument</key>
 			<true/>
 			<key>LBResultType</key>
-			<string>unknown</string>
+			<string>string</string>
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>default.py</string>
+			<string>default.js</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
