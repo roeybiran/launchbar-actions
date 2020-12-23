@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>com.roeybiran.LaunchBar.action.DropboxIgnore</string>
+	<key>CFBundleName</key>
+	<string>Dropbox: Ignore Item</string>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Roey Biran</string>
+		<key>LBEmail</key>
+		<string>roeybiran@icloud.com</string>
+		<key>LBTwitter</key>
+		<string>@RoeyBiran</string>
+		<key>LBWebsiteURL</key>
+		<string>https://github.com/roeybiran</string>
+	</dict>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBRunInBackground</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>default.sh</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>com.apple.Notes</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.roeybiran.LaunchBarNotesMakeNewNote</string>
+	<key>CFBundleName</key>
+	<string>Notes: Make New Note</string>
+	<key>LBAssociatedApplication</key>
+	<string>com.apple.Notes</string>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBAuthor</key>
+		<string>Roey Biran</string>
+		<key>LBWebsiteURL</key>
+		<string>https://github.com/roeybiran</string>
+	</dict>
+	<key>LBRequiredApplication</key>
+	<string>com.apple.Notes</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
+			<key>LBKeepWindowActive</key>
+			<true/>
+			<key>LBLiveFeedbackEnabled</key>
+			<true/>
+			<key>LBRequiresArgument</key>
+			<true/>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>default.js</string>
+		</dict>
+	</dict>
+	<key>LBTextInputTitle</key>
+	<string>Separate title &amp; body with a pipe (|)</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Roey Biran</string>
+</dict>
+</plist>
