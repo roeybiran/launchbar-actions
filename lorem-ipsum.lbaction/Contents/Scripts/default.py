@@ -10,13 +10,13 @@ import re
 
 faker_types = [
     "paragraph",
-    "paragraphs",
+    # "paragraphs",
     "sentence",
-    "sentences",
+    # "sentences",
     "text",
-    "texts",
+    # "texts",
     "word",
-    "words",
+    # "words",
     "name"
 ]
 

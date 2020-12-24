@@ -4,12 +4,9 @@ A collection of LaunchBar 6 actions.
 
 ## To Do
 
-- Per action documentation.
-- Replace some of the NodeJS actions with lighter implementations in shell script, Python, Swift or LaunchBar's own JavaScript API.
+- Documentation.
 
 ## Notes
 
-- `./shared` contains code used by two or more actions. This folder **HAS** to exist inside `~/Library/Application Support/LaunchBar/Actions/` or the dependents wouldn't work.
-- Some actions execute compiled Swift scripts that may require elevated permissions, such as "Full Disk Access" or contacts access. The source code for those scripts can be found in the`./shared` folder. I opt for compiled scripts only when the performance benefits outweigh the overhead.
-- Some actions require external programs, such as [NodeJS](https://nodejs.org/en/), [ImageMagick](https://imagemagick.org/), [Pashua](https://github.com/BlueM/Pashua), and more. The actions except those programs to be installed in their default directories.
-- Some actions are intented to work with my own [Hammerspoon setup](https://github.com/roeybiran/.hammerspoon). Those are prefixed with `hs`.
+- The vast majority of the actions are dependency-free — just put them LaunchBar’s actions directory (`~/Library/Application Support/LaunchBar/Actions/`) and you’re good to go. In other cases, the action’s dependencies are listed in its documentation. 
+- When an actions lists a dependency prefixed with `./shared`, it means it excepts that path to exist in LaunchBar actions directory.

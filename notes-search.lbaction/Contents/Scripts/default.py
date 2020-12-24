@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+# a LaunchBar port of https://github.com/sballin/alfred-search-notes-app/
+
 import sys
 import sqlite3
 import zlib
@@ -8,7 +10,6 @@ import os
 import json
 import operator
 
-# a LaunchBar port of https://github.com/sballin/alfred-search-notes-app/
 SORTING_KEYS = {
     "note": 3,
     "folder": 2,
@@ -112,7 +113,7 @@ def getNotes():
 
     items = []
 
-    for i, d in enumerate(dbItems):
+    for _, d in enumerate(dbItems):
         title, folderCode, modDate, noteId, bodyData = d
         folderName = folders[folderCode]
         modDate = modDate
@@ -136,10 +137,8 @@ def getNotes():
         except:
             bodyPreview = ''
 
-        if bodyPreview:
-            subtitle = folderName + ' | ' + bodyPreview
-        else:
-            subtitle = folderName
+        subtitle = "{} | {}".format(
+            folderName, bodyPreview) if bodyPreview else folderName
 
         try:
             subtitle = fixStringEnds(subtitle)
@@ -153,59 +152,35 @@ def getNotes():
             displayBody = None
 
         note = {
-            'title':
-            title,
-            'subtitle':
-            subtitle,
-            'action':
-            "showNote.sh",
-            'actionArgument':
-            'x-coredata://{}/ICNote/p{}'.format(uuid, str(noteId)),
-            'icon':
-            icon,
-            'actionReturnsItems':
-            False,
-            'actionRunsInBackground':
-            True,
-            'normalizedBody':
-            normalizedString(body),
-            'modDate':
-            modDate,
-            'children':
-            displayBody,
-            'kind':
-            SORTING_KEYS[kind]
+            'title': title,
+            'subtitle': subtitle,
+            'action': "showNote.sh",
+            'actionArgument': 'x-coredata://{}/ICNote/p{}'.format(uuid, str(noteId)),
+            'icon': icon,
+            'actionReturnsItems': False,
+            'actionRunsInBackground': True,
+            'normalizedBody': normalizedString(body),
+            'modDate': modDate,
+            'children': displayBody,
+            'kind': SORTING_KEYS[kind]
         }
         items.append(note)
 
     for folderCode in folders:
         title = folders[folderCode]
-        kind = "folder"
-        if title == 'Recently Deleted':
-            kind = "trash_folder"
+        kind = "trash_folder" if title == 'Recently Deleted' else "folder"
         folder = {
-            'title':
-            title,
-            'subtitle':
-            "Folder",
-            'action':
-            "showNotesFolder.sh",
-            'actionArgument':
-            'x-coredata://{}/ICFolder/p{}'.format(uuid, str(folderCode)),
-            'icon':
-            'font-awesome:fa-folder-o',
-            'actionReturnsItems':
-            False,
-            'actionRunsInBackground':
-            True,
-            'normalizedBody':
-            None,
-            'modDate':
-            0,
-            'children':
-            None,
-            'kind':
-            SORTING_KEYS[kind]
+            'title': title,
+            'subtitle': "Folder",
+            'action': "showNotesFolder.sh",
+            'actionArgument': 'x-coredata://{}/ICFolder/p{}'.format(uuid, str(folderCode)),
+            'icon': 'font-awesome:fa-folder-o',
+            'actionReturnsItems': False,
+            'actionRunsInBackground': True,
+            'normalizedBody': None,
+            'modDate': 0,
+            'children': None,
+            'kind': SORTING_KEYS[kind]
         }
         items.append(folder)
 
