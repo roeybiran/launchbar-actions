@@ -5,9 +5,9 @@
 	<key>CFBundleIconFile</key>
 	<string>com.getdropbox.dropbox</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.launchbar.action.DropboxShare</string>
+	<string>com.roeybiran.LaunchBarDropbox</string>
 	<key>CFBundleName</key>
-	<string>Dropbox: Share</string>
+	<string>Dropbox: Search</string>
 	<key>LBAssociatedApplication</key>
 	<string></string>
 	<key>LBDebugLogEnabled</key>
@@ -18,6 +18,8 @@
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
 		<string></string>
+		<key>LBSummary</key>
+		<string>Search for item in your Dropbox. Pressing return on a result will open it in your browser. Pressing tab will reveal the option to generate a sharing link for that item, with the default sharing options (RequestedVisibility.public). Requires a Dropbox access token.</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
@@ -30,13 +32,16 @@
 			<key>LBAcceptedArgumentTypes</key>
 			<array>
 				<string>string</string>
-				<string>path</string>
 			</array>
+			<key>LBKeepWindowActive</key>
+			<true/>
+			<key>LBLiveFeedbackEnabled</key>
+			<true/>
 			<key>LBRequiresArgument</key>
 			<true/>
 			<key>LBResultType</key>
 			<string>unknown</string>
-			<key>LBRunInBackground</key>
+			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
 			<string>default.js</string>
