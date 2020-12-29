@@ -1,6 +1,6 @@
 // https://www.dropbox.com/developers/documentation/http/documentation
 
-function shareFile(thePaths) {
+function runWithPaths(thePaths) {
   const { DBX_ACCESS_TOKEN } = File.readJSON(
     `${Action.supportPath}/config.json`
   );
@@ -46,12 +46,4 @@ function shareFile(thePaths) {
   if (links.length > 0) {
     LaunchBar.setClipboardString(links.join("\n"));
   }
-}
-
-function runWithPaths(thePaths) {
-  shareFile(thePaths);
-}
-
-function run(url) {
-  shareFile([url]);
 }

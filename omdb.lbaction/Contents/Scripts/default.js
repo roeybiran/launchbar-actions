@@ -12,7 +12,7 @@ function runWithString(input) {
     ];
   }
 
-  const API_KEY = File.readJSON(`${Action.supportPath}/config.json`).API_KEY;
+  const { API_KEY } = File.readJSON(`${Action.supportPath}/config.json`);
   if (!API_KEY) return [{ title: "Invalid API Key!" }];
   const response = HTTP.getJSON(
     `http://www.omdbapi.com/?apikey=${API_KEY}&t=${encodeURIComponent(
