@@ -1,6 +1,10 @@
 function runWithString(input) {
   const icon = "font-awesome:fa-github-square";
 
+  // https://docs.github.com/en/free-pro-team@latest/rest/reference/search#search-repositories
+  // const { API_KEY } = File.readJSON(`${Action.supportPath}/config.json`);
+  // if (!API_KEY) return [{ title: "Invalid API Key!" }];
+
   if (/^\?/.test(input)) {
     input = input.slice(1);
     const url = `https://github.com/search?q=${input}`;
