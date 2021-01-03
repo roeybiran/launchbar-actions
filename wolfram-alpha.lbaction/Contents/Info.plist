@@ -39,8 +39,6 @@
 			<string>default.js</string>
 		</dict>
 	</dict>
-	<key>LBTextInputTitle</key>
-	<string>Prefix query with "full:" to use the (slower) Full Results API instead</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Roey Biran</string>
 </dict>
