@@ -8,52 +8,113 @@ import json
 delay_values = [3, 5, 10]
 
 now = datetime.now().strftime(r"%Y-%m-%d-%H-%M-%S")
-screenshot_file = os.path.join(
-    os.getenv("HOME"), "Desktop", "screencapture_{}.png".format(now))
 
-tmp_file = os.path.join(os.getenv("TMPDIR"), "{}.png".format(now))
+screenshot_file = {
+    "path": os.path.join(os.getenv("HOME"), "Desktop"),
+    "name": f"screencapture_{now}",
+    "extension": "png",
+}
+
+tmp_file = {"path": os.getenv("TMPDIR"), "name": f"{now}", "extension": "png"}
 
 options = [
-    {"title": "Capture Selection to Clipboard", "args": ["-ci"]},
-    {"title": "Capture Selection to Desktop", "args": ["-i", screenshot_file]},
-    {"title": "Capture Selection to Preview",
-        "args": ["-iP", screenshot_file]},
+    {
+        "title": "Capture Selection to Clipboard",
+        "screencapture_options": "-ci",
+        "destination": None,
+        "use_ui": False,
+        "imgur": False,
+    },
+    {
+        "title": "Capture Selection to Desktop",
+        "screencapture_options": "-i",
+        "destination": screenshot_file,
+        "use_ui": False,
+        "imgur": False,
+    },
+    {
+        "title": "Capture Selection to Preview",
+        "screencapture_options": "-iP",
+        "destination": screenshot_file,
+        "use_ui": False,
+        "imgur": False,
+    },
     {
         "title": "Capture Selection to Desktop & Annotate",
-        "args": ["-iUu", screenshot_file],
-        "use_ui": "Capture Selected Portion"
+        "screencapture_options": "-iUu",
+        "destination": screenshot_file,
+        "use_ui": "Capture Selected Portion",
+        "imgur": False,
     },
-    {"title": "Capture Selection to Imgur",
-        "args": ["-i", tmp_file], "imgur": True},
-    {"title": "Capture Screen to Clipboard", "args": ["-Sc", screenshot_file]},
-    {"title": "Capture Screen to Desktop", "args": ["-S", screenshot_file]},
-    {"title": "Capture Screen to Preview", "args": ["-SP", screenshot_file]},
+    {
+        "title": "Capture Selection to Imgur",
+        "screencapture_options": "-i",
+        "destination": tmp_file,
+        "use_ui": False,
+        "imgur": True,
+    },
+    {
+        "title": "Capture Screen to Clipboard",
+        "screencapture_options": "-Sc",
+        "destination": screenshot_file,
+        "use_ui": False,
+        "imgur": False,
+    },
+    {
+        "title": "Capture Screen to Desktop",
+        "screencapture_options": "-S",
+        "destination": screenshot_file,
+        "use_ui": False,
+        "imgur": False,
+    },
+    {
+        "title": "Capture Screen to Preview",
+        "screencapture_options": "-SP",
+        "destination": screenshot_file,
+        "use_ui": False,
+        "imgur": False,
+    },
     {
         "title": "Capture Screen to Desktop & Annotate",
-        "args": ["-iUu", screenshot_file],
-        "use_ui": "Capture Entire Screen"
+        "screencapture_options": "-iUu",
+        "destination": screenshot_file,
+        "use_ui": "Capture Entire Screen",
+        "imgur": False,
     },
-    {"title": "Capture Screen to Imgur",
-        "args": ["-S", tmp_file], "imgur": True},
+    {
+        "title": "Capture Screen to Imgur",
+        "screencapture_options": "-S",
+        "destination": tmp_file,
+        "use_ui": False,
+        "imgur": True,
+    },
     {
         "title": "Record Selection to Desktop & Annotate",
-        "args": ["-iUu", screenshot_file],
-        "use_ui": "Record Selected Portion"
+        "screencapture_options": "-iUu",
+        "destination": screenshot_file,
+        "use_ui": "Record Selected Portion",
+        "imgur": False,
     },
     {
         "title": "Record Screen to Desktop & Annotate",
-        "args": ["-iUu", screenshot_file],
-        "use_ui": "Record Entire Screen"
-    }
+        "screencapture_options": "-iUu",
+        "use_ui": "Record Entire Screen",
+        "destination": screenshot_file,
+        "imgur": False,
+    },
 ]
 
 output = []
 for opt in options:
     opt["actionRunsInBackground"] = True
     opt["actionReturnsItems"] = False
-    opt["icon"] = "font-awesome:fa-camera" if opt["title"].startswith(
-        "Capture") else "font-awesome:fa-video-camera"
+    opt["icon"] = (
+        "font-awesome:fa-camera"
+        if opt["title"].startswith("Capture")
+        else "font-awesome:fa-video-camera"
+    )
     opt["action"] = "choice.py"
+    opt["delay_value"] = None
     opt["children"] = []
     for delay_val in delay_values:
         copied_obj = copy.deepcopy(opt)
