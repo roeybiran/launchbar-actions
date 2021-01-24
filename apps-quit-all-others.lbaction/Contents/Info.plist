@@ -8,8 +8,6 @@
 	<string>com.roeybiran.LaunchBarAppsQuitAllOthers</string>
 	<key>CFBundleName</key>
 	<string>Apps: Quit All Others</string>
-	<key>LBAbbreviation</key>
-	<string>qao</string>
 	<key>LBAssociatedApplication</key>
 	<string></string>
 	<key>LBDescription</key>

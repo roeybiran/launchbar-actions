@@ -19,7 +19,7 @@
 		<key>LBResult</key>
 		<string>AirDrop discovery states</string>
 		<key>LBSummary</key>
-		<string>Shows all possible AirDrop discovery states. Choosing an item will launch a UI script that will apply that setting</string>
+		<string>Shows all possible AirDrop discovery states. Choosing an item will launch a UI script that will apply that setting.</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>

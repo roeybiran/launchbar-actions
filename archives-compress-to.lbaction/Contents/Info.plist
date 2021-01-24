@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>com.apple.archiveutility</string>
+	<string>font-awesome:fa-file-zip-o</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.LaunchBar.action.ArchivesCompressTo</string>
 	<key>CFBundleName</key>
@@ -14,11 +14,17 @@
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
 		<string>roeybiran@icloud.com</string>
+		<key>LBRequirements</key>
+		<string>Pashua, ./shared/archives.sh</string>
+		<key>LBSummary</key>
+		<string>Presents a dialog for choosing the archive's destination, and more.</string>
 		<key>LBTwitter</key>
 		<string></string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
+	<key>LBRequirements</key>
+	<string>Pashua, ./shared/archives.sh</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>

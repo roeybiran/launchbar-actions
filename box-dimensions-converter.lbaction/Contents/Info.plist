@@ -16,6 +16,8 @@
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
 		<string></string>
+		<key>LBSummary</key>
+		<string>Converts dimensions in a (num * num * num) format from inches to centimeters and vice versa.</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>

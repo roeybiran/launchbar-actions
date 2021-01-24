@@ -5,9 +5,9 @@
 	<key>CFBundleIconFile</key>
 	<string>com.agilebits.onepassword7</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar1passwordShow</string>
+	<string>com.roeybiran.LaunchBar.action.1Password7Mini</string>
 	<key>CFBundleName</key>
-	<string>1Password 7 Mini: Show</string>
+	<string>1Password 7 Mini</string>
 	<key>LBAbbreviation</key>
 	<string></string>
 	<key>LBArgument</key>
@@ -23,7 +23,7 @@
 		<key>LBRequirements</key>
 		<string>1Password 7</string>
 		<key>LBSummary</key>
-		<string>Shows the 1Password7 mini window. Pass an optional string to perform an inital search</string>
+		<string>Shows the 1Password7 mini window. Pass an optional string to perform an inital search.</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>

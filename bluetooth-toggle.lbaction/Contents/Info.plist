@@ -17,7 +17,7 @@
 		<key>LBRequirements</key>
 		<string>blueutil</string>
 		<key>LBSummary</key>
-		<string>Toggle the Mac's Bluetooth connection</string>
+		<string>Toggles the Mac's Bluetooth connection.</string>
 		<key>LBTwitter</key>
 		<string></string>
 		<key>LBWebsiteURL</key>

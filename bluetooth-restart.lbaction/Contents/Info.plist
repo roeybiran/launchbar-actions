@@ -17,7 +17,7 @@
 		<key>LBRequirements</key>
 		<string>blueutil</string>
 		<key>LBSummary</key>
-		<string>Restarts the Mac's Bluetooth connection</string>
+		<string>Restarts the Mac's Bluetooth connection.</string>
 		<key>LBTwitter</key>
 		<string></string>
 		<key>LBWebsiteURL</key>

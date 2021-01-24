@@ -12,6 +12,8 @@
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
 		<string></string>
+		<key>LBSummary</key>
+		<string>Shows the current Finder folder's contents, arranged by kind.</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>

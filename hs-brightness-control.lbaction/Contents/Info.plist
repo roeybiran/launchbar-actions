@@ -18,11 +18,15 @@
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
 		<string></string>
+		<key>LBRequirements</key>
+		<string>My Hammerspoon setup</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
 	<string>org.hammerspoon.Hammerspoon</string>
+	<key>LBRequirements</key>
+	<string>My Hammerspoon setup</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
