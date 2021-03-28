@@ -3,39 +3,37 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>/System/Library/CoreServices/Finder.app/Contents/Applications/All My Files.app</string>
+	<string>org.hammerspoon.Hammerspoon</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.Recents</string>
+	<string>com.roeybiran.LaunchBar.action.WindowHighlightOff</string>
 	<key>CFBundleName</key>
-	<string>Recents</string>
+	<string>Window Highlight: Off</string>
 	<key>LBAssociatedApplication</key>
-	<string></string>
+	<string>org.hammerspoon.Hammerspoon</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
-		<string></string>
+		<string>roeybiran@icloud.com</string>
+		<key>LBTwitter</key>
+		<string>@RoeyBiran</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
-	<string></string>
+	<string>org.hammerspoon.Hammerspoon</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
-			<key>LBKeepWindowActive</key>
-			<true/>
 			<key>LBResultType</key>
-			<string>path</string>
-			<key>LBReturnsResult</key>
+			<string>unknown</string>
+			<key>LBRunInBackground</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>default.sh</string>
+			<string>default.scpt</string>
 		</dict>
 	</dict>
-	<key>NSHumanReadableCopyright</key>
-	<string>Roey Biran</string>
 </dict>
 </plist>

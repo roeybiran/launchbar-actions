@@ -1,19 +1,5 @@
-#!/bin/bash
+#!/bin/sh
 
-# /usr/local/bin/node index.js "${@}"
-
-if [[ "${LB_OPTION_LIVE_FEEDBACK}" == "0" ]]; then
-	mdfind -onlyin "${1}" "kind:folder OR NOT kind:folder"
-fi
-mdfind "${1}"
-
-
-
-# "use strict";
-
-# const { execFile } = require("@roeybiran/task");
-
-# /*
 # Metadata queries reflecting Finder search options (Catalina+):
 
 #   Name matches "foo"
@@ -52,32 +38,8 @@ mdfind "${1}"
 #     (((kMDImtemContentTypeTree = "foo*"cdw)) || ((kMDItemKind = "foo*"cdw)))
 # */
 
-# (async () => {
-#   let userInput = process.argv[2] || process.exit();
-#   let query = `(kMDItemDisplayName = "*${userInput}*"cd)`;
+if [ "${LB_OPTION_LIVE_FEEDBACK}" = "0" ]; then
+	mdfind -onlyin "${1}" "kind:folder OR NOT kind:folder"
+fi
 
-#   // TODO: support for more advanced of spotlight queries (kinds, dates)
-#   if (/t(ext)?:/.test(userInput)) {
-#     userInput = userInput.replace(/^t(ext)?:/, "");
-#     query = `(kMDItemTextContent = "${userInput}*"cd)`;
-#   }
-
-#   try {
-#     let output;
-#     const { stdout } = await execFile("/usr/bin/mdfind", [query]);
-#     if (!stdout) {
-#       output = [
-#         {
-#           title: "No results",
-#           subtitle: "Try a different query",
-#           icon: "font-awesome:fa-info-circle"
-#         }
-#       ];
-#     } else {
-#       output = stdout.split("\n").map(x => ({ path: x }));
-#     }
-#     return console.log(JSON.stringify(output));
-#   } catch (error) {
-#     return console.log(error);
-#   }
-# })();
+mdfind "(kMDItemDisplayName = \"*${1}*\"cdw)"

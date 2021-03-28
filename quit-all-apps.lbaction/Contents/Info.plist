@@ -3,31 +3,37 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>Image_Rotate180</string>
+	<string>iconTemplate.pdf</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.ImagesRotate180</string>
+	<string>com.roeybiran.LaunchBar.action.QuitAllApps</string>
 	<key>CFBundleName</key>
-	<string>Images: Rotate 180</string>
+	<string>Quit All Apps</string>
+	<key>LBAssociatedApplication</key>
+	<string></string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
-		<key>LBEmail</key>
-		<string>roeybiran@icloud.com</string>
-		<key>LBTwitter</key>
-		<string></string>
+		<key>LBSummary</key>
+		<string>Quits all Dock applications.</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
+	<key>LBRequiredApplication</key>
+	<string></string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
 			<key>LBResultType</key>
 			<string>unknown</string>
+			<key>LBRunInBackground</key>
+			<true/>
 			<key>LBScriptName</key>
 			<string>default.sh</string>
 		</dict>
 	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Roey Biran</string>
 </dict>
 </plist>

@@ -5,9 +5,9 @@
 	<key>CFBundleIconFile</key>
 	<string>iconTemplate.pdf</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarAppsQuitAllOthers</string>
+	<string>com.roeybiran.LaunchBar.action.QuitOtherApps</string>
 	<key>CFBundleName</key>
-	<string>Apps: Quit All Others</string>
+	<string>Quit All Other Apps</string>
 	<key>LBAssociatedApplication</key>
 	<string></string>
 	<key>LBDescription</key>
@@ -15,7 +15,7 @@
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBSummary</key>
-		<string>Quit all dock applications but the frontmost one</string>
+		<string>Quits all Dock applications but the frontmost one.</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>

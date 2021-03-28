@@ -28,7 +28,7 @@ function run() {
     {
       title: `${machineName} (${machineModel})`,
       subtitle: localHostName,
-      icon: "font-awesome:fa-laptop"
+      icon: "font-awesome:fa-laptop",
     }
   );
 
@@ -36,7 +36,7 @@ function run() {
   lbOutput.push({
     title: serialNumber,
     subtitle: "Serial Number",
-    icon: "barcode-solidTemplate.pdf"
+    icon: "barcode-solidTemplate.pdf",
   });
 
   // uptime
@@ -47,7 +47,7 @@ function run() {
   lbOutput.push({
     title: `${uptimeDays} days, ${uptimeHours} hours, ${uptimeMins} minutes`,
     subtitle: "Uptime",
-    icon: "font-awesome:fa-clock-o"
+    icon: "font-awesome:fa-clock-o",
   });
 
   // cpu
@@ -56,7 +56,7 @@ function run() {
   lbOutput.push({
     title: `${cpuSpeed} ${cpuModel}`,
     subtitle: "Processor",
-    icon: "microchip-solidTemplate.pdf"
+    icon: "microchip-solidTemplate.pdf",
   });
 
   function formatBytes(bytes) {
@@ -84,7 +84,7 @@ function run() {
   const physicalMemory = hardwareReport.physical_memory;
   const vmStat = LaunchBar.execute("/usr/bin/vm_stat");
   let totalUsedMem = 0;
-  vmStat.split("\n").forEach(memory => {
+  vmStat.split("\n").forEach((memory) => {
     const match = memory.match(
       /^(Pages occupied by compressor|Pages wired down|Anonymous pages):\s+(\d+)\.$/m
     );
@@ -97,7 +97,7 @@ function run() {
   lbOutput.push({
     title: `${physicalMemory}, ${formatBytes(totalUsedMem)} used`,
     subtitle: "Memory",
-    icon: "memory-solidTemplate.pdf"
+    icon: "memory-solidTemplate.pdf",
   });
 
   // storage
@@ -108,14 +108,14 @@ function run() {
   lbOutput.push({
     title: `${humanReadableTotalSpace}, ${humanReadableFreeSpace} free`,
     subtitle: `${startUpDiskName} (${storageHardware})`,
-    icon: "font-awesome:fa-hdd-o"
+    icon: "font-awesome:fa-hdd-o",
   });
 
   // network
   let internalIp;
   let defaultGateway;
   let macAddress;
-  networkReport.forEach(networkInterface => {
+  networkReport.forEach((networkInterface) => {
     // checking for connectivity
     if (networkInterface._name === "Wi-Fi" && networkInterface.ip_address) {
       internalIp = networkInterface.ip_address[0];
@@ -125,17 +125,17 @@ function run() {
         {
           title: defaultGateway,
           subtitle: "Default Gateway",
-          icon: "ethernet-solidTemplate.pdf"
+          icon: "ethernet-solidTemplate.pdf",
         },
         {
           title: macAddress,
           subtitle: "Wi-Fi MAC Address",
-          icon: "macWifiTemplate.pdf"
+          icon: "macWifiTemplate.pdf",
         },
         {
           title: internalIp,
           subtitle: "Internal IP",
-          icon: "network-wired-solidTemplate.pdf"
+          icon: "network-wired-solidTemplate.pdf",
         }
       );
     }
@@ -150,7 +150,7 @@ function run() {
   lbOutput.push({
     title: publicIp || "Error: Failed to obtain Public IP",
     subtitle: "External IP",
-    icon: "globe-americas-solidTemplate.pdf"
+    icon: "globe-americas-solidTemplate.pdf",
   });
 
   // graphics
@@ -160,7 +160,7 @@ function run() {
   lbOutput.push({
     title: `${graphicsGpu}, ${graphicsVram}`,
     subtitle: "Graphics",
-    icon: "graphicsTemplate.pdf"
+    icon: "graphicsTemplate.pdf",
   });
 
   // bluetooth
@@ -171,10 +171,10 @@ function run() {
   lbOutput.push({
     title: bluetoothMacAdress,
     subtitle: "Bluetooth MAC Address",
-    icon: "macBtTemplate.pdf"
+    icon: "macBtTemplate.pdf",
   });
 
-  return lbOutput.map(x => {
+  return lbOutput.map((x) => {
     x.actionReturnsItems = false;
     x.actionRunsInBackground = true;
     return x;

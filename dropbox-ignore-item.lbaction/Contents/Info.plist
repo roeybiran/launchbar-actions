@@ -2,10 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleIconFile</key>
+	<string>com.getdropbox.dropbox</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.LaunchBar.action.DropboxIgnore</string>
 	<key>CFBundleName</key>
 	<string>Dropbox: Ignore Item</string>
+	<key>LBAssociatedApplication</key>
+	<string>com.getdropbox.dropbox</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
@@ -17,6 +21,8 @@
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
+	<key>LBRequiredApplication</key>
+	<string>com.getdropbox.dropbox</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
