@@ -2,12 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleIconFile</key>
-	<string>font-awesome:fa-file-pdf-o</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.PDFExtractText</string>
+	<string>com.roeybiran.LaunchBar.action.CountLines</string>
 	<key>CFBundleName</key>
-	<string>PDF: Extract Text</string>
+	<string>Count Lines</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
@@ -15,7 +13,7 @@
 		<key>LBEmail</key>
 		<string>roeybiran@icloud.com</string>
 		<key>LBTwitter</key>
-		<string></string>
+		<string>@RoeyBiran</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
@@ -25,16 +23,18 @@
 		<dict>
 			<key>LBAcceptedArgumentTypes</key>
 			<array>
-				<string>path</string>
+				<string>string</string>
 			</array>
+			<key>LBKeepWindowActive</key>
+			<true/>
 			<key>LBRequiresArgument</key>
 			<true/>
 			<key>LBResultType</key>
 			<string>string</string>
-			<key>LBRunInBackground</key>
+			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>default.sh</string>
+			<string>default.js</string>
 		</dict>
 	</dict>
 </dict>

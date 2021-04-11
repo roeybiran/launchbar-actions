@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string></string>
+	<string>/System/Library/Extensions/IOSCSIArchitectureModelFamily.kext/Contents/Resources/USBHD.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarOpenMostRecentVolume</string>
+	<string>com.roeybiran.LaunchBar.action.RecentVolume</string>
 	<key>CFBundleName</key>
-	<string>Open Most Recent Volume</string>
+	<string>Recent Volume</string>
 	<key>LBAbbreviation</key>
 	<string>openmostrecentvolume</string>
 	<key>LBAssociatedApplication</key>

@@ -2,8 +2,8 @@ function runWithString(input) {
   const icon = "font-awesome:fa-github-square";
 
   // https://docs.github.com/en/free-pro-team@latest/rest/reference/search#search-repositories
-  // const { API_KEY } = File.readJSON(`${Action.supportPath}/config.json`);
-  // if (!API_KEY) return [{ title: "Invalid API Key!" }];
+
+  const { API_KEY } = File.readJSON(`${Action.supportPath}/config.json`);
 
   if (/^\?/.test(input)) {
     input = input.slice(1);
@@ -14,8 +14,8 @@ function runWithString(input) {
         subtitle: url,
         url,
         quickLookURL: url,
-        actionRunsInBackground: true
-      }
+        actionRunsInBackground: true,
+      },
     ];
   }
 
@@ -23,8 +23,8 @@ function runWithString(input) {
     return [
       {
         title: "Enter repository name",
-        icon
-      }
+        icon,
+      },
     ];
   }
 
@@ -33,9 +33,9 @@ function runWithString(input) {
   const { data } = HTTP.getJSON(
     `https://api.github.com/search/repositories?q=${input}&sort=stars&order=desc&per_page=10`,
     {
-      headerFiels: {
-        accept: "application/vnd.github.v3+json"
-      }
+      headerFields: {
+        authorization: API_KEY ? `token ${API_KEY}` : null,
+      },
     }
   );
 
@@ -45,8 +45,8 @@ function runWithString(input) {
         title: data.message,
         subtitle: data.documentation_url,
         url: data.documentation_url,
-        icon
-      }
+        icon,
+      },
     ];
   }
 
@@ -63,7 +63,7 @@ function runWithString(input) {
       quickLookURL: `${itemURL}#readme`,
       badge: (item.owner && item.owner.login) || "",
       children: [{ title: itemURL }],
-      icon
+      icon,
     };
   });
 

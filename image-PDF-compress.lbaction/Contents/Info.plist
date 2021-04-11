@@ -5,9 +5,9 @@
 	<key>CFBundleIconFile</key>
 	<string>Image_Compress</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.CompressImagePDF</string>
+	<string>com.roeybiran.LaunchBar.action.ImagePDFCompress</string>
 	<key>CFBundleName</key>
-	<string>Compress Image/PDF</string>
+	<string>Image/PDF: Compress</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
