@@ -1,10 +1,5 @@
-package.json
-package-lock.json
-.DS_Store
 wip
-external
+not-mine
 shared/upload-to-imgur/config.plist
 node_modules
 kaomoji.lbaction
-__pycache__
-not-mine

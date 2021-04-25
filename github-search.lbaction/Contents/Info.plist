@@ -5,7 +5,7 @@
 	<key>CFBundleIconFile</key>
 	<string>font-awesome:fa-github-square</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarGithubSearch</string>
+	<string>com.roeybiran.LaunchBar.action.GitHubSearch</string>
 	<key>CFBundleName</key>
 	<string>GitHub Search</string>
 	<key>LBAssociatedApplication</key>
