@@ -2,10 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleIconFile</key>
+	<string>com.apple.Music</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.MusicVolume</string>
+	<string>com.roeybiran.LaunchBar.action.MusicSetVolume</string>
 	<key>CFBundleName</key>
-	<string>Music: Volume</string>
+	<string>Music: Set Volume</string>
+	<key>LBAssociatedApplication</key>
+	<string>com.apple.Music</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
@@ -17,6 +21,8 @@
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
+	<key>LBRequiredApplication</key>
+	<string>com.apple.Music</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>

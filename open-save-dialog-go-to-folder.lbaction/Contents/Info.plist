@@ -2,42 +2,46 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleIconFile</key>
-	<string>com.stclairsoft.DefaultFolderX5</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarDfxGetSelection</string>
+	<string>com.roeybiran.LaunchBar.action.OpenSaveDialogGoToFolder</string>
 	<key>CFBundleName</key>
-	<string>Default Folder X: Get Selection</string>
-	<key>LBAssociatedApplication</key>
-	<string>com.stclairsoft.DefaultFolderX5</string>
+	<string>Open/Save Dialog: Go To Folder</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
-		<string></string>
+		<string>roeybiran@icloud.com</string>
 		<key>LBSummary</key>
-		<string>Returns the currently selected items in an open/save dialog.</string>
+		<string>Navigates to the selected folder in the focused open/save dialog.</string>
+		<key>LBTwitter</key>
+		<string>@RoeyBiran</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
-	<key>LBRequiredApplication</key>
-	<string>com.stclairsoft.DefaultFolderX5</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
 			<key>LBKeepWindowActive</key>
 			<true/>
+			<key>LBLiveFeedbackEnabled</key>
+			<true/>
+			<key>LBRequiresArgument</key>
+			<true/>
 			<key>LBResultType</key>
-			<string>path</string>
+			<string>unknown</string>
 			<key>LBReturnsResult</key>
 			<true/>
+			<key>LBRunInBackground</key>
+			<true/>
 			<key>LBScriptName</key>
-			<string>default.scpt</string>
+			<string>default.js</string>
 		</dict>
 	</dict>
-	<key>NSHumanReadableCopyright</key>
-	<string>Roey Biran</string>
 </dict>
 </plist>
