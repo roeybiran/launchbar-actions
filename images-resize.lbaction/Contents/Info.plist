@@ -3,21 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>icon.png</string>
+	<string>Image_Resize</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarEslintRules</string>
+	<string>com.roeybiran.LaunchBar.action.ImagesResize</string>
 	<key>CFBundleName</key>
-	<string>ESLint Rules</string>
+	<string>Images: Resize...</string>
+	<key>LBAbbreviation</key>
+	<string>resize</string>
 	<key>LBAssociatedApplication</key>
 	<string></string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
-		<key>LBEmail</key>
-		<string></string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
@@ -29,22 +27,16 @@
 		<dict>
 			<key>LBAcceptedArgumentTypes</key>
 			<array>
-				<string>string</string>
+				<string>path</string>
 			</array>
-			<key>LBKeepWindowActive</key>
-			<true/>
-			<key>LBLiveFeedbackEnabled</key>
-			<true/>
 			<key>LBRequiresArgument</key>
 			<true/>
 			<key>LBResultType</key>
 			<string>unknown</string>
-			<key>LBReturnsResult</key>
-			<true/>
 			<key>LBRunInBackground</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>index.js</string>
+			<string>default.sh</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>

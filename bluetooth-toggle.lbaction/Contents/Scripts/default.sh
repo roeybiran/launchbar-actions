@@ -3,6 +3,14 @@
 # LaunchBar Action Script
 #
 
-test "$(/usr/local/bin/blueutil -p)" = "1" && /usr/local/bin/blueutil -p 0 && exit
+blueutil=/usr/local/bin/blueutil
+if ! test -e "$blueutil"; then
+	osascript -e 'tell app "LaunchBar" to display alert "This action requires blueutil to run."'
+	exit
+fi
 
-/usr/local/bin/blueutil -p 1
+if test "$("$blueutil" -p)" = "1"; then
+	"$blueutil" -p 0
+else
+	"$blueutil" -p 1
+fi

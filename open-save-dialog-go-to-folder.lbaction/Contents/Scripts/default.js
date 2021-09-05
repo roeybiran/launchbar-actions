@@ -18,14 +18,22 @@ function runWithString(theString) {
     });
 }
 
+function runWithPaths(paths) {
+  goToFolder(paths[0]);
+}
+
 function goToFolder(theFolder) {
   LaunchBar.hide();
-  LaunchBar.setClipboardString(theFolder);
   LaunchBar.executeAppleScript(
-    'tell application "System Events"',
+    'tell app "System Events"',
     "key code 5 using {command down, shift down}",
-    "key code 9 using command down",
-    "key code 36",
+    "delay 0.3",
+    "key code 51",
     "end tell"
+  );
+  LaunchBar.paste(theFolder);
+  LaunchBar.executeAppleScript(
+    "delay 0.1",
+    'tell app "System Events" to key code 76'
   );
 }

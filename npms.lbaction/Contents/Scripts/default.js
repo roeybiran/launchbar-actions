@@ -9,8 +9,8 @@ function runWithString(input) {
         title: `Search npmjs.com for "${inputNoQuestionMark}"`,
         subtitle: url,
         url,
-        quickLookURL: url
-      }
+        quickLookURL: url,
+      },
     ];
   }
 
@@ -22,17 +22,19 @@ function runWithString(input) {
     query
   )}&size=20`;
   return HTTP.getJSON(url)
-    .data.results.filter(result => result.package.name.length > 1)
-    .map(result => {
+    .data.results.filter((result) => result.package.name.length > 1)
+    .map((result) => {
       const pkg = result.package;
       const item = {
         title: pkg.name,
         subtitle: pkg.description,
         badge: pkg.publisher.username,
         icon: "icon.png",
-        url: pkg.links.repository || pkg.links.npm,
+        url: LaunchBar.options.shiftKey
+          ? pkg.links.repository || pkg.links.npm
+          : pkg.links.npm,
         npmUrl: pkg.links.npm,
-        quickLookURL: pkg.links.repository && `${pkg.links.repository}#readme`
+        quickLookURL: pkg.links.repository && `${pkg.links.repository}#readme`,
       };
       return item;
     });

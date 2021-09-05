@@ -44,6 +44,7 @@ function runWithPaths(thePaths) {
   const message = `${links.length} shared links copied to clipboard, ${errors} errors`;
   LaunchBar.displayNotification({ string: message });
   if (links.length > 0) {
-    LaunchBar.setClipboardString(links.join("\n"));
+    // LaunchBar.setClipboardString(links.join("\n"));
+    LaunchBar.executeAppleScript(`set the clipboard to "${links.join("\n")}"`);
   }
 }
