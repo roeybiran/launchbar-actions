@@ -1,13 +1,21 @@
 // LaunchBar Action Script
 
 function run(path) {
-  return Object.entries(
-    Plist.parse(LaunchBar.execute("/usr/bin/mdls", "-plist", "-", path))
-  ).map(([key, value]) => {
-    let children = [];
-    if (Array.isArray(value) && value.length > 1) {
-      children = value.map((v) => ({ title: String(v) }));
-    }
-    return { title: String(value), subtitle: key, children };
-  });
+  try {
+    const plist = Plist.parse(
+      LaunchBar.execute("/usr/bin/mdls", "-plist", "-", path)
+    );
+  } catch (error) {
+    return LaunchBar.execute("/usr/bin/mdls", path)
+      .trim()
+      .split("\n")
+      .map((l) => ({ title: l }));
+  }
+  return Object.entries(plist).map(([key, value]) => ({
+    title: key,
+    subtitle: Array.isArray(value) ? "" : String(value),
+    children: Array.isArray(value)
+      ? value.map((v) => ({ title: String(v) }))
+      : [],
+  }));
 }
