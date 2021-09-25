@@ -1,10 +1,9 @@
 // LaunchBar Action Script
 
 function run(path) {
+  let plist = LaunchBar.execute("/usr/bin/mdls", "-plist", "-", path);
   try {
-    const plist = Plist.parse(
-      LaunchBar.execute("/usr/bin/mdls", "-plist", "-", path)
-    );
+    plist = Plist.parse(plist);
   } catch (error) {
     return LaunchBar.execute("/usr/bin/mdls", path)
       .trim()
