@@ -2,14 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleIconFile</key>
-	<string>com.google.Chrome</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.GoogleChromeIncognitoWindow</string>
+	<string>com.roeybiran.LaunchBar.action.ToggleDarkMode</string>
 	<key>CFBundleName</key>
-	<string>Google Chrome Incognito Window</string>
-	<key>LBAssociatedApplication</key>
-	<string>com.google.Chrome</string>
+	<string>Toggle Dark Mode</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
@@ -17,20 +13,20 @@
 		<key>LBEmail</key>
 		<string>roeybiran@icloud.com</string>
 		<key>LBTwitter</key>
-		<string></string>
+		<string>@RoeyBiran</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
-	<key>LBRequiredApplication</key>
-	<string>com.google.Chrome</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
 			<key>LBResultType</key>
 			<string>unknown</string>
+			<key>LBRunInBackground</key>
+			<true/>
 			<key>LBScriptName</key>
-			<string>default.scpt</string>
+			<string>default.sh</string>
 		</dict>
 	</dict>
 </dict>

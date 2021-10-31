@@ -11,12 +11,16 @@ function run() {
     "SPDisplaysDataType",
     "SPBluetoothDataType"
   );
-  LaunchBar.log(sysProfiler);
+
   const arrayOfDataTypes = Plist.parse(sysProfiler);
   const softwareReport = arrayOfDataTypes[0]._items[0];
   const hardwareReport = arrayOfDataTypes[1]._items[0];
   const storageReport = arrayOfDataTypes[2]._items[0];
   const networkReport = arrayOfDataTypes[3]._items;
+  const graphicsReport = arrayOfDataTypes[4]._items[0];
+  const bluetoothReport = arrayOfDataTypes[5]._items[0];
+
+  // File.writeText(JSON.stringify(bluetoothReport, null, 2), "~/Desktop/1.txt");
 
   // host
   const osVersion = softwareReport.os_version;
@@ -80,7 +84,7 @@ function run() {
   }
 
   // memory
-  // calcutaing used memory, as in Activity Monitor
+  // calculating used memory, as in Activity Monitor
   const physicalMemory = hardwareReport.physical_memory;
   const vmStat = LaunchBar.execute("/usr/bin/vm_stat");
   let totalUsedMem = 0;
@@ -154,7 +158,6 @@ function run() {
   });
 
   // graphics
-  const graphicsReport = arrayOfDataTypes[4]._items[0];
   const graphicsVram = graphicsReport._spdisplays_vram;
   const graphicsGpu = graphicsReport.sppci_model;
   lbOutput.push({
@@ -164,9 +167,8 @@ function run() {
   });
 
   // bluetooth
-  const bluetoothReport = arrayOfDataTypes[5]._items;
   let bluetoothMacAdress =
-    bluetoothReport[0].local_device_title.general_address;
+    bluetoothReport.controller_properties.controller_address;
   bluetoothMacAdress = bluetoothMacAdress.replace(/-/g, ":").toLowerCase();
   lbOutput.push({
     title: bluetoothMacAdress,
