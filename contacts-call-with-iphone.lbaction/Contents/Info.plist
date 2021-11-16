@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>at.obdev.LaunchBar:MobilePhone.icns</string>
+	<string>com.apple.FaceTime</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.LaunchBar.action.CallWithIPhone</string>
 	<key>CFBundleName</key>
