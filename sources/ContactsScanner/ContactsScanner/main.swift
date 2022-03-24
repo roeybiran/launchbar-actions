@@ -82,12 +82,14 @@ try? contactsStore.enumerateContacts(with: fetchReuqest) { (contact, _) in
   if haystack.range(of: query, options: [.caseInsensitive, .diacriticInsensitive]) == nil { return }
 
   let title = isCompany ? company : [firstName, nickname.isEmpty ? "" : "“\(nickname)”", lastName]
+    .filter { !$0.isEmpty }
     .joined(separator: " ")
     .trimmingCharacters(in: .whitespacesAndNewlines)
 
   let subtitle = [jobTitle, company]
     .filter { !$0.isEmpty }
     .joined(separator: ", ")
+    .trimmingCharacters(in: .whitespacesAndNewlines)
 
   for email in contact.emailAddresses {
     let value = String(email.value)

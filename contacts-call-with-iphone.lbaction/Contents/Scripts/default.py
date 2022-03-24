@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import subprocess
@@ -15,6 +15,7 @@ if os.getenv("LB_OPTION_LIVE_FEEDBACK") == "0":
     args = [choice_script, query]
     subprocess.check_output(args)
     sys.exit()
+
 
 contacts = json.loads(subprocess.check_output([filterer, query]))
 output = filter(lambda contact: contact["type"] == "phone", contacts)

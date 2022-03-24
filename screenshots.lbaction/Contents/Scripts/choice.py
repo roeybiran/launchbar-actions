@@ -43,7 +43,8 @@ if arg.get("use_ui"):
         f'tell application "System Events" to tell application process "screencaptureui" to tell window 1 to click checkbox "{arg["use_ui"]}"'
     )
 
-subprocess.check_output(["/usr/sbin/screencapture", screencapture_options, destination])
+subprocess.check_output(
+    ["/usr/sbin/screencapture", screencapture_options, '-tjpg', destination])
 
 if arg.get("use_ui"):
     async_applescript(

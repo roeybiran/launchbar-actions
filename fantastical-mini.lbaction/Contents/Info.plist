@@ -3,49 +3,35 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>com.apple.FaceTime</string>
+	<string>com.flexibits.fantastical2.mac</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.CallWithIPhone</string>
+	<string>com.roeybiran.LaunchBar.action.FantasticalMini</string>
 	<key>CFBundleName</key>
-	<string>Contacts: Call with iPhone</string>
+	<string>Fantastical Mini</string>
 	<key>LBAssociatedApplication</key>
-	<string>com.apple.FaceTime</string>
-	<key>LBDebugLogEnabled</key>
-	<true/>
+	<string>com.flexibits.fantastical2.mac</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
-		<key>LBEmail</key>
-		<string>roeybiran@icloud.com</string>
-		<key>LBTwitter</key>
-		<string></string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
 	<key>LBRequiredApplication</key>
-	<string>com.apple.FaceTime</string>
+	<string>com.flexibits.fantastical2.mac</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
-			<key>LBAcceptedArgumentTypes</key>
-			<array>
-				<string>string</string>
-			</array>
-			<key>LBKeepWindowActive</key>
-			<true/>
-			<key>LBLiveFeedbackEnabled</key>
-			<true/>
-			<key>LBRequiresArgument</key>
-			<true/>
 			<key>LBResultType</key>
 			<string>unknown</string>
-			<key>LBReturnsResult</key>
+			<key>LBRunInBackground</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>default.py</string>
+			<string>default.scpt</string>
 		</dict>
 	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Roey Biran</string>
 </dict>
 </plist>

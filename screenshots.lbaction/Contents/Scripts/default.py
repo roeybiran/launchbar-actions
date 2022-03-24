@@ -12,10 +12,10 @@ now = datetime.now().strftime(r"%Y-%m-%d-%H-%M-%S")
 screenshot_file = {
     "path": os.path.join(os.getenv("HOME"), "Desktop"),
     "name": f"screencapture_{now}",
-    "extension": "png",
+    "extension": "jpg",
 }
 
-tmp_file = {"path": os.getenv("TMPDIR"), "name": f"{now}", "extension": "png"}
+tmp_file = {"path": os.getenv("TMPDIR"), "name": f"{now}", "extension": "jpg"}
 
 options = [
     {
