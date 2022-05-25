@@ -42,7 +42,7 @@
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>DictionarySearch</string>
+			<string>default.sh</string>
 		</dict>
 	</dict>
 </dict>

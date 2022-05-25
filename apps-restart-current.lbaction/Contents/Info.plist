@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>iconTemplate.pdf</string>
+	<string>font-awesome:refresh</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.LaunchBarAppsRestartCurrentApp</string>
 	<key>CFBundleName</key>

@@ -50,14 +50,3 @@ if arg.get("use_ui"):
     async_applescript(
         'tell application "System Events" to click button 1 of window 1 of application process "Screen Shot"'
     )
-
-if arg.get("imgur"):
-    home = os.getenv("HOME")
-    trash = os.path.join(home, ".Trash")
-    src = destination
-    script = os.path.join(
-        home,
-        "Library/Application Support/LaunchBar/Actions/shared/upload-to-imgur/main.sh",
-    )
-    subprocess.check_output([script, src])
-    shutil.move(src, trash)

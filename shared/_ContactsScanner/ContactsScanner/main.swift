@@ -1,44 +1,33 @@
-//
-
 import Foundation
 import Contacts
 
-enum AddressType: String, Encodable {
-  case phone, email
-}
-
-struct LBContact: Encodable {
-  let title: String
-  let subtitle: String
-  let badge: String
-  let type: AddressType
-  let actionArgument: String
-  let action = "choice.sh"
-  let icon = "font-awesome:fa-address-card"
-}
+// https://gist.github.com/mafellows/417acc60566fc8e8e9db8700c61ce06f
 
 if CommandLine.arguments.count == 0 { exit(0) }
 let query = CommandLine.arguments[1]
 
-let fetchKeys = [
-  CNContactGivenNameKey,
-  CNContactFamilyNameKey,
-  CNContactNicknameKey,
-  CNContactJobTitleKey,
-  CNContactOrganizationNameKey,
-  CNContactDepartmentNameKey,
-  CNContactEmailAddressesKey,
-  CNContactPhoneNumbersKey,
-  CNContactTypeKey
-]
-  .map { $0 as CNKeyDescriptor }
-
-let fetchReuqest = CNContactFetchRequest(keysToFetch: fetchKeys)
+let formatter = PersonNameComponentsFormatter()
+formatter.style = .long
 
 let semaphore = DispatchSemaphore(value: 0)
-
 let contactsStore = CNContactStore()
+let fetchReuqest = CNContactFetchRequest(
+	keysToFetch: [
+		CNContactGivenNameKey,
+		CNContactFamilyNameKey,
+		CNContactNicknameKey,
+		CNContactJobTitleKey,
+		CNContactOrganizationNameKey,
+		CNContactDepartmentNameKey,
+		CNContactEmailAddressesKey,
+		CNContactPhoneNumbersKey,
+		CNContactTypeKey
+	]
+		.map { $0 as CNKeyDescriptor }
+)
+
 let status = CNContactStore.authorizationStatus(for: .contacts)
+
 switch status {
 case .notDetermined:
   contactsStore.requestAccess(for: .contacts) { (success, error) in
@@ -51,22 +40,14 @@ case .notDetermined:
   semaphore.wait()
 case .denied, .restricted:
   print("Authorization Error")
-  exit(EXIT_SUCCESS)
+  exit(EXIT_FAILURE)
 case .authorized:
   fallthrough
 @unknown default:
   break
 }
 
-func makeBadge(_ txt: String?) -> String {
-  var label = ""
-  if let txt = txt, !txt.isEmpty {
-    label = "\(txt.filter { $0.isLetter || $0.isNumber }): "
-  }
-  return label
-}
-
-var allContacts: [LBContact] = []
+var allContacts: [Contact] = []
 
 try? contactsStore.enumerateContacts(with: fetchReuqest) { (contact, _) in
   let firstName = contact.givenName
@@ -76,60 +57,52 @@ try? contactsStore.enumerateContacts(with: fetchReuqest) { (contact, _) in
   let company = contact.organizationName
   let isCompany = contact.contactType == .organization
 
+	let addresses = contact
+		.emailAddresses
+		.map {
+			Contact.Info(label: $0.label ?? "", value: $0.value as String, type: .email)
+		}
+	+
+		contact
+		.phoneNumbers
+		.map {
+			Contact.Info(label: $0.label ?? "", value: $0.value.stringValue, type: .phone)
+		}
+
   let haystack = [firstName, lastName, nickname, jobTitle, company]
     .joined()
     .filter { $0.isLetter || $0.isNumber }
-  if haystack.range(of: query, options: [.caseInsensitive, .diacriticInsensitive]) == nil { return }
+		.range(of: query, options: [.caseInsensitive, .diacriticInsensitive])
 
-  let title = isCompany ? company : [firstName, nickname.isEmpty ? "" : "“\(nickname)”", lastName]
-    .filter { !$0.isEmpty }
-    .joined(separator: " ")
-    .trimmingCharacters(in: .whitespacesAndNewlines)
+	if haystack == nil { return }
+
+	let title: String
+	if isCompany {
+		title = company
+	} else {
+		title = formatter.string(
+			from: PersonNameComponents(
+				givenName: firstName,
+				familyName: lastName,
+				nickname: nickname
+			)
+		)
+	}
 
   let subtitle = [jobTitle, company]
     .filter { !$0.isEmpty }
     .joined(separator: ", ")
     .trimmingCharacters(in: .whitespacesAndNewlines)
 
-  for email in contact.emailAddresses {
-    let value = String(email.value)
-    let badge = makeBadge(email.label) + value
-    let contact = LBContact(title: title, subtitle: subtitle, badge: badge, type: .email, actionArgument: value)
-    allContacts.append(contact)
-  }
-
-  for phone in contact.phoneNumbers {
-    let value = phone.value.stringValue
-    let badge = makeBadge(phone.label) + value
-    let contact = LBContact(title: title, subtitle: subtitle, badge: badge, type: .phone, actionArgument: value)
-    allContacts.append(contact)
-  }
+	allContacts.append(
+		.init(
+			title: title,
+			subtitle: subtitle,
+			addresses: addresses
+		)
+	)
 }
 
 let json = try JSONEncoder().encode(allContacts)
 let jsonString = String(data: json, encoding: .utf8)!
 print(jsonString)
-
-// https://gist.github.com/mafellows/417acc60566fc8e8e9db8700c61ce06f
-
-// struct Contact {
-//   let name: String
-//   init?(_ contact: CNContact) {
-//     guard let name = CNContactFormatter.string(from: contact, style: .fullName) else { return nil }
-//     self.name = name
-//   }
-// }
-
-// let formatter = CNContactFormatter()
-// let predicate = CNContact.predicateForContacts(matchingName: "")
-// let nameKey = CNContactFormatter.descriptorForRequiredKeys(for: .fullName)
-// let additionalKeys = [CNContactNicknameKey, CNContactJobTitleKey]
-// do {
-//   let contacts: [Contact] = try contactsStore
-//     .unifiedContacts(matching: predicate, keysToFetch: [nameKey])
-//     .compactMap { Contact($0) }
-//   print(contacts)
-// } catch {
-//   print(error)
-// }
-//

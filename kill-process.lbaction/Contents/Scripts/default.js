@@ -3,7 +3,7 @@
 function run() {
 	return JSON.parse(
 		LaunchBar.execute(
-			`${Action.path}/Contents/Scripts/KillProcess/KillProcess/main.swift`
+			`${Action.path}/Contents/Scripts/KillProcess/KillProcess/main`
 		)
 	).map((x) => ({
 		title: x.name,

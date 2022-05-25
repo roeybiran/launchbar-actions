@@ -5,7 +5,7 @@
 	<key>CFBundleIconFile</key>
 	<string>iconTemplate.pdf</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.QuitOtherApps</string>
+	<string>com.roeybiran.LaunchBar.action.QuitAllButFrontmost</string>
 	<key>CFBundleName</key>
 	<string>Quit All But Frontmost</string>
 	<key>LBAssociatedApplication</key>

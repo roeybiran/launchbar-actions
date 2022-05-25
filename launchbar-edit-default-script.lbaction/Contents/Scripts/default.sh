@@ -4,12 +4,12 @@
 #
 
 # requires ripgrep
+rg=/opt/homebrew/bin/rg
 
-if ! [[ -e /usr/local/bin/rg ]]; then
-	exit 1
+if ! [ -e "$rg" ]; then
+	osascript -e 'display notification "This script requires ripgrep"'
+	exit 0
 fi
-
-# set -x
 
 for f in "${@}"; do
 
@@ -19,16 +19,16 @@ for f in "${@}"; do
 		# if an .lbaction is sent
 		if ! [[ -d "${f}" ]]; then
 			# if the action object itself is sent, search for its name
-			plist="$(/usr/local/bin/rg --no-ignore --files-with-matches --glob "Info.plist" -- "<string>${f}</string>" "$HOME/Library/Application Support/LaunchBar/Actions/")"
+			plist="$("$rg" --no-ignore --files-with-matches --glob "Info.plist" -- "<string>${f}</string>" "$HOME/Library/Application Support/LaunchBar/Actions/")"
 		else
 			plist="${f}/Contents/Info.plist"
 		fi
 
 		if [[ -z "${plist}" ]] && ! [[ -f "${plist}" ]]; then
-			/usr/bin/osascript -e "display notification \"Could not find default script for ${f}\""
+			osascript -e "display notification \"Could not find default script for ${f}\""
 			continue
 		elif [[ $(printf "%s\n" "${plist}" | wc -l) -gt 1 ]]; then
-			/usr/bin/osascript -e 'display notification "Found multiple actions with similar default script"'
+			osascript -e 'display notification "Found multiple actions with similar default script"'
 			continue
 		fi
 
@@ -52,7 +52,7 @@ for f in "${@}"; do
 	fi
 
 	if [[ "${LB_OPTION_SHIFT_KEY}" == "1" ]]; then
-		/usr/bin/osascript - "${script}" <<-EOF
+		osascript - "${script}" <<-EOF
 			on run argv
 				tell app "LaunchBar" to open (item 1 of argv)
 			end run
