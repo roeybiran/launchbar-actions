@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "pdf_splitter"
-               BuildableName = "pdf_splitter"
-               BlueprintName = "pdf_splitter"
+               BlueprintIdentifier = "PDFSplitter"
+               BuildableName = "PDFSplitter"
+               BlueprintName = "PDFSplitter"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,15 +47,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "pdf_splitter"
-            BuildableName = "pdf_splitter"
-            BlueprintName = "pdf_splitter"
-            ReferencedContainer = "container:">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
