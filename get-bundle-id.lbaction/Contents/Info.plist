@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>iconTemplate.pdf</string>
+	<string>/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/GenericApplicationIcon.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.LaunchBarGetBundleId</string>
 	<key>CFBundleName</key>

@@ -30,11 +30,11 @@
 			<key>LBRequiresArgument</key>
 			<true/>
 			<key>LBResultType</key>
-			<string>paths</string>
+			<string>path</string>
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>pdf-merger</string>
+			<string>pdf-merge.workflow</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
