@@ -3,17 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/FullTrashIcon.icns</string>
+	<string>font-awesome:fa-text-width</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBarRecentTrashes</string>
+	<string>com.roeybiran.LaunchBar.action.RecognizeText</string>
 	<key>CFBundleName</key>
-	<string>Recent Trashes</string>
+	<string>Recognize Text</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
-		<string></string>
+		<string>roeybiran@icloud.com</string>
+		<key>LBTwitter</key>
+		<string>@RoeyBiran</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
@@ -24,14 +26,12 @@
 			<key>LBKeepWindowActive</key>
 			<true/>
 			<key>LBResultType</key>
-			<string>unknown</string>
+			<string>string</string>
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>default.sh</string>
+			<string>default.js</string>
 		</dict>
 	</dict>
-	<key>NSHumanReadableCopyright</key>
-	<string>Roey Biran</string>
 </dict>
 </plist>
