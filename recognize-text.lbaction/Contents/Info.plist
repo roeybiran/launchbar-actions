@@ -14,6 +14,8 @@
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
 		<string>roeybiran@icloud.com</string>
+		<key>LBSummary</key>
+		<string>Extracts and displays text from the captured region (or full-screen, when pressing shift).</string>
 		<key>LBTwitter</key>
 		<string>@RoeyBiran</string>
 		<key>LBWebsiteURL</key>
