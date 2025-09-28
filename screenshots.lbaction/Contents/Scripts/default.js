@@ -19,12 +19,20 @@ function run() {
   const options = [
     {
       title: "Capture Selection to Clipboard",
-      screencaptureOptions: "-ci",
-      destination: undefined,
+      screencaptureOptions: "-ic",
+    },
+    {
+      title: "Capture Window to Clipboard",
+      screencaptureOptions: "-icW",
     },
     {
       title: "Capture Selection to Desktop",
       screencaptureOptions: "-i",
+      destination: screenshotFile,
+    },
+    {
+      title: "Capture Window to Desktop",
+      screencaptureOptions: "-iW",
       destination: screenshotFile,
     },
     {

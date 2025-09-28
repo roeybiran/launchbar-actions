@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>/Users/roey/Downloads/</string>
+	<string>~/Downloads/</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.roeybiran.LaunchBarRecentDownloads</string>
 	<key>CFBundleName</key>
