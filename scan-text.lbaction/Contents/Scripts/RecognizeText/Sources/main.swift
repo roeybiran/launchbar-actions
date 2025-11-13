@@ -6,10 +6,10 @@ import Vision
 func recognizeText(
   fullScreen: Bool,
   languages: [String],
+  fast: Bool,
   ignoreLineBreaks: Bool = false,
   customWords: [String] = [],
   useLanguageCorrection: Bool = true,
-  fast: Bool = true,
 ) async throws -> String? {
   let mode: VNRequestTextRecognitionLevel = fast ? .fast : .accurate
 
@@ -46,6 +46,7 @@ func recognizeText(
 }
 
 let fullScreen = CommandLine.arguments.contains("--full-screen")
-let languages = ["en-US"]
-let result = try await recognizeText(fullScreen: fullScreen, languages: languages) ?? ""
+let languages = CommandLine.arguments.first(where: { $0.contains("--languages")} )?.split(separator: "=").last?.split(separator: ",").map(String.init)
+let fast = CommandLine.arguments.contains("--fast")
+let result = try await recognizeText(fullScreen: fullScreen, languages: languages ?? ["en-US"], fast: fast) ?? ""
 print(result.isEmpty ? "No text found, or an error has occurred" : result)

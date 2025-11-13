@@ -2,20 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleIconFile</key>
-	<string>font-awesome:fa-text-width</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.RecognizeText</string>
+	<string>com.roeybiran.LaunchBar.action.UnlockPDF</string>
 	<key>CFBundleName</key>
-	<string>Recognize Text</string>
+	<string>PDF: Decrypt</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
 		<string>roeybiran@icloud.com</string>
-		<key>LBSummary</key>
-		<string>Extracts and displays text from the captured region (or full-screen, when pressing shift).</string>
 		<key>LBTwitter</key>
 		<string>@RoeyBiran</string>
 		<key>LBWebsiteURL</key>
@@ -25,14 +21,22 @@
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>path</string>
+			</array>
 			<key>LBKeepWindowActive</key>
 			<true/>
+			<key>LBRequiresArgument</key>
+			<true/>
 			<key>LBResultType</key>
-			<string>string</string>
+			<string>path</string>
 			<key>LBReturnsResult</key>
 			<true/>
+			<key>LBRunInBackground</key>
+			<true/>
 			<key>LBScriptName</key>
-			<string>default.js</string>
+			<string>default.sh</string>
 		</dict>
 	</dict>
 </dict>

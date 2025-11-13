@@ -3,19 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>font-awesome:fa-bolt</string>
+	<string>font-awesome:fa-file-text</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.roeybiran.LaunchBar.action.KillProcess</string>
+	<string>com.roeybiran.LaunchBar.action.ScanText</string>
 	<key>CFBundleName</key>
-	<string>Kill Process</string>
+	<string>Scan Text</string>
 	<key>LBDescription</key>
 	<dict>
 		<key>LBAuthor</key>
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
-		<string></string>
+		<string>roeybiran@icloud.com</string>
 		<key>LBSummary</key>
-		<string>Kill a process.</string>
+		<string>Extracts and displays text from the captured region (or full-screen, when pressing shift).</string>
+		<key>LBTwitter</key>
+		<string>@RoeyBiran</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
@@ -25,13 +27,13 @@
 		<dict>
 			<key>LBKeepWindowActive</key>
 			<true/>
+			<key>LBResultType</key>
+			<string>string</string>
 			<key>LBReturnsResult</key>
 			<true/>
 			<key>LBScriptName</key>
 			<string>default.js</string>
 		</dict>
 	</dict>
-	<key>NSHumanReadableCopyright</key>
-	<string>Roey Biran</string>
 </dict>
 </plist>
