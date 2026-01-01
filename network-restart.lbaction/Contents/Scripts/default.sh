@@ -1,11 +1,11 @@
 #!/bin/sh
 
-wifi_switch () {
+wifi_switch() {
 	/usr/sbin/networksetup -setairportpower "en0" "${1}"
 	return 0
 }
 
-ethernet_switch () {
+ethernet_switch() {
 	/usr/sbin/networksetup -setnetworkserviceenabled "Ethernet" "${1}"
 	return 0
 }

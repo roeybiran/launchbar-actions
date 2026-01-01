@@ -3,7 +3,7 @@
 # LaunchBar Action Script
 #
 
-osascript << 'EOF'
+osascript <<'EOF'
 tell application "System Events"
 	set theProcess to process 1 whose frontmost of it is true
 	set bundleID to bundle identifier of theProcess
@@ -22,5 +22,3 @@ delay 2
 
 tell application id bundleID to activate
 EOF
-
-

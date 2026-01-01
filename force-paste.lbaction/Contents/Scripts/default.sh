@@ -10,4 +10,3 @@ on run argv
 	tell application "System Events" to keystroke theText
 end run
 EOF
-

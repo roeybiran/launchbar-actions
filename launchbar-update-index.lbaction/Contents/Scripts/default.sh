@@ -3,7 +3,7 @@
 # LaunchBar Action Script
 #
 
-osascript << 'EOF'
+osascript <<'EOF'
 tell application "LaunchBar"
 	update every indexing rule
 	activate
