@@ -12,25 +12,19 @@
 		<string>Roey Biran</string>
 		<key>LBEmail</key>
 		<string>roeybiran@icloud.com</string>
-		<key>LBRequirements</key>
-		<string>/usr/bin/swift</string>
 		<key>LBTwitter</key>
 		<string>@RoeyBiran</string>
 		<key>LBWebsiteURL</key>
 		<string>https://github.com/roeybiran</string>
 	</dict>
-	<key>LBRequirements</key>
-	<string>/usr/bin/swift</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
-			<key>LBResultType</key>
-			<string>unknown</string>
 			<key>LBRunInBackground</key>
 			<true/>
 			<key>LBScriptName</key>
-			<string>default.js</string>
+			<string>default.sh</string>
 		</dict>
 	</dict>
 </dict>
