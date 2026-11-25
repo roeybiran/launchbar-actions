@@ -17,68 +17,22 @@ function run() {
 
   // Options array
   const options = [
-    {
-      title: "Capture Selection to Clipboard",
-      screencaptureOptions: "-ic",
-    },
-    {
-      title: "Capture Window to Clipboard",
-      screencaptureOptions: "-icW",
-    },
-    {
-      title: "Capture Selection to Desktop",
-      screencaptureOptions: "-i",
-      destination: screenshotFile,
-    },
-    {
-      title: "Capture Window to Desktop",
-      screencaptureOptions: "-iW",
-      destination: screenshotFile,
-    },
-    {
-      title: "Capture Selection to Preview",
-      screencaptureOptions: "-iP",
-      destination: screenshotFile,
-    },
-    {
-      title: "Capture Selection to Desktop & Annotate",
-      screencaptureOptions: "-iUu",
-      destination: screenshotFile,
-      ui: "Capture Selected Portion",
-    },
-    {
-      title: "Capture Screen to Clipboard",
-      screencaptureOptions: "-Sc",
-      destination: screenshotFile,
-    },
-    {
-      title: "Capture Screen to Desktop",
-      screencaptureOptions: "-S",
-      destination: screenshotFile,
-    },
-    {
-      title: "Capture Screen to Preview",
-      screencaptureOptions: "-SP",
-      destination: screenshotFile,
-    },
-    {
-      title: "Capture Screen to Desktop & Annotate",
-      screencaptureOptions: "-iUu",
-      destination: screenshotFile,
-      ui: "Capture Entire Screen",
-    },
-    {
-      title: "Record Selection to Desktop & Annotate",
-      screencaptureOptions: "-iUu",
-      destination: screenshotFile,
-      ui: "Record Selected Portion",
-    },
-    {
-      title: "Record Screen to Desktop & Annotate",
-      screencaptureOptions: "-iUu",
-      destination: screenshotFile,
-      ui: "Record Entire Screen",
-    },
+    // Screenshots to clipboard
+    { title: "Capture Selection to Clipboard", screencaptureOptions: "sc" },
+    { title: "Capture Window to Clipboard", screencaptureOptions: "wc" },
+    { title: "Capture Screen to Clipboard", screencaptureOptions: "Sc", destination: screenshotFile },
+    // Screenshots to desktop
+    { title: "Capture Selection to Desktop", screencaptureOptions: "s", destination: screenshotFile },
+    { title: "Capture Window to Desktop", screencaptureOptions: "w", destination: screenshotFile },
+    { title: "Capture Screen to Desktop", screencaptureOptions: "S", destination: screenshotFile },
+    // Screenshots + annotations
+    { title: "Capture Selection, Annotate", screencaptureOptions: "su", destination: screenshotFile },
+    { title: "Capture Window, Annotate", screencaptureOptions: "wu", destination: screenshotFile },
+    { title: "Capture Screen, Annotate", screencaptureOptions: "Su", destination: screenshotFile },
+    // Recordings + annotations
+    { title: "Record Selection, Annotate", screencaptureOptions: "svuUik", destination: screenshotFile },
+    // { title: "Record Window, Annotate", screencaptureOptions: "Wvu", destination: screenshotFile },
+    { title: "Record Screen, Annotate", screencaptureOptions: "SvuUik", destination: screenshotFile },
   ];
 
   // Generate output
@@ -107,24 +61,24 @@ function run() {
   return output;
 }
 
-// Helper function to run AppleScript asynchronously
-function asyncAppleScript(script) {
-  // LaunchBar.executeAppleScript("delay 0.5", script);
-  LaunchBar.execute("/usr/bin/osascript", [
-    "-e",
-    "delay 0.5",
-    "-e",
-    script,
-    "&",
-  ]);
-};
-
 function choice(arg) {
   LaunchBar.hide();
 
-  const screencaptureOptions = arg.screencaptureOptions;
-  let destination;
+  const optionsStr = arg.screencaptureOptions;
+  const ui = optionsStr.includes("u");
 
+  let screencaptureOptions = [...optionsStr].map((c) => `-${c}`);
+
+  // Delays
+  if (arg.delayValue) {
+    // User-specified
+    screencaptureOptions.push("-T", arg.delayValue)
+  } else if (optionsStr.includes("S")) {
+    // Delay for full-screen capture to hide LaunchBar itself
+    screencaptureOptions.push("-T", 0.5)
+  }
+
+  let destination;
   // Handle destination file deduplication
   if (arg.destination) {
     const dirname = arg.destination.path;
@@ -138,34 +92,19 @@ function choice(arg) {
     }
   }
 
-  // Delays
-  if (arg.delayValue) {
-    // User-specified
-    LaunchBar.execute("/bin/sleep", arg.delayValue);
-  } else if (/^-Sc$|^-S$|^-SP$/.test(screencaptureOptions)) {
-    // Delay for full-screen capture
-    LaunchBar.execute("/bin/sleep", 1);
-  }
-
-  // If UI interaction is required
-  if (arg.ui) {
-    asyncAppleScript(
-      `tell application "System Events" to tell application process "screencaptureui" to tell window 1 to click checkbox "${arg.ui}"`
-    );
-  }
-
-  // Execute screencapture command
   LaunchBar.execute(
     "/usr/sbin/screencapture",
-    screencaptureOptions,
-    "-tpng",
-    destination ?? ""
+    ...screencaptureOptions,
+    destination,
   );
 
   // Additional UI interaction if required
-  if (arg.ui) {
-    asyncAppleScript(
-      'tell application "System Events" to click button 1 of window 1 of application process "Screen Shot"'
-    );
+  if (ui) {
+  LaunchBar.execute("/usr/bin/osascript", 
+    "-e",
+    "delay 0.5",
+    "-e",
+    'tell application "System Events" to click button 1 of window 1 of application process "screencaptureui"',
+  );
   }
 }

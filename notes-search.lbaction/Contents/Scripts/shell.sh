@@ -2,9 +2,6 @@
 
 DB="$HOME/Library/Group Containers/group.com.apple.notes/NoteStore.sqlite"
 
-# uuid
-UUID="$(/usr/bin/sqlite3 "$DB" "SELECT z_uuid FROM z_metadata LIMIT 1;")"
-
 # note rows (title, folder, modificationdate, pk, data)
 # WARNING: n.zdata is a blob; this returns raw bytes, not decompressed text.
 # Fields are TAB-separated per row.

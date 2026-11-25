@@ -49,8 +49,8 @@ Actions return JSON arrays with objects containing:
 ### Background Execution
 Actions can run in background (`LBRunInBackground: true` in Info.plist) to avoid blocking UI.
 
-### Workflow Integration
-Some actions use macOS Automator workflows (`.workflow` bundles) for complex operations like PDF manipulation.
+### Native Frameworks from Shell
+Actions that need macOS frameworks (e.g. PDFKit for `pdf-merge`, `pdf-split`, `image-pdf-compress`) use a `default.sh` that runs AppleScriptObjC through `/usr/bin/osascript`. AppleScriptObjC can't load frameworks inside LaunchBar's own process, so plain `.applescript`/`.scpt` scripts won't work for this. Avoid Automator workflows and Homebrew dependencies.
 
 ## Installation
 

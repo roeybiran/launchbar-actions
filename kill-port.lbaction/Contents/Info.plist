@@ -21,8 +21,18 @@
 	<dict>
 		<key>LBDefaultScript</key>
 		<dict>
-			<key>LBResultType</key>
-			<string>unknown</string>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
+			<key>LBKeepWindowActive</key>
+			<true/>
+			<key>LBLiveFeedbackEnabled</key>
+			<true/>
+			<key>LBRequiresArgument</key>
+			<true/>
+			<key>LBReturnsResult</key>
+			<true/>
 			<key>LBScriptName</key>
 			<string>default.js</string>
 		</dict>

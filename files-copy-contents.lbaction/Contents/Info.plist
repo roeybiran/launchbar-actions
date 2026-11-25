@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/GenericDocumentIcon.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.roeybiran.LaunchBarFilesCopyContents</string>
+	<key>CFBundleName</key>
+	<string>Copy File Contents</string>
+	<key>LBArgument</key>
+	<string>files</string>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBArgument</key>
+		<string>files</string>
+		<key>LBAuthor</key>
+		<string>Roey Biran</string>
+		<key>LBEmail</key>
+		<string></string>
+		<key>LBSummary</key>
+		<string>Copies text content of one or more files to the clipboard.</string>
+		<key>LBWebsiteURL</key>
+		<string>https://github.com/roeybiran</string>
+	</dict>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>path</string>
+			</array>
+			<key>LBRequiresArgument</key>
+			<true/>
+			<key>LBResultType</key>
+			<string>string</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBRunInBackground</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>default.sh</string>
+		</dict>
+	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Roey Biran</string>
+</dict>
+</plist>

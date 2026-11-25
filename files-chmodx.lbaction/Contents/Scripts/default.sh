@@ -4,8 +4,7 @@
 #
 
 for f in "${@}"; do
-	chmod +x "${f}"
-	if [ $? -ne 0 ]; then
+	if ! chmod +x "${f}"; then
 		afplay /System/Library/Sounds/Basso.aiff
 		exit 1
 	fi

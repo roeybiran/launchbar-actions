@@ -25,16 +25,16 @@
 			<array>
 				<string>path</string>
 			</array>
-			<key>LBKeepWindowActive</key>
-			<true/>
 			<key>LBRequiresArgument</key>
 			<true/>
 			<key>LBResultType</key>
 			<string>path</string>
 			<key>LBReturnsResult</key>
 			<true/>
+			<key>LBRunInBackground</key>
+			<true/>
 			<key>LBScriptName</key>
-			<string>pdf-merge.workflow</string>
+			<string>default.sh</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>

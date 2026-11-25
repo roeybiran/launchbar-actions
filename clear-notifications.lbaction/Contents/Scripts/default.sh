@@ -1,44 +1,35 @@
 #!/bin/sh
 
-osascript <<'EOF'
-on run
-	try
-		tell application "System Events" to tell application process "Notification Center" to tell window 1 to tell group 1 to tell group 1 to tell scroll area 1 to tell group 1
-			set j to (count of groups)
-			if (count of groups) > 0 then
-				repeat while j ≥ 0
-					set theItem to (item j of groups)
-					tell theItem
-						repeat with i from 0 to count of actions
-							set theAction to item i of actions
-							set theName to name of theAction
-							if theName contains "Clear All" or theName contains "Close" then
-								set theAction to (item i of actions)
-								try
-									perform action i
-								on error msg
-									log msg
-								end try
-							end if
-						end repeat
-					end tell
-					set j to j - 1
-				end repeat
-			else
-				repeat with i from 0 to count of actions
-					set theAction to item i of actions
-					set theName to name of theAction
-					if theName contains "Clear All" or theName contains "Close" then
-						set theAction to (item i of actions)
-						try
-							perform action i
-						on error msg
-							log msg
-						end try
-					end if
-				end repeat
-			end if
-		end tell
-	end try
-end run
-EOF
+osascript <<'APPLESCRIPT'
+tell application "System Events" to tell application process "NotificationCenter"
+	set dismissActions to {}
+	repeat with notificationWindow in windows
+		set notificationElements to entire contents of notificationWindow
+		repeat with notificationElement in notificationElements
+			try
+				if role of notificationElement is "AXGroup" then
+					set notificationActions to actions of notificationElement
+					repeat with notificationAction in notificationActions
+						set actionName to name of notificationAction
+						if actionName starts with "Name:Clear All" or actionName starts with "Name:Close" then
+							set end of dismissActions to contents of notificationAction
+							exit repeat
+						end if
+					end repeat
+				end if
+			on error errorMessage number errorNumber
+				log ("Could not inspect notification: " & errorMessage & " (" & errorNumber & ")")
+			end try
+		end repeat
+	end repeat
+
+	-- Dismissing a banner changes the accessibility tree, so work backwards.
+	repeat with actionIndex from (count of dismissActions) to 1 by -1
+		try
+			perform item actionIndex of dismissActions
+		on error errorMessage number errorNumber
+			log ("Could not dismiss notification: " & errorMessage & " (" & errorNumber & ")")
+		end try
+	end repeat
+end tell
+APPLESCRIPT
